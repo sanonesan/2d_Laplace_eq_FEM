@@ -50,6 +50,12 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     Matrix<T> full_matrix(laplace_eq._nodes.size(), laplace_eq._nodes.size());
     Vector<T> full_b(laplace_eq._nodes.size() - laplace_eq._boundary_nodes.size());
 
+    std::size_t reduced_sys_size = 0;
+    reduced_sys_size = laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size();
+
+    Matrix<T> reduced_matrix(reduced_sys_size, reduced_sys_size);
+    Vector<T> reduced_b(reduced_sys_size);
+
     //check for first element
     Matrix<T> A(3, 3);    
     Element<T> el;
@@ -97,7 +103,7 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     fout << "\n";
     
     //std::cout << laplace_eq._polygons.size();
-    std::cout << laplace_eq._nodes.size() - laplace_eq._dirichlet_lower_boundary_edges.size() + laplace_eq._dirichlet_upper_boundary_edges.size();
+    //std::cout << laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size();
     //A.print();
 }
 
