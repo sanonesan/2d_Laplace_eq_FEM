@@ -104,7 +104,6 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
         }
     }
 
-    std::cout << full_b;
     // std::cout << "dagdasdg";
     
     // for(auto j = 0; j < full_b.size(); ++j)
