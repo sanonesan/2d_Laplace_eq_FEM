@@ -23,11 +23,8 @@ class Class_2d_Laplace_equation{
 
         std::vector<std::vector<T>> _nodes;
         std::vector<std::vector<std::size_t>> _polygons;
-        
-        // std::vector<std::vector<T>> _dirichlet_left_boundary_nodes;
-        // std::vector<std::vector<T>> _dirichlet_right_boundary_nodes;
-        // std::vector<std::vector<T>> _dirichlet_upper_boundary_nodes;
-        // std::vector<std::vector<T>> _dirichlet_lower_boundary_nodes;
+
+
         std::vector<std::vector<T>> _boundary_nodes;
         std::vector<std::vector<T>> _left_boundary_nodes;
         std::vector<std::vector<T>> _right_boundary_nodes;
@@ -37,9 +34,8 @@ class Class_2d_Laplace_equation{
         //indexes of boundary nodes in _nodes vector
         std::vector<std::size_t> _ind_left_boundary_nodes;
         std::vector<std::size_t> _ind_right_boundary_nodes;
-        std::vector<std::size_t>_ind_dirichlet_lower_boundary_nodes;
-        std::vector<std::size_t>_ind_dirichlet_upper_boundary_nodes;
-
+        std::vector<std::size_t> _ind_dirichlet_lower_boundary_nodes;
+        std::vector<std::size_t> _ind_dirichlet_upper_boundary_nodes;
 
         // std::vector<std::vector<std::size_t>> _dirichlet_left_boundary_edges;
         // std::vector<std::vector<std::size_t>> _dirichlet_right_boundary_edges;
@@ -162,7 +158,7 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_dirichlet_lower_boundary_nodes.push_back(x_y);
+                this->_dirichlet_upper_boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
@@ -202,12 +198,24 @@ class Class_2d_Laplace_equation{
                 }
             }
 
+            // // for debuging
+            // for(std::size_t i = 0; i < this->_dirichlet_lower_boundary_nodes.size(); ++i){
+            //     std::cout << this->_ind_dirichlet_lower_boundary_nodes[i] << "\t";
+            // }
+            // std::cout << "\n";
+
             for(std::size_t i = 0; i < this->_dirichlet_upper_boundary_nodes.size(); ++i){
                 it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_dirichlet_upper_boundary_nodes[i]);
                 if (it  != this->_nodes.end()){
                     this->_ind_dirichlet_upper_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
                 }
             }
+
+            // for(std::size_t i = 0; i < this->_dirichlet_upper_boundary_nodes.size(); ++i){
+            //     std::cout << this->_ind_dirichlet_upper_boundary_nodes[i] << "\t";
+            // }
+            // std::cout << "\n";
+
 
 
 

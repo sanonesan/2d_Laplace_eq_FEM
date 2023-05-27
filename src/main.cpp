@@ -9,19 +9,10 @@ template<typename T>
 class Element{
     public:
 
-    T x1 = 0;
-    T x2 = 0;
-    T x3 = 0;
-
-    T y1 = 0;
-    T y2 = 0;
-    T y3 = 0;
-
     std::vector<T> x;
     std::vector<T> y;
     std::vector<std::size_t> poly;
-    
-    
+
 };
 
 
@@ -49,7 +40,7 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
 
     Matrix<T> full_matrix(laplace_eq._nodes.size(), laplace_eq._nodes.size());
     Vector<T> full_b(laplace_eq._nodes.size() - laplace_eq._boundary_nodes.size());
-
+    
     std::size_t reduced_sys_size = 0;
     reduced_sys_size = laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size();
 
@@ -101,6 +92,23 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
         fout << "\n";
     }
     fout << "\n";
+    T sum = 0.;
+    for(std::size_t i = 0; i < full_matrix.get_rows() - 50; ++i){
+        for(auto it = laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_lower_boundary_nodes.end()-20; ++it){
+            full_b[i] -= full_matrix[i][*it] * laplace_eq._dirichlet_lower_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+        }
+    }
+    for(std::size_t i = 0; i < full_matrix.get_rows(); ++i){
+        for(auto it = laplace_eq._ind_dirichlet_upper_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_upper_boundary_nodes.end(); ++it){
+            full_b[i] -= full_matrix[i][*it] * laplace_eq._dirichlet_upper_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+        }
+    }
+
+    std::cout << full_b;
+    // std::cout << "dagdasdg";
+    
+    // for(auto j = 0; j < full_b.size(); ++j)
+    //     std::cout << full_b[j] << "\t";
     
     //std::cout << laplace_eq._polygons.size();
     //std::cout << laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size();

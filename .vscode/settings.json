@@ -68,7 +68,11 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "complex": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "strstream": "cpp",
+        "cfenv": "cpp",
+        "codecvt": "cpp",
+        "future": "cpp"
     },
     "python.formatting.provider": "yapf"
 }
