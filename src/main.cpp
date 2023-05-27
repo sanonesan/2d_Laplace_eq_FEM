@@ -93,8 +93,8 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     }
     fout << "\n";
     T sum = 0.;
-    for(std::size_t i = 0; i < full_matrix.get_rows() - 50; ++i){
-        for(auto it = laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_lower_boundary_nodes.end()-20; ++it){
+    for(std::size_t i = 0; i < full_matrix.get_rows(); ++i){
+        for(auto it = laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_lower_boundary_nodes.end(); ++it){
             full_b[i] -= full_matrix[i][*it] * laplace_eq._dirichlet_lower_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
         }
     }
