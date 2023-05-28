@@ -40,21 +40,48 @@ class Class_2d_Laplace_equation{
         std::function<T (const T x, const T y)> _dirichlet_lower_boundary_condition;
         std::function<T (const T x, const T y)> _dirichlet_upper_boundary_condition;
 
-        Class_2d_Laplace_equation<T> DEFAULT_TEST(){
+        Class_2d_Laplace_equation<T> Set_domain(Class_2d_Laplace_equation<T>& lap_eq, std::string path){
 
-            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh001_rect";
+            lap_eq._nodes.clear();
+            lap_eq._polygons.clear();
+
+            lap_eq._boundary_nodes.clear();
+            lap_eq._left_boundary_nodes.clear();
+            lap_eq._right_boundary_nodes.clear();
+            lap_eq._dirichlet_lower_boundary_nodes.clear();
+            lap_eq._dirichlet_upper_boundary_nodes.clear();
+
+            lap_eq._ind_left_boundary_nodes.clear();
+            lap_eq._ind_right_boundary_nodes.clear();
+            lap_eq._ind_dirichlet_lower_boundary_nodes.clear();
+            lap_eq._ind_dirichlet_upper_boundary_nodes.clear();
+
+            // lap_eq._nodes.shrink_to_fit();
+            // lap_eq._polygons.shrink_to_fit();
+
+            // lap_eq._boundary_nodes.shrink_to_fit();
+            // lap_eq._left_boundary_nodes.shrink_to_fit();
+            // lap_eq._right_boundary_nodes.shrink_to_fit();
+            // lap_eq._dirichlet_lower_boundary_nodes.shrink_to_fit();
+            // lap_eq._dirichlet_upper_boundary_nodes.shrink_to_fit();
+
+            // lap_eq._ind_left_boundary_nodes.shrink_to_fit();
+            // lap_eq._ind_right_boundary_nodes.shrink_to_fit();
+            // lap_eq._ind_dirichlet_lower_boundary_nodes.shrink_to_fit();
+            // lap_eq._ind_dirichlet_upper_boundary_nodes.shrink_to_fit();
+            
+            //std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh001_rect";
             // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh01";
             // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh005";
             // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh001";
 
-            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
-                return 10.;
-            };
+            // lap_eq._dirichlet_lower_boundary_condition = [](const T x, const T y){
+            //     return 10.;
+            // };
 
-            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
-                return 0.;
-            };
-
+            // lap_eq._dirichlet_upper_boundary_condition = [](const T x, const T y){
+            //     return 0.;
+            // };
 
 
             std::ifstream fin;
@@ -70,11 +97,11 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_nodes.push_back(x_y);
+                lap_eq._nodes.push_back(x_y);
             }            
             fin.close();
 
-            //std::cout << this->_nodes.size();
+            //std::cout << lap_eq._nodes.size();
 
             //Reading mesh polygons (triangles)
             //2D array contains positions of elements in vector<T> _nodes (mesh_nodes.txt)
@@ -97,15 +124,15 @@ class Class_2d_Laplace_equation{
                 p1_p2_p3[1] -= 1;
                 p1_p2_p3[2] -= 1;
 
-                this->_polygons.push_back(p1_p2_p3);
+                lap_eq._polygons.push_back(p1_p2_p3);
                 //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
             }            
             fin.close();
             //check for 1 triangle element
-            // std::cout << this->_polygons[0][0] << "\t" << this->_polygons[0][1] << "\t" << this->_polygons[0][2] << "\n";
-            // std::cout << this->_nodes[this->_polygons[0][0]][0] << "\t" << this->_nodes[this->_polygons[0][0]][1] << "\n";
-            // std::cout << this->_nodes[this->_polygons[0][1]][0] << "\t" << this->_nodes[this->_polygons[0][1]][1] << "\n";
-            // std::cout << this->_nodes[this->_polygons[0][2]][0] << "\t" << this->_nodes[this->_polygons[0][2]][1] << "\n";
+            // std::cout << lap_eq._polygons[0][0] << "\t" << lap_eq._polygons[0][1] << "\t" << lap_eq._polygons[0][2] << "\n";
+            // std::cout << lap_eq._nodes[lap_eq._polygons[0][0]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][0]][1] << "\n";
+            // std::cout << lap_eq._nodes[lap_eq._polygons[0][1]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][1]][1] << "\n";
+            // std::cout << lap_eq._nodes[lap_eq._polygons[0][2]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][2]][1] << "\n";
 
 
 
@@ -117,7 +144,7 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_boundary_nodes.push_back(x_y);
+                lap_eq._boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
@@ -128,7 +155,7 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_left_boundary_nodes.push_back(x_y);
+                lap_eq._left_boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
@@ -139,13 +166,13 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_right_boundary_nodes.push_back(x_y);
+                lap_eq._right_boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
-            // for(std::size_t i = 0; i < this->_right_boundary_nodes.size(); ++i){
+            // for(std::size_t i = 0; i < lap_eq._right_boundary_nodes.size(); ++i){
             //     for(std::size_t j = 0; j < 2; ++j){
-            //         std::cout << this->_right_boundary_nodes[i][j] << "\t";
+            //         std::cout << lap_eq._right_boundary_nodes[i][j] << "\t";
             //     }
             //     std::cout << "\n";
             // }
@@ -157,7 +184,7 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_dirichlet_lower_boundary_nodes.push_back(x_y);
+                lap_eq._dirichlet_lower_boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
@@ -167,56 +194,56 @@ class Class_2d_Laplace_equation{
             }            
             
             while (fin >> x_y[0] >> x_y[1]) {
-                this->_dirichlet_upper_boundary_nodes.push_back(x_y);
+                lap_eq._dirichlet_upper_boundary_nodes.push_back(x_y);
             }            
             fin.close();
 
             //find indexes of boundary nodes in _nodes vector
-            auto it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_left_boundary_nodes[0]);
+            auto it = std::find(lap_eq._nodes.begin(), lap_eq._nodes.end(), lap_eq._left_boundary_nodes[0]);
 
-            for(std::size_t i = 0; i < this->_left_boundary_nodes.size(); ++i){
-                it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_left_boundary_nodes[i]);
-                if (it  != this->_nodes.end()){
-                    this->_ind_left_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
+            for(std::size_t i = 0; i < lap_eq._left_boundary_nodes.size(); ++i){
+                it = std::find(lap_eq._nodes.begin(), lap_eq._nodes.end(), lap_eq._left_boundary_nodes[i]);
+                if (it  != lap_eq._nodes.end()){
+                    lap_eq._ind_left_boundary_nodes.push_back(std::distance(lap_eq._nodes.begin(), it));
                 }
             }
             // for debuging
-            // for(std::size_t i = 0; i < this->_left_boundary_nodes.size(); ++i){
-            //     std::cout << this->_ind_left_boundary_nodes[i] << "\t";
+            // for(std::size_t i = 0; i < lap_eq._left_boundary_nodes.size(); ++i){
+            //     std::cout << lap_eq._ind_left_boundary_nodes[i] << "\t";
             // }
             // std::cout << "\n";
 
 
-            for(std::size_t i = 0; i < this->_right_boundary_nodes.size(); ++i){
-                it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_right_boundary_nodes[i]);
-                if (it  != this->_nodes.end()){
-                    this->_ind_right_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
+            for(std::size_t i = 0; i < lap_eq._right_boundary_nodes.size(); ++i){
+                it = std::find(lap_eq._nodes.begin(), lap_eq._nodes.end(), lap_eq._right_boundary_nodes[i]);
+                if (it  != lap_eq._nodes.end()){
+                    lap_eq._ind_right_boundary_nodes.push_back(std::distance(lap_eq._nodes.begin(), it));
                 }
             }
             
             // for debuging
-            // for(std::size_t i = 0; i < this->_right_boundary_nodes.size(); ++i){
-            //     std::cout << this->_ind_right_boundary_nodes[i] << "\t";
+            // for(std::size_t i = 0; i < lap_eq._right_boundary_nodes.size(); ++i){
+            //     std::cout << lap_eq._ind_right_boundary_nodes[i] << "\t";
             // }
             // std::cout << "\n";
 
-            for(std::size_t i = 0; i < this->_dirichlet_lower_boundary_nodes.size(); ++i){
-                it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_dirichlet_lower_boundary_nodes[i]);
-                if (it  != this->_nodes.end()){
-                    this->_ind_dirichlet_lower_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
+            for(std::size_t i = 0; i < lap_eq._dirichlet_lower_boundary_nodes.size(); ++i){
+                it = std::find(lap_eq._nodes.begin(), lap_eq._nodes.end(), lap_eq._dirichlet_lower_boundary_nodes[i]);
+                if (it  != lap_eq._nodes.end()){
+                    lap_eq._ind_dirichlet_lower_boundary_nodes.push_back(std::distance(lap_eq._nodes.begin(), it));
                 }
             }
 
             // // for debuging
-            // for(std::size_t i = 0; i < this->_dirichlet_lower_boundary_nodes.size(); ++i){
-            //     std::cout << this->_ind_dirichlet_lower_boundary_nodes[i] << "\t";
+            // for(std::size_t i = 0; i < lap_eq._dirichlet_lower_boundary_nodes.size(); ++i){
+            //     std::cout << lap_eq._ind_dirichlet_lower_boundary_nodes[i] << "\t";
             // }
             // std::cout << "\n";
 
-            for(std::size_t i = 0; i < this->_dirichlet_upper_boundary_nodes.size(); ++i){
-                it = std::find(this->_nodes.begin(), this->_nodes.end(), this->_dirichlet_upper_boundary_nodes[i]);
-                if (it  != this->_nodes.end()){
-                    this->_ind_dirichlet_upper_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
+            for(std::size_t i = 0; i < lap_eq._dirichlet_upper_boundary_nodes.size(); ++i){
+                it = std::find(lap_eq._nodes.begin(), lap_eq._nodes.end(), lap_eq._dirichlet_upper_boundary_nodes[i]);
+                if (it  != lap_eq._nodes.end()){
+                    lap_eq._ind_dirichlet_upper_boundary_nodes.push_back(std::distance(lap_eq._nodes.begin(), it));
                 }
             }
 

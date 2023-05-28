@@ -5,8 +5,9 @@
 #include <unistd.h>
 #include <fstream>
 #include <vector>
-#include "Class_2d_Laplace_equation.hpp"
 
+#include "Class_2d_Laplace_equation.hpp"
+#include "./scheme_2d_Laplace_equation/scheme_2d_Laplace_equation.hpp"
 
 template<class T>
 class Solver_2d_Laplace_eq{
@@ -32,7 +33,7 @@ class Solver_2d_Laplace_eq{
 
     public:
 
-        T tol = 1e-6;
+        T tol = 1e-9;
         bool notifications = false;
         std::string file_name = "";
         std::string output_folder = "../output/";
@@ -61,10 +62,13 @@ class Solver_2d_Laplace_eq{
             if (this->notifications){
                 std::cout << file_name << ": \t";
             }
+            //out_path += "_2d_Laplace_eq_output";          
 
-            out_path += "_2d_Laplace_eq_output";                
-
+            solve_2d_Laplace_equation(Laplace_equation, this->tol, out_path);
+            
+            if (this->notifications){
+                std::cout << "  Done!\n";
+            }
         }
-
 
 };
