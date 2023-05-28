@@ -42,7 +42,7 @@ class Class_2d_Laplace_equation{
 
         Class_2d_Laplace_equation<T> DEFAULT_TEST(){
 
-            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh05";
+            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh01_rect";
 
             this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
                 return 10.;
