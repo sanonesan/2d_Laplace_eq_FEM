@@ -51,10 +51,10 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
 
 
     Matrix<T> full_matrix(laplace_eq._nodes.size(), laplace_eq._nodes.size());
-    Vector<T> full_b(laplace_eq._nodes.size() - laplace_eq._boundary_nodes.size());
+    Vector<T> full_b(laplace_eq._nodes.size()); // - laplace_eq._boundary_nodes.size());
     
     std::size_t reduced_sys_size = 0;
-    reduced_sys_size = laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size() - laplace_eq._left_boundary_nodes.size();
+    reduced_sys_size = laplace_eq._nodes.size() - laplace_eq._dirichlet_upper_boundary_nodes.size() - laplace_eq._dirichlet_lower_boundary_nodes.size() - laplace_eq._right_boundary_nodes.size();
 
     Matrix<T> reduced_matrix(reduced_sys_size, reduced_sys_size);
     Vector<T> reduced_b(reduced_sys_size);
@@ -198,13 +198,14 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     T mat_el = 0.;
     T vec_el = 0.;
 
-    T tol = 1e-16;
+    T tol = 1e-14;
 
     for(std::size_t i = 0; i < reduced_matrix.get_rows(); ++i){
         for(std::size_t j = 0; j < reduced_matrix.get_cols(); ++j){ 
             mat_el = reduced_matrix[i][j];
-            if (fabs(mat_el) > tol)
+            if (fabs(mat_el) > tol){
                 tripletList.push_back(Tr(i, j, mat_el));
+            }            
         }
         vec_el = reduced_b[i];
         if (fabs(vec_el) > tol)
@@ -215,6 +216,9 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     sparse_matrix.setFromTriplets(tripletList.begin(), tripletList.end());
 
     Eigen::BiCGSTAB<SpMat> solver;
+    //Eigen::ConjugateGradient<SpMat> solver;
+    // Eigen::SparseQR<SpMat> solver;
+    //Eigen::SimplicialLDLT<SpMat> solver;
     solver.compute(sparse_matrix);
     sparse_solution = solver.solve(b_sp);
 
