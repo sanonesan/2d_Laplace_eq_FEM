@@ -37,15 +37,12 @@ class Class_2d_Laplace_equation{
         std::vector<std::size_t> _ind_dirichlet_lower_boundary_nodes;
         std::vector<std::size_t> _ind_dirichlet_upper_boundary_nodes;
 
-        // std::vector<std::vector<std::size_t>> _dirichlet_left_boundary_edges;
-        // std::vector<std::vector<std::size_t>> _dirichlet_right_boundary_edges;
-        // std::vector<std::vector<std::size_t>> _dirichlet_upper_boundary_edges;
-        // std::vector<std::vector<std::size_t>> _dirichlet_lower_boundary_edges;
-
         std::function<T (const T x, const T y)> _dirichlet_lower_boundary_condition;
         std::function<T (const T x, const T y)> _dirichlet_upper_boundary_condition;
 
         Class_2d_Laplace_equation<T> DEFAULT_TEST(){
+
+            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh1/";
 
             this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
                 return 10.;
@@ -64,7 +61,7 @@ class Class_2d_Laplace_equation{
             x_y.shrink_to_fit();
 
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/mesh_nodes.txt");
+            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh1/mesh_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -74,11 +71,13 @@ class Class_2d_Laplace_equation{
             }            
             fin.close();
 
+            //std::cout << this->_nodes.size();
+
             //Reading mesh polygons (triangles)
             //2D array contains positions of elements in vector<T> _nodes (mesh_nodes.txt)
             //which form a triangulars
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/mesh_polygons.txt");
+            fin.open(path + "mesh_polygons.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -109,7 +108,7 @@ class Class_2d_Laplace_equation{
 
             //Reading boundary nodes (coordinates)
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/mesh_boundary_nodes.txt");
+            fin.open(path + "boundaries/mesh_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -120,7 +119,7 @@ class Class_2d_Laplace_equation{
             fin.close();
 
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/mesh_left_boundary_nodes.txt");
+            fin.open(path + "boundaries/mesh_left_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -131,7 +130,7 @@ class Class_2d_Laplace_equation{
             fin.close();
 
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/mesh_right_boundary_nodes.txt");
+            fin.open(path + "boundaries/mesh_right_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -141,8 +140,15 @@ class Class_2d_Laplace_equation{
             }            
             fin.close();
 
+            // for(std::size_t i = 0; i < this->_right_boundary_nodes.size(); ++i){
+            //     for(std::size_t j = 0; j < 2; ++j){
+            //         std::cout << this->_right_boundary_nodes[i][j] << "\t";
+            //     }
+            //     std::cout << "\n";
+            // }
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/mesh_lower_boundary_nodes.txt");
+
+            fin.open(path + "boundaries/mesh_lower_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -152,7 +158,7 @@ class Class_2d_Laplace_equation{
             }            
             fin.close();
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/mesh_upper_boundary_nodes.txt");
+            fin.open(path + "boundaries/mesh_upper_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -171,7 +177,7 @@ class Class_2d_Laplace_equation{
                     this->_ind_left_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
                 }
             }
-            // // for debuging
+            // for debuging
             // for(std::size_t i = 0; i < this->_left_boundary_nodes.size(); ++i){
             //     std::cout << this->_ind_left_boundary_nodes[i] << "\t";
             // }
@@ -185,7 +191,7 @@ class Class_2d_Laplace_equation{
                 }
             }
             
-            // // for debuging
+            // for debuging
             // for(std::size_t i = 0; i < this->_right_boundary_nodes.size(); ++i){
             //     std::cout << this->_ind_right_boundary_nodes[i] << "\t";
             // }
@@ -210,104 +216,6 @@ class Class_2d_Laplace_equation{
                     this->_ind_dirichlet_upper_boundary_nodes.push_back(std::distance(this->_nodes.begin(), it));
                 }
             }
-
-            // for(std::size_t i = 0; i < this->_dirichlet_upper_boundary_nodes.size(); ++i){
-            //     std::cout << this->_ind_dirichlet_upper_boundary_nodes[i] << "\t";
-            // }
-            // std::cout << "\n";
-
-
-
-
-            // //Reading boundaty edges
-            // //2D array contains positions of elements in vector<T> _nodes (mesh_nodes.txt)
-            // //which form a triangulars
-            // std::vector<std::size_t> p1_p2 = {0, 0};
-            // p1_p2.shrink_to_fit();
-            
-            // //left boundary
-
-            // fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/edges/mesh_left_boundary_edges.txt");
-            // if (!fin.is_open()) {
-            //     throw std::invalid_argument("Smth's wrong with path");
-            // }            
-            
-            // while (fin >> p1_p2[0] >> p1_p2[1]) {
-                
-            //     //minus 1 as Wolfram Mathematica numerates nodes from 1 to n
-            //     //we need from 0 to n-1
-
-            //     p1_p2[0] -= 1;
-            //     p1_p2[1] -= 1;
-
-            //     this->_dirichlet_left_boundary_edges.push_back(p1_p2);
-            //     //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
-            // }            
-            // fin.close();
-
-
-            // //right boundary
-
-            // fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/edges/mesh_right_boundary_edges.txt");
-            // if (!fin.is_open()) {
-            //     throw std::invalid_argument("Smth's wrong with path");
-            // }            
-            
-            // while (fin >> p1_p2[0] >> p1_p2[1]) {
-                
-            //     //minus 1 as Wolfram Mathematica numerates nodes from 1 to n
-            //     //we need from 0 to n-1
-
-            //     p1_p2[0] -= 1;
-            //     p1_p2[1] -= 1;
-
-            //     this->_dirichlet_left_boundary_edges.push_back(p1_p2);
-            //     //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
-            // }            
-            // fin.close();
-
-            
-            // //lower
-
-            // fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/edges/mesh_lower_boundary_edges.txt");
-            // if (!fin.is_open()) {
-            //     throw std::invalid_argument("Smth's wrong with path");
-            // }            
-            
-            // while (fin >> p1_p2[0] >> p1_p2[1]) {
-                
-            //     //minus 1 as Wolfram Mathematica numerates nodes from 1 to n
-            //     //we need from 0 to n-1
-
-            //     p1_p2[0] -= 1;
-            //     p1_p2[1] -= 1;
-
-            //     this->_dirichlet_lower_boundary_edges.push_back(p1_p2);
-            //     //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
-            // }            
-            // fin.close();
-
-
-            // //upper
-
-            // fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh/boundaries/edges/mesh_upper_boundary_edges.txt");
-            // if (!fin.is_open()) {
-            //     throw std::invalid_argument("Smth's wrong with path");
-            // }            
-            
-            // while (fin >> p1_p2[0] >> p1_p2[1]) {
-                
-            //     //minus 1 as Wolfram Mathematica numerates nodes from 1 to n
-            //     //we need from 0 to n-1
-
-            //     p1_p2[0] -= 1;
-            //     p1_p2[1] -= 1;
-
-            //     this->_dirichlet_upper_boundary_edges.push_back(p1_p2);
-            //     //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
-            // }            
-            // fin.close();
-
 
             return *this; 
         }

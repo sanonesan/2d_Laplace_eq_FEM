@@ -246,8 +246,6 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     }
     fout.close();
 
-
-
     
 
 }
@@ -257,6 +255,10 @@ int main(int args, char **argv){
     typedef double T;
     Class_2d_Laplace_equation<T> laplace_eq;
     laplace_eq.DEFAULT_TEST();
+
+    //std::cout << laplace_eq._nodes.size() << "\t" << laplace_eq._boundary_nodes.size();
+    // std::cout << Vector<std::size_t> (laplace_eq._ind_left_boundary_nodes) << "\n";
+    // std::cout << Vector<std::size_t> (laplace_eq._ind_right_boundary_nodes) << "\n";
 
     stiffness_matrix(laplace_eq);
     
