@@ -24,6 +24,9 @@ class Element{
 template<typename T> 
 void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
 
+    std::vector<T> solution(laplace_eq._nodes.size());
+    solution.reserve(laplace_eq._nodes.size());
+
     typedef Eigen::SparseMatrix<T> SpMat; // declares a column-major sparse matrix type of T
     typedef Eigen::Triplet<T> Tr;
 
@@ -106,12 +109,14 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     T sum = 0.;
     for(std::size_t i = 0; i < full_matrix.get_rows(); ++i){
         for(auto it = laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_lower_boundary_nodes.end(); ++it){
-            full_b[i] -= full_matrix[i][*it] * laplace_eq._dirichlet_lower_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+            solution[*it] = laplace_eq._dirichlet_lower_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+            full_b[i] -= full_matrix[i][*it] * solution[*it];
         }
     }
     for(std::size_t i = 0; i < full_matrix.get_rows(); ++i){
         for(auto it = laplace_eq._ind_dirichlet_upper_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_upper_boundary_nodes.end(); ++it){
-            full_b[i] -= full_matrix[i][*it] * laplace_eq._dirichlet_upper_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+            solution[*it] = laplace_eq._dirichlet_upper_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
+            full_b[i] -= full_matrix[i][*it] * solution[*it];
         }
     }
 
@@ -179,6 +184,11 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     fout.close();
 
 
+    /**
+     * Filling sparse matrix
+     * And solving it
+    */
+
     std::vector<Tr> tripletList;
     tripletList.reserve(reduced_sys_size);
     Eigen::VectorX<T> sparse_solution(reduced_sys_size), b_sp(reduced_sys_size);
@@ -207,9 +217,38 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     solver.compute(sparse_matrix);
     sparse_solution = solver.solve(b_sp);
 
+    // for(std::size_t i = 0; i < reduced_sys_size; ++i){
+    //     std::cout << i << ": " << sparse_solution[i] << "\n";
+    // }
+
+    /**
+     * Assembling full solution (in each node)
+    */
+
     for(std::size_t i = 0; i < reduced_sys_size; ++i){
-        std::cout << i << ": " << sparse_solution[i] << "\n";
+        solution[nodes_ind_4_reduced_matrix[i]] = sparse_solution[i];
     }
+
+    for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
+        solution[(*it).second] = solution[(*it).first];
+    }
+
+    for(auto it = solution.begin(); it != solution.end(); ++it){
+        std::cout << std::distance(solution.begin(), it) << ": \t" <<  *it << "\n";
+    }
+    // for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i)
+    //     std::cout << i << ": \t" << solution[i] << "\n";
+    
+    fout.open("./solution.csv");
+    fout << "sol\n";
+    for(auto it = solution.begin(); it != solution.end(); ++it){
+        fout << *it << "\n";
+    }
+    fout.close();
+
+
+
+    
 
 }
 
