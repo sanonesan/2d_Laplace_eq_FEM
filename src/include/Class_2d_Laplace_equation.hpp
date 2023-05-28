@@ -42,7 +42,7 @@ class Class_2d_Laplace_equation{
 
         Class_2d_Laplace_equation<T> DEFAULT_TEST(){
 
-            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh1/";
+            std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh05";
 
             this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
                 return 10.;
@@ -61,7 +61,7 @@ class Class_2d_Laplace_equation{
             x_y.shrink_to_fit();
 
 
-            fin.open("/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh1/mesh_nodes.txt");
+            fin.open(path + "/mesh_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -77,7 +77,7 @@ class Class_2d_Laplace_equation{
             //2D array contains positions of elements in vector<T> _nodes (mesh_nodes.txt)
             //which form a triangulars
 
-            fin.open(path + "mesh_polygons.txt");
+            fin.open(path + "/mesh_polygons.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -108,7 +108,7 @@ class Class_2d_Laplace_equation{
 
             //Reading boundary nodes (coordinates)
 
-            fin.open(path + "boundaries/mesh_boundary_nodes.txt");
+            fin.open(path + "/boundaries/mesh_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -119,7 +119,7 @@ class Class_2d_Laplace_equation{
             fin.close();
 
 
-            fin.open(path + "boundaries/mesh_left_boundary_nodes.txt");
+            fin.open(path + "/boundaries/mesh_left_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -130,7 +130,7 @@ class Class_2d_Laplace_equation{
             fin.close();
 
 
-            fin.open(path + "boundaries/mesh_right_boundary_nodes.txt");
+            fin.open(path + "/boundaries/mesh_right_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -148,7 +148,7 @@ class Class_2d_Laplace_equation{
             // }
 
 
-            fin.open(path + "boundaries/mesh_lower_boundary_nodes.txt");
+            fin.open(path + "/boundaries/mesh_lower_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            
@@ -158,7 +158,7 @@ class Class_2d_Laplace_equation{
             }            
             fin.close();
 
-            fin.open(path + "boundaries/mesh_upper_boundary_nodes.txt");
+            fin.open(path + "/boundaries/mesh_upper_boundary_nodes.txt");
             if (!fin.is_open()) {
                 throw std::invalid_argument("Smth's wrong with path");
             }            

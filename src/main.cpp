@@ -25,7 +25,7 @@ template<typename T>
 void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
 
     std::vector<T> solution(laplace_eq._nodes.size());
-    solution.reserve(laplace_eq._nodes.size());
+    //solution.reserve(laplace_eq._nodes.size());
 
     typedef Eigen::SparseMatrix<T> SpMat; // declares a column-major sparse matrix type of T
     typedef Eigen::Triplet<T> Tr;
@@ -78,7 +78,8 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
         S_el = ((el.x[1] - el.x[0]) * (el.y[2] - el.y[0]) - (el.x[2] - el.x[0]) * (el.y[1] - el.y[0])) / 2;
         // std:: cout << S_el << "\n";
         S_el = 1. / 4. / S_el;
-        // std:: cout << S_el << "\n";
+
+        //std:: cout << S_el << "\n";
 
         
 
@@ -197,7 +198,7 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
     T mat_el = 0.;
     T vec_el = 0.;
 
-    T tol = 1e-9;
+    T tol = 1e-16;
 
     for(std::size_t i = 0; i < reduced_matrix.get_rows(); ++i){
         for(std::size_t j = 0; j < reduced_matrix.get_cols(); ++j){ 
@@ -233,9 +234,9 @@ void stiffness_matrix(Class_2d_Laplace_equation<T> laplace_eq){
         solution[(*it).second] = solution[(*it).first];
     }
 
-    for(auto it = solution.begin(); it != solution.end(); ++it){
-        std::cout << std::distance(solution.begin(), it) << ": \t" <<  *it << "\n";
-    }
+    // for(auto it = solution.begin(); it != solution.end(); ++it){
+    //     std::cout << std::distance(solution.begin(), it) << ": \t" <<  *it << "\n";
+    // }
     // for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i)
     //     std::cout << i << ": \t" << solution[i] << "\n";
     
@@ -256,11 +257,37 @@ int main(int args, char **argv){
     Class_2d_Laplace_equation<T> laplace_eq;
     laplace_eq.DEFAULT_TEST();
 
+   // std::cout << laplace_eq._polygons.size();
     //std::cout << laplace_eq._nodes.size() << "\t" << laplace_eq._boundary_nodes.size();
     // std::cout << Vector<std::size_t> (laplace_eq._ind_left_boundary_nodes) << "\n";
     // std::cout << Vector<std::size_t> (laplace_eq._ind_right_boundary_nodes) << "\n";
+    // std::cout << laplace_eq._nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << "\n";
+    // std::cout << laplace_eq._dirichlet_lower_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._dirichlet_upper_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._ind_dirichlet_lower_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._ind_dirichlet_upper_boundary_nodes.size();
+    // std::cout << "\n\n";
+    // std::cout << laplace_eq._ind_left_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._ind_right_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._left_boundary_nodes.size();
+    // std::cout << "\n";
+    // std::cout << laplace_eq._right_boundary_nodes.size();
+    // std::cout << "\n";
 
     stiffness_matrix(laplace_eq);
+
+
+    std::cout << "\n";
+    std::cout << "\n";
     
     return 0;
 }
