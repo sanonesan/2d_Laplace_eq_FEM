@@ -72,7 +72,9 @@
         "strstream": "cpp",
         "cfenv": "cpp",
         "codecvt": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "alignedvector3": "cpp",
+        "mprealsupport": "cpp"
     },
     "python.formatting.provider": "yapf"
 }
