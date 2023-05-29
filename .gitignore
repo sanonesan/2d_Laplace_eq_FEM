@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+*_matrix.txt
+*_matrix_elements_for_each_triangle.txt

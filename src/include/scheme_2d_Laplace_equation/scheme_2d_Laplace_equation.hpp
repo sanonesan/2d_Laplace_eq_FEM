@@ -11,23 +11,15 @@
 #include "../structures/struct_triag_element.hpp"
 
 
-std::size_t ind_shift(std::size_t index){
-    if(index == 3){
-        return (std::size_t)0;
-    }
-    if(index == 4){
-        return (std::size_t)1;
-    }
-    
-    return index;
-};
+
 
 
 template<typename T>
 void solve_2d_Laplace_equation(
     const Class_2d_Laplace_equation<T>& laplace_eq, 
     const T& tol, const 
-    std::string& out_path){
+    std::string& out_path, 
+    bool output_stiffness_matricies_bool = true){
 
     typedef Eigen::SparseMatrix<T> SpMat; // declares a column-major sparse matrix type of T
     typedef Eigen::Triplet<T> Tr; // declares a triplet (i, j, el_val) for Eigen::SparseMatrix
@@ -36,9 +28,11 @@ void solve_2d_Laplace_equation(
     std::vector<T> solution(laplace_eq._nodes.size());
 
 
-    fout.open(out_path + "_stiffness_matrix_elements_for_each_triangle.txt");
     fout << std::scientific;
     fout << std::setprecision(8);
+
+    if (output_stiffness_matricies_bool)
+        fout.open(out_path + "_stiffness_matrix_elements_for_each_triangle.txt");
 
     /**
      * Assembling full stiffness matrix
@@ -50,6 +44,17 @@ void solve_2d_Laplace_equation(
     Matrix<T> local_stiffness_matrix(3, 3); // stiffness matrix for single triangle element    
     Triag_Element<T> el;
     T S_el = 0.;
+
+    auto ind_shift = [](std::size_t index){
+        if(index == 3){
+            return (std::size_t)0;
+        }
+        if(index == 4){
+            return (std::size_t)1;
+        }
+        
+        return index;
+    };
 
     for(std::size_t k = 0; k < laplace_eq._polygons.size(); ++k){
 
@@ -63,34 +68,36 @@ void solve_2d_Laplace_equation(
         // Find square of triangle element
         S_el = ((el.x[1] - el.x[0]) * (el.y[2] - el.y[0]) - (el.x[2] - el.x[0]) * (el.y[1] - el.y[0])) / 2;
         
-        // Transform for the next formula (for numerial integral over the triangle)
+        // Transformation for the next formula (for numerial integral over the triangle)
         S_el *= 4. * S_el;
         
         for(std::size_t i = 0; i < 3; ++i){
             for(std::size_t j = 0; j < 3; ++j){     
                 // Integral[ \nabla \phi_i * \nabla \phi_j, over triangle]
                 local_stiffness_matrix[i][j] = S_el * ( (el.y[ind_shift(i+1)] - el.y[ind_shift(i+2)]) * (el.y[ind_shift(j+1)] - el.y[ind_shift(j+2)]) + (el.x[ind_shift(i+2)] - el.x[ind_shift(i+1)]) * (el.x[ind_shift(j+2)] - el.x[ind_shift(j+1)]));
-                fout << local_stiffness_matrix[i][j] << "\t";
+                //output if needed
+                if (output_stiffness_matricies_bool) fout << local_stiffness_matrix[i][j] << "\t";
                 // Parallel assemble of full_stiffness matrix
                 full_stiffness_matrix[laplace_eq._polygons[k][i]][laplace_eq._polygons[k][j]] += local_stiffness_matrix[i][j];
             }
-            fout << "\n";
+            if (output_stiffness_matricies_bool) fout << "\n";
         }
-        fout << "\n";
-        
+        if (output_stiffness_matricies_bool) fout << "\n";
     }
     fout.close();
 
     // output full stiffness matrix in txt
-    fout.open(out_path + "_full_matrix.txt");
-    for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
-        for(std::size_t j = 0; j < full_stiffness_matrix.get_cols(); ++j){            
-            fout << full_stiffness_matrix[i][j] << "\t";
+    if (output_stiffness_matricies_bool){
+        fout.open(out_path + "_full_matrix.txt");
+        for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
+            for(std::size_t j = 0; j < full_stiffness_matrix.get_cols(); ++j){            
+                fout << full_stiffness_matrix[i][j] << "\t";
+            }
+            fout << "\n";
         }
         fout << "\n";
+        fout.close();
     }
-    fout << "\n";
-    fout.close();
 
 
     /**
@@ -99,9 +106,9 @@ void solve_2d_Laplace_equation(
      * Adding -(value_of_know_node * element_of_full_stiffnes_matrix) 
      * to vector full_b
      * 
-     * After the rows and columns of full_stiffness_matrix 
+     * Later the rows and columns of full_stiffness_matrix 
      * corresponding to the known values in the nodes will be removed 
-     * from full_stiffness_matrix
+     * from full_stiffness_matrix (new reduced_matrix will be assembled)
     */
 
     for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
@@ -123,9 +130,9 @@ void solve_2d_Laplace_equation(
      * Summing values of full_stiffness matrix of nodes 
      * that correspond periodicity 
      * 
-     * After the rows and columns of full_stiffness_matrix 
+     * Later the rows and columns of full_stiffness_matrix 
      * corresponding to these nodes will be removed 
-     * from full_stiffness_matrix
+     * from full_stiffness_matrix (new reduced_matrix will be assembled)
     */
 
     std::vector<std::pair<std::size_t, std::size_t>> ind_left_n_right_boundary_correlation;
@@ -134,6 +141,7 @@ void solve_2d_Laplace_equation(
         for(std::size_t j = 0; j < laplace_eq._right_boundary_nodes.size(); ++j){
             if(laplace_eq._left_boundary_nodes[i][1] == laplace_eq._right_boundary_nodes[j][1]){
                 ind_left_n_right_boundary_correlation.push_back(std::pair<std::size_t, std::size_t> (laplace_eq._ind_left_boundary_nodes[i], laplace_eq._ind_right_boundary_nodes[j]));
+                // // For debugging purposes
                 //std:: cout << laplace_eq._ind_left_boundary_nodes[i] << "\t" << laplace_eq._ind_right_boundary_nodes[j] << "\n";
             }
         }
@@ -148,10 +156,8 @@ void solve_2d_Laplace_equation(
 
     /**
      * Making vector with indexes (in all nodes vector) of nodes 
-     * which values should be calculated
-     * 
-     * Nodes that DON'T lie on upper (dirichlete condition), 
-     * lower (dirichlete condition), and right (periodic condition) boundaries
+     * which values should be calculated ( nodes that DON'T lie on upper (dirichlete condition), 
+     * lower (dirichlete condition), and right (periodic condition) boundaries )
     */
     std::vector<std::size_t> nodes_ind_4_reduced_matrix;
     
@@ -191,42 +197,57 @@ void solve_2d_Laplace_equation(
         }
         reduced_b[i] = full_b[nodes_ind_4_reduced_matrix[i]];
     }
+    // // For debugging purposes
     //std::cout << reduced_b << "\n";
-
-    fout.open(out_path + "_reduced_matrix.txt");
-    for(std::size_t i = 0; i < reduced_matrix.get_rows(); ++i){
-        for(std::size_t j = 0; j < reduced_matrix.get_cols(); ++j){            
-            fout << reduced_matrix[i][j] << "\t";
+    
+    // output reduced stiffness matrix if needed
+    if (output_stiffness_matricies_bool){
+        fout.open(out_path + "_reduced_matrix.txt");
+        for(std::size_t i = 0; i < reduced_matrix.get_rows(); ++i){
+            for(std::size_t j = 0; j < reduced_matrix.get_cols(); ++j){            
+                fout << reduced_matrix[i][j] << "\t";
+            }
+            fout << "\n";
         }
         fout << "\n";
+        fout.close();  
     }
-    fout << "\n";
-    fout.close();  
+
 
     /**
-     * Filling sparse matrix of Eigen lib
-     * And solving it
+     * Assembling sparse matrix of Eigen::Sparce lib
+     * 
+     * And solving system
+     * A.dot(x) = b
+     * 
+     * x = sparse_solution
+     * A = sparse_matrix
+     * b = RHS_vec
     */
 
-    std::vector<Tr> tripletList(reduced_sys_size);
+    std::vector<Tr> tripletList(reduced_sys_size); // triplet list for filling sparse_matrix
     tripletList.reserve(reduced_sys_size);
-    Eigen::VectorX<T> sparse_solution(reduced_sys_size), b_sp(reduced_sys_size);
+    Eigen::VectorX<T> sparse_solution(reduced_sys_size), RHS_vec(reduced_sys_size);
 
     
-    T mat_el = 0.;
-    T vec_el = 0.;
+
+    /**
+     * Filling in triplets for sparse matrix of Eigen::Sparce lib
+     * And RHS vector
+    */    
     
+    T tmp_el = 0.; //tmp_el to avoid multiple gettings of matrix & vector elements
     for(std::size_t i = 0; i < reduced_matrix.get_rows(); ++i){
         for(std::size_t j = 0; j < reduced_matrix.get_cols(); ++j){ 
-            mat_el = reduced_matrix[i][j];
-            if (fabs(mat_el) > tol){
-                tripletList.push_back(Tr(i, j, mat_el));
+            tmp_el = reduced_matrix[i][j];
+            if (fabs(tmp_el) > tol){
+                tripletList.push_back(Tr(i, j, tmp_el));
             }            
         }
-        vec_el = reduced_b[i];
-        if (fabs(vec_el) > tol)
-            b_sp[i] = vec_el;
-        else b_sp[i] = 0.;
+        tmp_el = reduced_b[i];
+        if (fabs(tmp_el) > tol)
+            RHS_vec[i] = tmp_el;
+        else RHS_vec[i] = 0.;
     }
 
     // Declare sparse matrix
@@ -237,24 +258,24 @@ void solve_2d_Laplace_equation(
     Eigen::BiCGSTAB<SpMat> solver;
     //Eigen::ConjugateGradient<SpMat> solver;
     //Eigen::SimplicialLDLT<SpMat> solver;
-    // Compute and solve
-    solver.compute(sparse_matrix);
-    sparse_solution = solver.solve(b_sp);
-    // for(std::size_t i = 0; i < reduced_sys_size; ++i)
-    //     std::cout << i << ": \t" << b_sp[i] << "\n";
 
+    // Compute and solve (Eigen logic)
+    solver.compute(sparse_matrix);
+    sparse_solution = solver.solve(RHS_vec);
 
     /**
      * Assembling full solution (in each node)
+     * 
     */
-
+    //setting nodes from sparse solution
     for(std::size_t i = 0; i < reduced_sys_size; ++i){
         solution[nodes_ind_4_reduced_matrix[i]] = sparse_solution[i];
     }
-
+    //setting nodes with periodic boundaries
     for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
         solution[(*it).second] = solution[(*it).first];
     }
+    // // For debugging purposes
     // for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i)
     //     std::cout << i << ": \t" << solution[i] << "\n";
 

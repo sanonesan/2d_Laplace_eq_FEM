@@ -52,7 +52,7 @@ class Solver_2d_Laplace_eq{
             this->file_name = file_name;
         }
 
-        void solve_eq(Class_2d_Laplace_equation<T>& Laplace_equation){
+        void solve_eq(Class_2d_Laplace_equation<T>& Laplace_equation, bool output_stiffness_matricies = false){
 
             this->check_folder(this->output_folder);
             std::string out_path;
@@ -64,7 +64,7 @@ class Solver_2d_Laplace_eq{
             }
             //out_path += "_2d_Laplace_eq_output";          
 
-            solve_2d_Laplace_equation(Laplace_equation, this->tol, out_path);
+            solve_2d_Laplace_equation(Laplace_equation, this->tol, out_path, output_stiffness_matricies);
             
             if (this->notifications){
                 std::cout << "  Done!\n";

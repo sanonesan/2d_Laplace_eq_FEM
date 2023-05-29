@@ -23,7 +23,9 @@ class Test_domain_1_sin: virtual public Class_2d_Laplace_equation<T>{
 
         Test_domain_1_sin(){            
             //test name
-            this->_name = std::string (__func__);
+            //this->_name = std::string (__func__);
+            this->_name = std::string ("Test_domain_1_sin_mesh_001");
+
 
             this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
                 return 10.;
