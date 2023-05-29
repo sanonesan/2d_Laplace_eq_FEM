@@ -33,14 +33,14 @@ class Solver_2d_Laplace_eq{
 
     public:
 
-        T tol = 1e-9;
+        T tol = 1e-16;
         bool notifications = false;
         std::string file_name = "";
         std::string output_folder = "../output/";
 
         //Default constructor
         Solver_2d_Laplace_eq(){
-            this->tol = 1e-9;
+            this->tol = 1e-16;
             this->output_folder = "../output/";
             this->file_name = "";
         }

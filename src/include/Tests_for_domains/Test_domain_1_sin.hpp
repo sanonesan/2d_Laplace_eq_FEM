@@ -87,5 +87,21 @@ class Test_domain_1_sin: virtual public Class_2d_Laplace_equation<T>{
             return *this;
         }
 
+        Test_domain_1_sin<T> Set_mesh_0001(){
+
+            this->_name = std::string ("Test_domain_1_sin_mesh_0001");
+
+            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
+                return 10.;
+            };
+
+            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
+                return 0.;
+            };
+
+            this->Set_domain(*this, "../domains/domain_1/mesh0001");
+            return *this;
+        }
+
 
 };
