@@ -39,6 +39,8 @@ class Class_2d_Laplace_equation{
 
         std::function<T (const T x, const T y)> _dirichlet_lower_boundary_condition;
         std::function<T (const T x, const T y)> _dirichlet_upper_boundary_condition;
+        std::function<T (const T x, const T y)> _dirichlet_left_boundary_condition;
+        std::function<T (const T x, const T y)> _dirichlet_right_boundary_condition;
 
         Class_2d_Laplace_equation<T> Set_domain(Class_2d_Laplace_equation<T>& lap_eq, std::string path){
 

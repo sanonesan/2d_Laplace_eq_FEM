@@ -197,6 +197,8 @@ void solve_2d_Laplace_equation(
         }
         reduced_b[i] = full_b[nodes_ind_4_reduced_matrix[i]];
     }
+    
+    
     // // For debugging purposes
     //std::cout << reduced_b << "\n";
     
@@ -254,10 +256,10 @@ void solve_2d_Laplace_equation(
     SpMat sparse_matrix(reduced_sys_size, reduced_sys_size);
     sparse_matrix.setFromTriplets(tripletList.begin(), tripletList.end());
     
-    // Importing solver   
+    // Importing solver bi-conjugate
     Eigen::BiCGSTAB<SpMat> solver;
-    //Eigen::ConjugateGradient<SpMat> solver;
-    //Eigen::SimplicialLDLT<SpMat> solver;
+    //Eigen::LeastSquaresConjugateGradient<SpMat> solver;
+    //Eigen::SparseLU<SpMat> solver;
 
     // Compute and solve (Eigen logic)
     solver.compute(sparse_matrix);

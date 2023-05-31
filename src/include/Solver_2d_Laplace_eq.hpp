@@ -8,6 +8,7 @@
 
 #include "Class_2d_Laplace_equation.hpp"
 #include "./scheme_2d_Laplace_equation/scheme_2d_Laplace_equation.hpp"
+#include "./scheme_2d_Laplace_equation/scheme_2d_Laplace_equation_dirichlet_only.hpp"
 
 template<class T>
 class Solver_2d_Laplace_eq{
@@ -65,6 +66,25 @@ class Solver_2d_Laplace_eq{
             //out_path += "_2d_Laplace_eq_output";          
 
             solve_2d_Laplace_equation(Laplace_equation, this->tol, out_path, output_stiffness_matricies);
+            
+            if (this->notifications){
+                std::cout << "  Done!\n";
+            }
+        }
+
+        void solve_eq_testing(Class_2d_Laplace_equation<T>& Laplace_equation, bool output_stiffness_matricies = false){
+
+            this->check_folder(this->output_folder);
+            std::string out_path;
+
+            out_path = this->output_folder + this->file_name;
+
+            if (this->notifications){
+                std::cout << file_name << ": \t";
+            }
+            //out_path += "_2d_Laplace_eq_output";          
+
+            scheme_2d_Laplace_equation_dirichlet_only(Laplace_equation, this->tol, out_path, output_stiffness_matricies);
             
             if (this->notifications){
                 std::cout << "  Done!\n";
