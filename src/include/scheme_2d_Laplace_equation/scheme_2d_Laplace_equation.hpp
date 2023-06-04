@@ -11,11 +11,8 @@
 #include "../structures/struct_triag_element.hpp"
 
 
-
-
-
 template<typename T>
-void solve_2d_Laplace_equation(
+void scheme_2d_Laplace_equation(
     const Class_2d_Laplace_equation<T>& laplace_eq, 
     const T& tol, const 
     std::string& out_path, 
@@ -151,6 +148,13 @@ void solve_2d_Laplace_equation(
         for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
             full_stiffness_matrix[i][(*it).first] += full_stiffness_matrix[i][(*it).second];
         }
+    }
+
+    for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
+        for(std::size_t i = 0; i < full_stiffness_matrix.get_cols(); ++i){
+            full_stiffness_matrix[(*it).first][i] += full_stiffness_matrix[(*it).second][i];
+        }
+        full_b[(*it).first] += full_b[(*it).second];
     }
 
 

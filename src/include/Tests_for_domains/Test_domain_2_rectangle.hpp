@@ -40,7 +40,14 @@ class Test_domain_2_rectangle: virtual public Class_2d_Laplace_equation<T>{
         Test_domain_2_rectangle<T> Set_mesh_001(){
 
             this->_name = std::string ("Test_domain_1_sin_mesh_001");
-            this->Set_domain(*this, "../domains/domain_1/mesh001");
+            this->Set_domain(*this, "../domains/domain_2/mesh001");
+            return *this;
+        }
+
+        Test_domain_2_rectangle<T> Set_mesh_0001(){
+
+            this->_name = std::string ("Test_domain_1_sin_mesh_001");
+            this->Set_domain(*this, "../domains/domain_2/mesh0001");
             return *this;
         }
 
