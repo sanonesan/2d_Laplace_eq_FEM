@@ -75,34 +75,36 @@
 		
 	%\newpage
 	\section{Обзор задачи}
-		\looser{-0.02}{Для постоянного электрического (электростатического) поля уравнения Максвелла имеют вид}
-		\begin{equation}
-			\mathrm{div} \vec{\mathrm{E}} = 4 \pi \rho,
-			\label{div_E}
-		\end{equation}
-		\begin{equation}
-			\mathrm{rot} \vec{\mathrm{E}} = 0,
-			\label{rot_E}
-		\end{equation}
-		где $\rho$ --- объемная плотность внешних зарядов. Электрическое поле $\vec{\mathrm{E}}$ выражается через только скалярный потенциал соотношением
-		\begin{equation}
-			\vec{\mathrm{E}} = -\mathrm{grad} \varphi,
-			\label{E_grad_phi}
-		\end{equation}
-		подставляя (\refeq{E_grad_phi}) в (\refeq{div_E}), получим уравнение, которому удовлетворяет потенциал постоянного электрического поля:
-		\begin{equation}
-			\Delta \varphi = - 4 \pi \rho.
-			\label{Pois_eq}
-		\end{equation}
-		Уравнение (\refeq{Pois_eq}) есть уравнение Пуассона. При $\rho = 0$, т.е. при отсутствии внешних сил, потенциал удовлетворяет уравнению Лапласа
-		\begin{equation}
-			\Delta \phi = 0.
-			\label{Laplace_eq}
-		\end{equation}
 		
+		\subsection{Физическая составляющая задачи}
+			\looser{-0.02}{Для постоянного электрического (электростатического) поля уравнения Максвелла имеют вид}
+			\begin{equation}
+				\mathrm{div} \vec{\mathrm{E}} = 4 \pi \rho,
+				\label{div_E}
+			\end{equation}
+			\begin{equation}
+				\mathrm{rot} \vec{\mathrm{E}} = 0,
+				\label{rot_E}
+			\end{equation}
+			где $\rho$ --- объемная плотность внешних зарядов. Электрическое поле $\vec{\mathrm{E}}$ выражается через только скалярный потенциал соотношением
+			\begin{equation}
+				\vec{\mathrm{E}} = -\mathrm{grad} \varphi,
+				\label{E_grad_phi}
+			\end{equation}
+			подставляя (\refeq{E_grad_phi}) в (\refeq{div_E}), получим уравнение, которому удовлетворяет потенциал постоянного электрического поля:
+			\begin{equation}
+				\Delta \varphi = - 4 \pi \rho.
+				\label{Pois_eq}
+			\end{equation}
+			Уравнение (\refeq{Pois_eq}) есть уравнение Пуассона. При $\rho = 0$, т.е. при отсутствии внешних сил, потенциал удовлетворяет уравнению Лапласа
+			\begin{equation}
+				\Delta \phi = 0.
+				\label{Laplace_eq}
+			\end{equation}
+			
 		\subsection{Математическая постановка задачи}
 			
-			Из условия поставленной задачи известно, что внешних сил нет, следовательно, потенциал электростатического поля должен удовлетворять уравнению (\refeq{Laplace_eq}). Через функцию $w(x)$ зададим профиль искривленной пластины, $w(x)$  --- некоторая периодическая функция с периодом $T$, т.е. $w(x) = w(x + T)$. Пусть плоская пластина находится над искривленной на уровне $y_a$. Значение потенциала на пластинах заданы и константны, обозначим значение на верхней (плоской) пластине как $\phi_a$, на нижней (искривленной) --- $\phi_w$. Т.к. профиль профиль задан периодической функцией, следовательно необходимо использовать условие равенства потенциалов в точках $x$ и $x + T$, т.е. $\phi (x, y) = \phi (x + T, y)$.
+			Из условия поставленной задачи известно, что внешних сил нет, следовательно, потенциал электростатического поля должен удовлетворять уравнению (\refeq{Laplace_eq}). Через функцию $w(x)$ зададим профиль искривленной пластины, $w(x)$  --- некоторая периодическая функция с периодом $T$, т.е. $w(x) = w(x + T)$. Пусть плоская пластина находится над искривленной на уровне $y_a$. Значение потенциала на пластинах заданы и константны, обозначим значение на верхней (плоской) пластине как $\phi_a$, на нижней (искривленной) --- $\phi_w$. Так как профиль профиль задан периодической функцией, следовательно необходимо использовать условие равенства потенциалов в точках $x$ и $x + T$, т.е. $\phi (x, y) = \phi (x + T, y)$.
 			
 			Из этих условий составим систему, которую требуется решить: 		
 			\begin{equation}
@@ -120,6 +122,83 @@
 				\caption{Иллюстрация области, в которой будет решаться задача}
 				\label{fig:f_22608_100828_mod_opt_knot_comparison}
 			\end{figure*}
+	
+	\section{Решение двумерного уравнения Лапласа}
+		
+		\subsection{Аппроксимация уравнения Лапласа методом конечных элементов}
+		
+			Рассмотрим уравнение Лапласа в двумерной области $\Omega \subset \mathbb{R}^2$
+			\begin{equation*}
+				\begin{cases}
+					- \Delta u  = 0 \ \  \text{в}\ \  \Omega, \\
+					u = g \ \ \text{на}\ \  \Gamma_D,
+				\end{cases}			
+			\end{equation*}
+			где $\Gamma_D$ --- часть границы области, на которой заданы граничные условия первого рода, $\Gamma_D = \partial \Omega,$  $\Gamma_D \ne \emptyset$. 
+			
+			Опираясь на сведения из источника \cite{Galanin}, представим решение задачи в виде $u = u_0 + u_g$, где функция $u_0$ обращается в нуль на границе $\Gamma_D$б а $u_g$ --- некоторая, произвольная, но наперед заданная функция, значения которой совпадают с $g$ на границе области, $u_g |_{\Gamma_D} = g$.
+			
+			И переходим к следующей задаче с однородными граничными условиями первого рода на $\Gamma_D$ относительно функции $u_0$:
+			\begin{equation*}
+			\begin{cases}
+				- \Delta u  = \Delta u_g \ \  \text{в}\ \  \Omega, \\
+				u_0 = 0 \ \ \text{на}\ \  \Gamma_D.
+			\end{cases}			
+			\end{equation*}
+			
+			\looser{0.0}{Запишем слабую постановку задачи для определения $u_0$, способом описанным в разделе \textbf{16.3.1}} источника \cite{Galanin}: необходимо определить $u_o \in V_D$, такое, что 
+			\begin{equation*}
+				\int_{\Omega} \nabla u_0 \cdot \nabla v \, d\Omega = 
+				- \int_{\Omega} \nabla u_g \cdot \nabla v \, d\Omega, \quad v \in V_D,
+			\end{equation*}
+			
+			\looser{-0.014}{где пространство $V_D$ состоит из функций, имеющих суммируемые с квадратом первые производные и обращающихся в нуль на части $\Gamma_D$ границы расчетной области:}
+			\begin{equation*}
+				V_D = \left\{ v \in V: \ v |_{\Gamma_D} = 0 \right\}
+			\end{equation*}
+			а пространство $V$ состоит из произвольных заданных в $\Omega$ функций, имеющих суммируемые с квадратом первые производные.
+			
+			Для аппроксимации задачи с помощью МКЭ рассмотрим конечномерное пространство $V_h$, аппроксимирующее пространство $V$ и пространство 
+			$V_{D,h} = V_h \cap V_D(\Omega)$, элементы которого приближают элементы пространства $V_D$. 
+			
+			Пусть функция $u_{g,h} \in V_h $ представляет собой аппроксимацию функции $u_g$, задающей граничное условие первого рода. В качестве функции $u_{g,h}$. 
+			
+			Тогда конечномерная задача примет вид: определить $u_{0,h} \in V_{D,h}$, такую, что
+			
+			\begin{equation*}
+				\int_{\Omega} \nabla u_{0,h} \cdot \nabla v_{h} \, d\Omega = 
+				- \int_{\Omega} \nabla u_{g,h} \cdot \nabla v_{h} \, d\Omega, \quad v_{h} \in V_D,
+			\end{equation*}
+			
+			Пусть $\phi_i$, \ i = $\overline{1, N},$ --- базис в пространстве $V_h$, причем часть функций $\phi_i$ с номерами $i \in I$ образуют базис в пространстве $V_{D,h}$, т.е. обращаются в нуль на границе $\Gamma_D$. Количество таких индексов будем считать равным $M = |I| < N,\ |I| > 1$.
+			
+			Тогда последнее уравнение будет эквивалентно
+			\begin{equation*}
+				\int_{\Omega} \nabla u_{0,h} \cdot \nabla \phi_{i} \, d\Omega = 
+				- \int_{\Omega} \nabla u_{g,h} \cdot \nabla \phi_{i} \, d\Omega, \quad i \in I.
+			\end{equation*}
+			
+			Представляя неизвестное решение в виде линейной комбинации базисных функций:
+			\begin{equation*}
+				u_{0,h} = \sum_{i \in I} u_{0,h,i} \phi_i, \quad 
+				u_{g,h} = \sum_{i = 1}^{N} u_{g,h,i} \phi_i, 
+			\end{equation*}
+			\looser{-0.0}{окончательно получим СЛАУ для определения неизвестных коэффициентов 
+			$U_h = \left\{ u_{0, h, i}\right\}$:}
+			\begin{equation*}
+				A u_{0,h} = b,
+			\end{equation*}
+			где $A = A_{M \times M}$ --- матрица жесткости, $b = b_{M \times 1}$,
+			\begin{gather}
+				A_{ij} = \int_{\Omega} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega,
+				\quad i, j\in I.\\
+				b_i = - \sum_{j=1}^{N} u_{g,h, j} \int_{\Omega} \nabla \phi_i  \cdot \nabla \phi_j \, d\Omega, \quad i \in I.
+			\end{gather}
+			
+		\subsection{Метод конечных элементов на треугольной сетке}
+		
+			
+		
 			
 
 	\newpage
@@ -134,22 +213,7 @@
 	
 	\begin{thebibliography}{4}
 		
-		
-		\bibitem{python} Python.  A high-level, general-purpose programming language \\
-		URL:  \href{https://www.python.org/}{https://www.python.org/} \\
-		(дата обращения 20.10.2022)
-		
-		\bibitem{jupyter} Project Jupyter. Web-based interactive development environment \\
-		URL:  \href{https://jupyter.org/}{https://jupyter.org/} \\
-		(дата обращения 20.10.2022)
-		
-		\bibitem{numpy} NumPy. The fundamental package for scientific computing with Python\\
-		URL:  \href{https://numpy.org/}{https://numpy.org/} \\
-		(дата обращения 5.01.2023)
-		
-		\bibitem{scipy} SciPy. Fundamental algorithms for scientific computing in Python \\
-		URL:  \href{https://scipy.org/}{https://scipy.org/} \\
-		(дата обращения 6.01.2023)
+		\bibitem{Galanin} \looser{0.02}{Методы численного анализа математических моделей\,/\,М.\,П.~Галанин,} Е.\,Б.~Савенков. -- 2-е изд., испр. -- Москва : Издательство МГТУ им. Н.\,Э.~Баумана, 2018. -- 591 [1] с.: ил.
 		
 		
 		
