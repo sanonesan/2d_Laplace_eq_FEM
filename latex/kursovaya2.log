@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  5 JUN 2023 00:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  5 JUN 2023 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -772,35 +772,51 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \colbreak@box=\box100
 \mc@col@check@num=\count317
 )
+(/usr/share/texmf-dist/tex/latex/scalerel/scalerel.sty
+Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretchi
+ng of objects, relative to a reference object or in absolute terms
+
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count318
+)
+\thesrwidth=\skip72
+\thesrheight=\skip73
+\srblobheight=\skip74
+\srblobdepth=\skip75
+\mnxsrwidth=\skip76
+\LMex=\skip77
+\LMpt=\skip78
+)
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count318
+\l__color_backend_stack_int=\count319
 \l__pdf_internal_box=\box101
 )
 (./kursovaya2.aux)
 \openout1 = `kursovaya2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Info: Redefining \th on input line 62.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Info: Redefining \th on input line 67.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: changepage package is loaded.
@@ -811,16 +827,16 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
+\scratchcounter=\count320
 \scratchdimen=\dimen264
 \scratchbox=\box102
-\nofMPsegments=\count320
-\nofMParguments=\count321
+\nofMPsegments=\count321
+\nofMParguments=\count322
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count322
+\MPscratchCnt=\count323
 \MPscratchDim=\dimen265
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
 \everyMPtoPDFconversion=\toks33
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -840,7 +856,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 
 (/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 62.
+Package hyperref Info: Link coloring ON on input line 67.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./style//emblema.pdf): PDF inclusion: f
@@ -848,16 +864,16 @@ ound PDF version <1.6>, but at most version <1.5> allowed
 <./style//emblema.pdf, id=4, 476.01839pt x 534.79799pt>
 File: ./style//emblema.pdf Graphic file (type pdf)
 <use ./style//emblema.pdf>
-Package pdftex.def Info: ./style//emblema.pdf  used on input line 64.
+Package pdftex.def Info: ./style//emblema.pdf  used on input line 69.
 (pdftex.def)             Requested size: 66.6421pt x 74.8712pt.
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -865,19 +881,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )<<t2a.cmap>>
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 64.
+(Font)              size <17.28> substituted on input line 69.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 64.
+(Font)              size <17.28> substituted on input line 69.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/it' in size <18> not available
-(Font)              size <17.28> substituted on input line 64.
+(Font)              size <17.28> substituted on input line 69.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <18> not available
-(Font)              size <17.28> substituted on input line 64.
+(Font)              size <17.28> substituted on input line 69.
 
 [1
 
@@ -890,54 +906,54 @@ LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <18> not available
  [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 71.
+(hyperref)                removing `\hss' on input line 76.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 77.
+(hyperref)                removing `\hss' on input line 82.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 79.
+(hyperref)                removing `\hss' on input line 85.
 
-\@mysp=\skip72
-\@myspinner=\skip73
-LaTeX Info: Redefining \textso on input line 80.
-LaTeX Info: Redefining \textso on input line 80.
+\@mysp=\skip79
+\@myspinner=\skip80
+LaTeX Info: Redefining \textso on input line 86.
+LaTeX Info: Redefining \textso on input line 86.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 105.
+(hyperref)                removing `\hss' on input line 111.
 
 [3]
-<./illustr//illustr.pdf, id=71, 326.21875pt x 172.645pt>
+<./illustr//illustr.pdf, id=75, 326.21875pt x 172.645pt>
 File: ./illustr//illustr.pdf Graphic file (type pdf)
 <use ./illustr//illustr.pdf>
-Package pdftex.def Info: ./illustr//illustr.pdf  used on input line 121.
+Package pdftex.def Info: ./illustr//illustr.pdf  used on input line 127.
 (pdftex.def)             Requested size: 295.90587pt x 156.61455pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 126.
+(hyperref)                removing `\hss' on input line 133.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 128.
+(hyperref)                removing `\hss' on input line 136.
 
 [4 <./illustr//illustr.pdf>]
-\@mysp=\skip74
-\@myspinner=\skip75
-LaTeX Info: Redefining \textso on input line 149.
-LaTeX Info: Redefining \textso on input line 149.
-\@mysp=\skip76
-\@myspinner=\skip77
-LaTeX Info: Redefining \textso on input line 155.
-LaTeX Info: Redefining \textso on input line 155.
-\@mysp=\skip78
-\@myspinner=\skip79
-LaTeX Info: Redefining \textso on input line 187.
-LaTeX Info: Redefining \textso on input line 187.
+\@mysp=\skip81
+\@myspinner=\skip82
+LaTeX Info: Redefining \textso on input line 157.
+LaTeX Info: Redefining \textso on input line 157.
+\@mysp=\skip83
+\@myspinner=\skip84
+LaTeX Info: Redefining \textso on input line 162.
+LaTeX Info: Redefining \textso on input line 162.
+\@mysp=\skip85
+\@myspinner=\skip86
+LaTeX Info: Redefining \textso on input line 195.
+LaTeX Info: Redefining \textso on input line 195.
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--188
+Underfull \hbox (badness 10000) in paragraph at lines 193--196
 \T2A/cmr/m/n/12 окон-ча-тель-но по-лу-чим —Ћј” дл€ опре-де-ле-ни€ неиз-вест-ных
  ко-эф-фи-ци-ен-тов
  []
@@ -945,57 +961,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--188
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 198.
+(hyperref)                removing `\hss' on input line 211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 213.
+
+\@mysp=\skip87
+\@myspinner=\skip88
+LaTeX Info: Redefining \textso on input line 215.
+LaTeX Info: Redefining \textso on input line 215.
+
+Underfull \hbox (badness 5022) in paragraph at lines 215--216
+[]\T2A/cmr/m/n/12 « а -д а -д и м в н а -ш е й о б -л а -с т и [] п р а -в и л 
+ь -н у ю т р и -а н -г у -л € -ц и ю [] , т . е . т а -к о е р а з -б и -е -н и
+ е
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+\T2A/cmr/m/n/12 о б -л а -с т и [] н а т р е -у г о л ь -н ы е € ч е й -к и , ч
+ т о л ю -б ы е д в а т р е -у г о л ь -н и -к а и м е -ю т л и -б о о б -щ е е
+
+ []
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 205.
+(hyperref)                removing `\hss' on input line 301.
 
-[7]
-\@mysp=\skip80
-\@myspinner=\skip81
-LaTeX Info: Redefining \textso on input line 216.
-LaTeX Info: Redefining \textso on input line 216.
+[7] [8]
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 381.
+
+[9]
+\@mysp=\skip89
+\@myspinner=\skip90
+LaTeX Info: Redefining \textso on input line 392.
+LaTeX Info: Redefining \textso on input line 392.
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 []\T2A/cmr/m/n/12 ћ е -т о -д ы ч и с -л е н -н о -г о а н а -л и -з а м а -т е
  -м а -т и -ч е -с к и х м о -д е -л е й  /  ћ .  ѕ . √ а -л а -н и н ,
  []
 
-[8] (./kursovaya2.aux)
+[10] (./kursovaya2.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 15624 strings out of 476025
- 249926 string characters out of 5796532
- 1864388 words of memory out of 5000000
- 35735 multiletter control sequences out of 15000+600000
+ 16035 strings out of 476025
+ 255342 string characters out of 5796532
+ 1867388 words of memory out of 5000000
+ 36128 multiletter control sequences out of 15000+600000
  532915 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,9n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 90i,16n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1728.
-pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share
-/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fon
-ts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public
-/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1
-095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on kursovaya2.pdf (8 pages, 416348 bytes).
+mmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1728.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/f
+onts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfr
+m1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr
+/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-di
+st/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on kursovaya2.pdf (10 pages, 438038 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
