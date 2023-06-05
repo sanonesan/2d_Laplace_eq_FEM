@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  5 JUN 2023 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  5 JUN 2023 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -999,18 +999,55 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 386.
 
-[8] [9]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 407.
-
-[10]
+[8]
 \@mysp=\skip89
 \@myspinner=\skip90
-LaTeX Info: Redefining \textso on input line 418.
-LaTeX Info: Redefining \textso on input line 418.
+LaTeX Info: Redefining \textso on input line 393.
+LaTeX Info: Redefining \textso on input line 393.
+\@mysp=\skip91
+\@myspinner=\skip92
+LaTeX Info: Redefining \textso on input line 394.
+LaTeX Info: Redefining \textso on input line 394.
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--419
+Underfull \hbox (badness 2189) in paragraph at lines 392--395
+\T2A/cmr/m/n/12 í î é î á -ë à -ñ ò è , ÷ ò î ê î -ë è -÷ å -ñ ò â î ó ç -ë î â
+ í à ë å -â î é è ï ð à -â î é ã ð à -í è -ö à õ á ó -ä å ò î ä è -í à -ê î -â 
+î , ò . å .
+ []
+
+\@mysp=\skip93
+\@myspinner=\skip94
+LaTeX Info: Redefining \textso on input line 402.
+LaTeX Info: Redefining \textso on input line 402.
+\@mysp=\skip95
+\@myspinner=\skip96
+LaTeX Info: Redefining \textso on input line 407.
+LaTeX Info: Redefining \textso on input line 407.
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--409
+\T2A/cmr/m/n/12 Ï ð è ä à í -í î ì ï î ä -õ î -ä å ñ î -õ ð à -í ÿ -å ò ñ è ì -
+ì å ò -ð è ÷ -í î ñ ò ü ì à ò -ð è -ö û ò å -ð ÿ -å ò -ñ ÿ . Ë è -á î , å ñ -ë 
+è
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 407--409
+\T2A/cmr/m/n/12 ñ è ì -ì å ò -ð è ÷ -í î ñ ò ü â à æ -í à , ì î æ -í î ï î -ñ ò
+ ó -ï è ò ü , ê à ê â ñ ë ó -÷ à å ñ ã ð à -í è ÷ -í û -ì è ó ñ ë î -â è -ÿ -
+ []
+
+[9{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 427.
+
+[10]
+\@mysp=\skip97
+\@myspinner=\skip98
+LaTeX Info: Redefining \textso on input line 438.
+LaTeX Info: Redefining \textso on input line 438.
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 []\T2A/cmr/m/n/12 Ì å -ò î -ä û ÷ è ñ -ë å í -í î -ã î à í à -ë è -ç à ì à -ò å
  -ì à -ò è -÷ å -ñ ê è õ ì î -ä å -ë å é  /  Ì .  Ï . Ã à -ë à -í è í ,
  []
@@ -1022,11 +1059,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 16044 strings out of 476025
- 255452 string characters out of 5796532
+ 16052 strings out of 476025
+ 255557 string characters out of 5796532
  1869388 words of memory out of 5000000
- 36132 multiletter control sequences out of 15000+600000
- 532915 words of font info for 81 fonts, out of 8000000 for 9000
+ 36138 multiletter control sequences out of 15000+600000
+ 533252 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,16n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
@@ -1045,10 +1082,10 @@ ic/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfr
 m1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr
 /share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-di
 st/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on kursovaya2.pdf (11 pages, 442683 bytes).
+Output written on kursovaya2.pdf (11 pages, 447378 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
  151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
