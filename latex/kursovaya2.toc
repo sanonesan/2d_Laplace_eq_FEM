@@ -9,6 +9,8 @@
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.2.\ }}}{\ignorespaces {Метод конечных элементов на треугольной сетке}}}{6}{section*.10}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.1.\ }}}{\ignorespaces {Триангуляция области}}}{6}{section*.11}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.2.\ }}}{\ignorespaces {Сборка глобальной матрицы жесткости}}}{7}{section*.12}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{9}{section*.14}%
-\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{9}{section*.15}%
-\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{10}{section*.17}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.3.\ }}}{\ignorespaces {Применение граничных условий первого рода}}}{8}{section*.14}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.4.\ }}}{\ignorespaces {Применение периодических граничных условий}}}{9}{section*.15}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{10}{section*.16}%
+\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{10}{section*.17}%
+\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{11}{section*.19}%
