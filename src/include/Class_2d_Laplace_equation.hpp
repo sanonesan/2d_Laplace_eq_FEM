@@ -58,33 +58,6 @@ class Class_2d_Laplace_equation{
             lap_eq._ind_dirichlet_lower_boundary_nodes.clear();
             lap_eq._ind_dirichlet_upper_boundary_nodes.clear();
 
-            // lap_eq._nodes.shrink_to_fit();
-            // lap_eq._polygons.shrink_to_fit();
-
-            // lap_eq._boundary_nodes.shrink_to_fit();
-            // lap_eq._left_boundary_nodes.shrink_to_fit();
-            // lap_eq._right_boundary_nodes.shrink_to_fit();
-            // lap_eq._dirichlet_lower_boundary_nodes.shrink_to_fit();
-            // lap_eq._dirichlet_upper_boundary_nodes.shrink_to_fit();
-
-            // lap_eq._ind_left_boundary_nodes.shrink_to_fit();
-            // lap_eq._ind_right_boundary_nodes.shrink_to_fit();
-            // lap_eq._ind_dirichlet_lower_boundary_nodes.shrink_to_fit();
-            // lap_eq._ind_dirichlet_upper_boundary_nodes.shrink_to_fit();
-            
-            //std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh001_rect";
-            // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh01";
-            // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh005";
-            // std::string path = "/home/san/Code/2d_Laplace_eq_FEM/meshes/mesh001";
-
-            // lap_eq._dirichlet_lower_boundary_condition = [](const T x, const T y){
-            //     return 10.;
-            // };
-
-            // lap_eq._dirichlet_upper_boundary_condition = [](const T x, const T y){
-            //     return 0.;
-            // };
-
 
             std::ifstream fin;
 
@@ -130,14 +103,7 @@ class Class_2d_Laplace_equation{
                 //std::cout << p1_p2_p3[0] << "\t" << p1_p2_p3[1] << "\t" << p1_p2_p3[2] << "\n";
             }            
             fin.close();
-            //check for 1 triangle element
-            // std::cout << lap_eq._polygons[0][0] << "\t" << lap_eq._polygons[0][1] << "\t" << lap_eq._polygons[0][2] << "\n";
-            // std::cout << lap_eq._nodes[lap_eq._polygons[0][0]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][0]][1] << "\n";
-            // std::cout << lap_eq._nodes[lap_eq._polygons[0][1]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][1]][1] << "\n";
-            // std::cout << lap_eq._nodes[lap_eq._polygons[0][2]][0] << "\t" << lap_eq._nodes[lap_eq._polygons[0][2]][1] << "\n";
-
-
-
+            
             //Reading boundary nodes (coordinates)
 
             fin.open(path + "/boundaries/mesh_boundary_nodes.txt");
@@ -171,13 +137,6 @@ class Class_2d_Laplace_equation{
                 lap_eq._right_boundary_nodes.push_back(x_y);
             }            
             fin.close();
-
-            // for(std::size_t i = 0; i < lap_eq._right_boundary_nodes.size(); ++i){
-            //     for(std::size_t j = 0; j < 2; ++j){
-            //         std::cout << lap_eq._right_boundary_nodes[i][j] << "\t";
-            //     }
-            //     std::cout << "\n";
-            // }
 
 
             fin.open(path + "/boundaries/mesh_lower_boundary_nodes.txt");
