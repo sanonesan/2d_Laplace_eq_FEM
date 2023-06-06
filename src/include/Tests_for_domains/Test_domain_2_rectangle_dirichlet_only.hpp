@@ -34,11 +34,11 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
             };
 
             this->_dirichlet_left_boundary_condition = [](const T x, const T y){
-                return 5. * y;
+                return 0.;
             };
 
             this->_dirichlet_right_boundary_condition = [](const T x, const T y){
-                return 5. * y;
+                return 0.;
             };
 
             this->Set_domain(*this, "../domains/domain_2/mesh001");

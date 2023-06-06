@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  5 JUN 2023 22:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  6 JUN 2023 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -796,27 +796,27 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 (./kursovaya2.aux)
 \openout1 = `kursovaya2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Info: Redefining \th on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Info: Redefining \th on input line 64.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: changepage package is loaded.
@@ -856,7 +856,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 
 (/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 67.
+Package hyperref Info: Link coloring ON on input line 64.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./style//emblema.pdf): PDF inclusion: f
@@ -864,16 +864,16 @@ ound PDF version <1.6>, but at most version <1.5> allowed
 <./style//emblema.pdf, id=4, 476.01839pt x 534.79799pt>
 File: ./style//emblema.pdf Graphic file (type pdf)
 <use ./style//emblema.pdf>
-Package pdftex.def Info: ./style//emblema.pdf  used on input line 69.
+Package pdftex.def Info: ./style//emblema.pdf  used on input line 66.
 (pdftex.def)             Requested size: 66.6421pt x 74.8712pt.
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -881,19 +881,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )<<t2a.cmap>>
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 69.
+(Font)              size <17.28> substituted on input line 66.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 69.
+(Font)              size <17.28> substituted on input line 66.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/it' in size <18> not available
-(Font)              size <17.28> substituted on input line 69.
+(Font)              size <17.28> substituted on input line 66.
 
 
 LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <18> not available
-(Font)              size <17.28> substituted on input line 69.
+(Font)              size <17.28> substituted on input line 66.
 
 [1
 
@@ -906,54 +906,54 @@ LaTeX Font Warning: Font shape `T2A/cmr/bx/it' in size <18> not available
  [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 76.
+(hyperref)                removing `\hss' on input line 73.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 79.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 82.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 85.
-
 \@mysp=\skip79
 \@myspinner=\skip80
-LaTeX Info: Redefining \textso on input line 86.
-LaTeX Info: Redefining \textso on input line 86.
+LaTeX Info: Redefining \textso on input line 83.
+LaTeX Info: Redefining \textso on input line 83.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 111.
+(hyperref)                removing `\hss' on input line 108.
 
 [3]
-<./illustr//illustr.pdf, id=79, 326.21875pt x 172.645pt>
+<./illustr//illustr.pdf, id=83, 326.21875pt x 172.645pt>
 File: ./illustr//illustr.pdf Graphic file (type pdf)
 <use ./illustr//illustr.pdf>
-Package pdftex.def Info: ./illustr//illustr.pdf  used on input line 127.
+Package pdftex.def Info: ./illustr//illustr.pdf  used on input line 124.
 (pdftex.def)             Requested size: 295.90587pt x 156.61455pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 130.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 133.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 136.
-
 [4 <./illustr//illustr.pdf>]
 \@mysp=\skip81
 \@myspinner=\skip82
-LaTeX Info: Redefining \textso on input line 157.
-LaTeX Info: Redefining \textso on input line 157.
+LaTeX Info: Redefining \textso on input line 154.
+LaTeX Info: Redefining \textso on input line 154.
 \@mysp=\skip83
 \@myspinner=\skip84
-LaTeX Info: Redefining \textso on input line 162.
-LaTeX Info: Redefining \textso on input line 162.
+LaTeX Info: Redefining \textso on input line 159.
+LaTeX Info: Redefining \textso on input line 159.
 \@mysp=\skip85
 \@myspinner=\skip86
-LaTeX Info: Redefining \textso on input line 195.
-LaTeX Info: Redefining \textso on input line 195.
+LaTeX Info: Redefining \textso on input line 192.
+LaTeX Info: Redefining \textso on input line 192.
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--196
+Underfull \hbox (badness 10000) in paragraph at lines 190--193
 \T2A/cmr/m/n/12 окон-ча-тель-но по-лу-чим —Ћј” дл€ опре-де-ле-ни€ неиз-вест-ных
  ко-эф-фи-ци-ен-тов
  []
@@ -961,25 +961,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--196
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 211.
+(hyperref)                removing `\hss' on input line 208.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 213.
+(hyperref)                removing `\hss' on input line 210.
 
 \@mysp=\skip87
 \@myspinner=\skip88
-LaTeX Info: Redefining \textso on input line 215.
-LaTeX Info: Redefining \textso on input line 215.
+LaTeX Info: Redefining \textso on input line 212.
+LaTeX Info: Redefining \textso on input line 212.
 
-Underfull \hbox (badness 5022) in paragraph at lines 215--216
+Underfull \hbox (badness 5022) in paragraph at lines 212--213
 []\T2A/cmr/m/n/12 « а -д а -д и м в н а -ш е й о б -л а -с т и [] п р а -в и л 
 ь -н у ю т р и -а н -г у -л € -ц и ю [] , т . е . т а -к о е р а з -б и -е -н и
  е
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 \T2A/cmr/m/n/12 о б -л а -с т и [] н а т р е -у г о л ь -н ы е € ч е й -к и , ч
  т о л ю -б ы е д в а т р е -у г о л ь -н и -к а и м е -ю т л и -б о о б -щ е е
 
@@ -988,28 +988,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--216
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 301.
+(hyperref)                removing `\hss' on input line 298.
 
 [7{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 374.
+(hyperref)                removing `\hss' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 390.
+(hyperref)                removing `\hss' on input line 387.
 
 [8]
 \@mysp=\skip89
 \@myspinner=\skip90
-LaTeX Info: Redefining \textso on input line 397.
-LaTeX Info: Redefining \textso on input line 397.
+LaTeX Info: Redefining \textso on input line 394.
+LaTeX Info: Redefining \textso on input line 394.
 \@mysp=\skip91
 \@myspinner=\skip92
-LaTeX Info: Redefining \textso on input line 398.
-LaTeX Info: Redefining \textso on input line 398.
+LaTeX Info: Redefining \textso on input line 395.
+LaTeX Info: Redefining \textso on input line 395.
 
-Underfull \hbox (badness 2189) in paragraph at lines 396--399
+Underfull \hbox (badness 2189) in paragraph at lines 393--396
 \T2A/cmr/m/n/12 н о й о б -л а -с т и , ч т о к о -л и -ч е -с т в о у з -л о в
  н а л е -в о й и п р а -в о й г р а -н и -ц а х б у -д е т о д и -н а -к о -в 
 о , т . е .
@@ -1017,65 +1017,148 @@ Underfull \hbox (badness 2189) in paragraph at lines 396--399
 
 \@mysp=\skip93
 \@myspinner=\skip94
-LaTeX Info: Redefining \textso on input line 406.
-LaTeX Info: Redefining \textso on input line 406.
+LaTeX Info: Redefining \textso on input line 403.
+LaTeX Info: Redefining \textso on input line 403.
 \@mysp=\skip95
 \@myspinner=\skip96
-LaTeX Info: Redefining \textso on input line 411.
-LaTeX Info: Redefining \textso on input line 411.
+LaTeX Info: Redefining \textso on input line 408.
+LaTeX Info: Redefining \textso on input line 408.
 
-Underfull \hbox (badness 2591) in paragraph at lines 411--413
+Underfull \hbox (badness 2591) in paragraph at lines 408--410
 \T2A/cmr/m/n/12 ќ д -н а -к о , п р и д а н -н о м п о д -х о -д е с и м -м е т
  -р и ч -н о с т ь м а т -р и -ц ы с и -с т е -м ы т е -р € -е т -с € . ≈ с -л 
 и
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 411--413
+Underfull \hbox (badness 1137) in paragraph at lines 408--410
 \T2A/cmr/m/n/12 с и м -м е т -р и ч -н о с т ь в а ж -н а , м о ж -н о п о -с т
  у -п и т ь , к а к в с л у -ч а е с г р а -н и ч -н ы -м и у с л о -в и -€ -
  []
 
 \@mysp=\skip97
 \@myspinner=\skip98
-LaTeX Info: Redefining \textso on input line 417.
-LaTeX Info: Redefining \textso on input line 417.
+LaTeX Info: Redefining \textso on input line 414.
+LaTeX Info: Redefining \textso on input line 414.
 
-Underfull \hbox (badness 6675) in paragraph at lines 417--418
+Underfull \hbox (badness 7631) in paragraph at lines 414--415
 \T2A/cmr/m/n/12 ¬ р е -з у л ь -т а -т е р а з -м е р р е -ш а -е -м о й с и -с
- т е -м ы у м е н ь -ш и л -с € н а е д и -н и -ц у , а у с л о -в и е []
+ т е -м ы у м е н ь -ш и т -с € н а е д и -н и -ц у , а у с л о -в и е []
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 416.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hss' on input line 418.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 418.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.95827pt
+(hyperref)                removed on input line 418.
+
+\@mysp=\skip99
+\@myspinner=\skip100
+LaTeX Info: Redefining \textso on input line 421.
+LaTeX Info: Redefining \textso on input line 421.
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+[]\T2A/cmr/m/n/12 ƒ л € п р о -в е р -к и а л -г о -р и т -м а , р а с -с м о т
+ -р и м е г о р а -б о -т у н а п р и -м е -р е з а -д а -ч и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+\T2A/cmr/m/n/12 д л € к о -т о -р о й р е -ш е -н и е и з -в е с т -н о : п о -
+и с к п о -т е н -ц и -а -л а в п р € -м о -у г о л ь -н о й о б -л а -с т и
  []
 
 [9]
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.png, 
+id=152, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.
+png Graphic file (type png)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.p
+ng>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_exact_sol.png  used on input line 438.
+(pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
+ [10 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.
+png>]
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pdf, id
+=161, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pd
+f Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pdf
+>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_005_net.pdf  used on input line 454.
+(pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf, id
+=162, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pd
+f Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf
+>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_001_net.pdf  used on input line 461.
+(pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pdf, i
+d=163, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.p
+df Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pd
+f>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_0001_net.pdf  used on input line 468.
+(pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png, id=164
+, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png Gr
+aphic file (type png)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_005.png  used on input line 486.
+(pdftex.def)             Requested size: 318.66946pt x 169.96022pt.
+ [11 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pd
+f> <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf>
+ <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pdf> 
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png>] [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 431.
+(hyperref)                removing `\hss' on input line 519.
 
-[10]
-\@mysp=\skip99
-\@myspinner=\skip100
-LaTeX Info: Redefining \textso on input line 442.
-LaTeX Info: Redefining \textso on input line 442.
+[13]
+\@mysp=\skip101
+\@myspinner=\skip102
+LaTeX Info: Redefining \textso on input line 530.
+LaTeX Info: Redefining \textso on input line 530.
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--444
+Underfull \hbox (badness 10000) in paragraph at lines 530--532
 []\T2A/cmr/m/n/12 √ а -л а -н и н , ћ . ѕ . ћ е -т о -д ы ч и с -л е н -н о -г 
 о а н а -л и -з а м а -т е -м а -т и -ч е -с к и х м о -д е -
  []
 
-[11] (./kursovaya2.aux)
+[14] (./kursovaya2.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 16052 strings out of 476025
- 255543 string characters out of 5796532
- 1870388 words of memory out of 5000000
- 36138 multiletter control sequences out of 15000+600000
- 533252 words of font info for 82 fonts, out of 8000000 for 9000
+ 16116 strings out of 476025
+ 258773 string characters out of 5796532
+ 1873388 words of memory out of 5000000
+ 36184 multiletter control sequences out of 15000+600000
+ 534122 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 90i,15n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/publi
@@ -1090,11 +1173,12 @@ pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share
 ts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public
 /cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1
 095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on kursovaya2.pdf (11 pages, 442491 bytes).
+hare/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist
+/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on kursovaya2.pdf (14 pages, 1083293 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 
