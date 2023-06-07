@@ -13,6 +13,6 @@
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.4.\ }}}{\ignorespaces {Применение периодических граничных условий}}}{9}{section*.14}%
 \contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Примеры решения задачи}}}}}{10}{section*.15}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.1.\ }}}{\ignorespaces {Задача №\,1}}}{10}{section*.16}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{13}{section*.21}%
-\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{13}{section*.22}%
-\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{14}{section*.24}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{13}{section*.23}%
+\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{13}{section*.24}%
+\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{14}{section*.26}%

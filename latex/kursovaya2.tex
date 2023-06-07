@@ -427,10 +427,11 @@
 					\end{cases}
 				\end{equation*}
 				Точное решение этой задачи:
-				\begin{equation*}
+				\begin{equation}
 					\displaystyle
 					\varphi\left(x, y\right) = \sum_{n = 1}^{\infty} \dfrac{20 \left(1 - (-1)^n \right)}{\pi n \left[ exp\left({-\dfrac{\pi n}{2}}\right) - exp\left({\dfrac{\pi n}{2}}\right)  \right]} \left[ exp\left({-\dfrac{\pi n}{4}} y \right) -  exp\left({\dfrac{\pi n}{4}} y \right)  \right] \sin{\left( \dfrac{\pi n}{4} x \right)}
-				\end{equation*}	
+					\label{exact_solution}
+				\end{equation}	
 				
 				Естественно, все члены ряда вычислить не получится, ограничимся первыми 250. Тогда точное решение в области $\left[ 0 , 4\right] \times  \left[ 0 , 2\right]$ выглядит как на рис.~2.
 				\begin{figure*}[!h]
@@ -463,7 +464,7 @@
 							\end{minipage}                                 
 						} 
 						{ 
-							\begin{minipage}{0.8\textwidth} 
+							\begin{minipage}{0.6\textwidth} 
 								\centering 
 								\includegraphics[width=1\columnwidth]{rect_dirichlet_only_0001_net.pdf}\\ 
 								\textit{c} 
@@ -479,12 +480,15 @@
 					} 
 				\end{figure}
 			
-			\noindent	
+			\noindent
+			%Для более точного исследования погрешности метода, для вычисления значений на границах области будет использоваться точное решение (\refeq{exact_solution}).
+			
 			Решение задачи №\,1 при разбиение $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$ выглядит следующим образом: 
+			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=0.7\textwidth]{rect_dirichlet_only_005.png}
-				\caption{Иллюстрация области, в которой будет решаться задача}
+				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_005.png}
+				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$}
 				\label{fig:dom_rect_005}
 			\end{figure*}
 			
@@ -504,43 +508,109 @@
 					\hline
 					40
 					& 1.92249706
-					& 1.89674353 
-					& 0.02575353
-					& 0.01339587	\\
+					& 1.89671349
+					& 0.02578357
+					& 0.0134115	\\
 					
 					\hline
 					60
 					& 5.04479917
-					& 5.08829754
-					& 0.04349837
-					& 0.00862242	\\ 
+					& 4.36588939
+					& 0.67890978
+					& 0.13457618	\\ 
 					
 					\hline
 					80
 					& 1.02955191
-					& 1.20369815
-					& 0.17414624
-					& 0.16914761	\\ 
+					& 1.20047438
+					& 0.17092247
+					& 0.16601637	\\ 
 									
 					\hline
 					100
 					& 0.69845106
-					& 0.84286641
-					& 0.14441539    
-					& 0.20676524	\\
+					& 0.83962825
+					& 0.14117723    
+					& 0.20212904	\\
 					\hline
 					140
 					& 8.41313988    
-					& 8.41729655    
-					& 0.00415667
-					& 0.00049407	\\
+					& 8.38443712    
+					& 0.02870276
+					& 0.00341166	\\
 					\hline
 				\end{tabular}				
 			\end{table}		
+			\vspace*{-12mm}
 				
 			\noindent
-			Среднее значение абсолютной погрешности: 0.14481588.\\
-			Среднее значение относительной погрешности: 0.26246744.
+			Среднее значение абсолютной погрешности: 	0.2409948.\\
+			Среднее значение относительной погрешности: 0.14326178.
+			
+			
+			Решение задачи №\,1 при разбиение $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$ выглядит следующим образом: 
+			\vspace*{-5mm}
+			\begin{figure*}[!h]
+				\centering
+				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_001.png}
+				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$}
+				\label{fig:dom_rect_001}
+			\end{figure*}
+			\vspace*{-5mm}
+			\noindent
+			\begin{table}[!h]
+				\centering
+				\caption{\label{table_comparison_001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$  задачи №\,1}
+				\vspace*{2mm}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					Узел №
+					& Точное решение
+					& Приближенное решение 
+					& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
+					& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 				
+					
+					\hline
+					40
+					& 1.92249706
+					& 1.89671349
+					& 0.02578357
+					& 0.0134115	\\
+					
+					\hline
+					60
+					& 5.04479917
+					& 4.36588939
+					& 0.67890978
+					& 0.13457618	\\ 
+					
+					\hline
+					80
+					& 1.02955191
+					& 1.20047438
+					& 0.17092247
+					& 0.16601637	\\ 
+					
+					\hline
+					100
+					& 0.69845106
+					& 0.83962825
+					& 0.14117723    
+					& 0.20212904	\\
+					\hline
+					140
+					& 8.41313988    
+					& 8.38443712    
+					& 0.02870276
+					& 0.00341166	\\
+					\hline
+				\end{tabular}				
+			\end{table}		
+			\vspace*{-5mm}
+			
+			\noindent
+			Среднее значение абсолютной погрешности: 	0.2409948.\\
+			Среднее значение относительной погрешности: 0.14326178.
 			
 			
 			

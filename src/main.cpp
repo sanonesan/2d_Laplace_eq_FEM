@@ -46,14 +46,14 @@ int main(int args, char **argv){
     // solver.file_name = test1._name;
     // solver.solve_eq(test1);
 
-    test1.Set_mesh_001();
-    solver.output_folder = "../output/domain_1/mesh001/";
-    solver.file_name = test1._name;
-    solver.solve_eq(test1);
+    // test1.Set_mesh_001();
+    // solver.output_folder = "../output/domain_1/mesh001/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq(test1);
 
-    solver.output_folder = "../output/domain_1/mesh001_1/";
-    solver.file_name = test1._name;
-    solver.solve_eq_mod(test1);
+    // solver.output_folder = "../output/domain_1/mesh001_1/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq_mod(test1);
 
     
 
@@ -68,6 +68,7 @@ int main(int args, char **argv){
     // solver.solve_eq(test3);
 
     Test_domain_2_rectangle_dirichlet_only<T> test4;
+
     test4.Set_mesh_005();
     solver.output_folder = "../output/domain_2_extra/mesh005/";
     solver.file_name = test4._name;
