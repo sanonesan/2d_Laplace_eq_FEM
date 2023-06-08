@@ -75,7 +75,7 @@ void scheme_2d_Laplace_equation(
         for(std::size_t i = 0; i < 3; ++i){
             for(std::size_t j = i; j < 3; ++j){     
                 // Integral[ \nabla \phi_i * \nabla \phi_j, over triangle]
-                local_stiffness_matrix[i][j] = - S_el * ( (el.y[ind_shift(i+1)] - el.y[ind_shift(i+2)]) * (el.y[ind_shift(j+1)] - el.y[ind_shift(j+2)]) + (el.x[ind_shift(i+2)] - el.x[ind_shift(i+1)]) * (el.x[ind_shift(j+2)] - el.x[ind_shift(j+1)]));
+                local_stiffness_matrix[i][j] = S_el * ( (el.y[ind_shift(i+1)] - el.y[ind_shift(i+2)]) * (el.y[ind_shift(j+1)] - el.y[ind_shift(j+2)]) + (el.x[ind_shift(i+2)] - el.x[ind_shift(i+1)]) * (el.x[ind_shift(j+2)] - el.x[ind_shift(j+1)]));
                 
                 //output if needed
                 if (output_stiffness_matricies_bool) fout << local_stiffness_matrix[i][j] << "\t";
