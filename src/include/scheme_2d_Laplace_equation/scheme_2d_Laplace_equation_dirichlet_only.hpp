@@ -13,7 +13,6 @@
 
 
 
-
 template<typename T>
 void scheme_2d_Laplace_equation_dirichlet_only(
     const Class_2d_Laplace_equation<T>& laplace_eq, 
@@ -28,7 +27,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     std::vector<T> solution(laplace_eq._nodes.size());
 
 
-    fout << std::scientific;
+    //fout << std::scientific;
     fout << std::setprecision(8);
 
     if (output_stiffness_matricies_bool)
@@ -58,6 +57,11 @@ void scheme_2d_Laplace_equation_dirichlet_only(
 
     for(std::size_t k = 0; k < laplace_eq._polygons.size(); ++k){
 
+        if (output_stiffness_matricies_bool) fout << k << ":\n";
+
+        el.x.clear();
+        el.y.clear();
+        el.poly.clear();
         // Reading triangle element (its coordinates && polygons in global nodes vector)
         for(std::size_t i = 0; i < 3; ++i){
             el.x.push_back( laplace_eq._nodes[laplace_eq._polygons[k][i]][0] );
@@ -67,21 +71,27 @@ void scheme_2d_Laplace_equation_dirichlet_only(
 
         // Find square of triangle element
         S_el = ((el.x[1] - el.x[0]) * (el.y[2] - el.y[0]) - (el.x[2] - el.x[0]) * (el.y[1] - el.y[0])) / 2;
-        
+        //S_el = 1 / 2. * ( el.x[0] * (el.y[1] - el.y[2]) +  el.x[1] * (el.y[2] - el.y[0]) +  el.x[2] * (el.y[0] - el.y[1]));
         // Transformation for the next formula (for numerial integral over the triangle)
-        S_el *= 4. * S_el;
+        S_el = 1 / ( 4. * S_el );
         
         for(std::size_t i = 0; i < 3; ++i){
-            for(std::size_t j = 0; j < 3; ++j){     
+            for(std::size_t j = i; j < 3; ++j){     
                 // Integral[ \nabla \phi_i * \nabla \phi_j, over triangle]
                 local_stiffness_matrix[i][j] = S_el * ( (el.y[ind_shift(i+1)] - el.y[ind_shift(i+2)]) * (el.y[ind_shift(j+1)] - el.y[ind_shift(j+2)]) + (el.x[ind_shift(i+2)] - el.x[ind_shift(i+1)]) * (el.x[ind_shift(j+2)] - el.x[ind_shift(j+1)]));
+                
                 //output if needed
                 if (output_stiffness_matricies_bool) fout << local_stiffness_matrix[i][j] << "\t";
                 // Parallel assemble of full_stiffness matrix
                 full_stiffness_matrix[laplace_eq._polygons[k][i]][laplace_eq._polygons[k][j]] += local_stiffness_matrix[i][j];
+                if (i != j) {
+                    local_stiffness_matrix[j][i] = local_stiffness_matrix[i][j];
+                    full_stiffness_matrix[laplace_eq._polygons[k][j]][laplace_eq._polygons[k][i]] += local_stiffness_matrix[i][j];
+                }
             }
             if (output_stiffness_matricies_bool) fout << "\n";
         }
+
         if (output_stiffness_matricies_bool) fout << "\n";
     }
     fout.close();
@@ -111,25 +121,25 @@ void scheme_2d_Laplace_equation_dirichlet_only(
      * from full_stiffness_matrix (new reduced_matrix will be assembled)
     */
 
-    for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
+    for(std::size_t i = 0; i < full_b.size(); ++i){
         for(auto it = laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_lower_boundary_nodes.end(); ++it){
             solution[*it] = laplace_eq._dirichlet_lower_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
             full_b[i] -= full_stiffness_matrix[i][*it] * solution[*it];
         }
     }
-    for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
+    for(std::size_t i = 0; i < full_b.size(); ++i){
         for(auto it = laplace_eq._ind_dirichlet_upper_boundary_nodes.begin(); it != laplace_eq._ind_dirichlet_upper_boundary_nodes.end(); ++it){
             solution[*it] = laplace_eq._dirichlet_upper_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
             full_b[i] -= full_stiffness_matrix[i][*it] * solution[*it];
         }
     }
-    for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
+    for(std::size_t i = 0; i < full_b.size(); ++i){
         for(auto it = laplace_eq._ind_left_boundary_nodes.begin(); it != laplace_eq._ind_left_boundary_nodes.end(); ++it){
             solution[*it] = laplace_eq._dirichlet_left_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
             full_b[i] -= full_stiffness_matrix[i][*it] * solution[*it];
         }
     }
-    for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
+    for(std::size_t i = 0; i < full_b.size(); ++i){
         for(auto it = laplace_eq._ind_right_boundary_nodes.begin(); it != laplace_eq._ind_right_boundary_nodes.end(); ++it){
             solution[*it] = laplace_eq._dirichlet_right_boundary_condition(laplace_eq._nodes[*it][0], laplace_eq._nodes[*it][1]);
             full_b[i] -= full_stiffness_matrix[i][*it] * solution[*it];
@@ -175,7 +185,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     
     auto check_it_ind = std::find(laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(), laplace_eq._ind_dirichlet_lower_boundary_nodes.end(), 0);
     
-    for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i){
+    for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i)   {
         check_it_ind = std::find(laplace_eq._ind_dirichlet_lower_boundary_nodes.begin(), laplace_eq._ind_dirichlet_lower_boundary_nodes.end(), i);
         
         if (check_it_ind == laplace_eq._ind_dirichlet_lower_boundary_nodes.end()){
@@ -276,11 +286,12 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     Eigen::BiCGSTAB<SpMat> solver;
     //Eigen::LeastSquaresConjugateGradient<SpMat> solver;
     //Eigen::SparseLU<SpMat> solver;
+    //Eigen::SimplicialLDLT<SpMat> solver;
 
     // Compute and solve (Eigen logic)
     solver.compute(sparse_matrix);
     sparse_solution = solver.solve(RHS_vec);
-
+    
     /**
      * Assembling full solution (in each node)
      * 
@@ -289,6 +300,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     for(std::size_t i = 0; i < reduced_sys_size; ++i){
         solution[nodes_ind_4_reduced_matrix[i]] = sparse_solution[i];
     }
+    
     //setting nodes with periodic boundaries
     // for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
     //     solution[(*it).second] = solution[(*it).first];

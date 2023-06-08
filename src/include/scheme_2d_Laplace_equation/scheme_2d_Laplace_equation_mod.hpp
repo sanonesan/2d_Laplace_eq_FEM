@@ -55,6 +55,11 @@ void scheme_2d_Laplace_equation_mod(
 
     for(std::size_t k = 0; k < laplace_eq._polygons.size(); ++k){
 
+        if (output_stiffness_matricies_bool) fout << k << ":\n";
+
+        el.x.clear();
+        el.y.clear();
+        el.poly.clear();
         // Reading triangle element (its coordinates && polygons in global nodes vector)
         for(std::size_t i = 0; i < 3; ++i){
             el.x.push_back( laplace_eq._nodes[laplace_eq._polygons[k][i]][0] );
@@ -64,21 +69,27 @@ void scheme_2d_Laplace_equation_mod(
 
         // Find square of triangle element
         S_el = ((el.x[1] - el.x[0]) * (el.y[2] - el.y[0]) - (el.x[2] - el.x[0]) * (el.y[1] - el.y[0])) / 2;
-        
+        //S_el = 1 / 2. * ( el.x[0] * (el.y[1] - el.y[2]) +  el.x[1] * (el.y[2] - el.y[0]) +  el.x[2] * (el.y[0] - el.y[1]));
         // Transformation for the next formula (for numerial integral over the triangle)
-        S_el *= 4. * S_el;
+        S_el = 1 / ( 4. * S_el );
         
         for(std::size_t i = 0; i < 3; ++i){
-            for(std::size_t j = 0; j < 3; ++j){     
+            for(std::size_t j = i; j < 3; ++j){     
                 // Integral[ \nabla \phi_i * \nabla \phi_j, over triangle]
                 local_stiffness_matrix[i][j] = S_el * ( (el.y[ind_shift(i+1)] - el.y[ind_shift(i+2)]) * (el.y[ind_shift(j+1)] - el.y[ind_shift(j+2)]) + (el.x[ind_shift(i+2)] - el.x[ind_shift(i+1)]) * (el.x[ind_shift(j+2)] - el.x[ind_shift(j+1)]));
+                
                 //output if needed
                 if (output_stiffness_matricies_bool) fout << local_stiffness_matrix[i][j] << "\t";
                 // Parallel assemble of full_stiffness matrix
                 full_stiffness_matrix[laplace_eq._polygons[k][i]][laplace_eq._polygons[k][j]] += local_stiffness_matrix[i][j];
+                if (i != j) {
+                    local_stiffness_matrix[j][i] = local_stiffness_matrix[i][j];
+                    full_stiffness_matrix[laplace_eq._polygons[k][j]][laplace_eq._polygons[k][i]] += local_stiffness_matrix[i][j];
+                }
             }
             if (output_stiffness_matricies_bool) fout << "\n";
         }
+
         if (output_stiffness_matricies_bool) fout << "\n";
     }
     fout.close();
