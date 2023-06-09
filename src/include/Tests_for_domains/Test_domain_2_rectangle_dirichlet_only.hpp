@@ -129,6 +129,13 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
             return *this;
         }
 
+        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_00005_calfem(){
+
+            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_00005_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh00005_calfem");
+            return *this;
+        }
+
         Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_00008(){
 
             this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_00008");
