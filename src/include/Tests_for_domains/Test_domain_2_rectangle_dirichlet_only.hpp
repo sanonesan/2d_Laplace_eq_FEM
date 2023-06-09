@@ -30,9 +30,11 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
             auto exact_solution = [](T x, T y, std::size_t row_num_el = 350) -> T {
                 T res = 0.;
                 for (std::size_t n = 1; n < row_num_el + 1; ++n) {
-                    res += 20 * (1 - cos(M_PI * n)) / M_PI / n / (exp(- M_PI * n / 2) - exp( M_PI * n / 2)) 
-                            * (exp(- M_PI * n / 4 * y) - exp( M_PI * n / 4 * y)) * sin(M_PI * n / 4 * x);
-                    }
+                    if ((n % 2) != 0 ) {
+                        res += 20 * (1 - cos(M_PI * n)) / M_PI / n / (exp(- M_PI * n / 2) - exp( M_PI * n / 2)) 
+                                * (exp(- M_PI * n / 4 * y) - exp( M_PI * n / 4 * y)) * sin(M_PI * n / 4 * x);
+                        }
+                    }                        
                 if (fabs(res) < 1e-15) return 0;
                                 
                 return res;
@@ -85,13 +87,12 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
             return *this;
         }
 
-        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_005_test(){
+        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_005_calfem(){
 
-            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_005_test");
-            this->Set_domain(*this, "../domains/domain_2/mesh005_test");
+            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_005_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh005_calfem");
             return *this;
         }
-
 
         Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_001(){
 
@@ -100,10 +101,31 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
             return *this;
         }
 
+        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_001_calfem(){
+
+            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_001_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh001_calfem");
+            return *this;
+        }
+
+        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_0005_calfem(){
+
+            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_0005_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh0005_calfem");
+            return *this;
+        }
+
         Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_0001(){
 
             this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_0001");
             this->Set_domain(*this, "../domains/domain_2/mesh0001");
+            return *this;
+        }
+
+        Test_domain_2_rectangle_dirichlet_only<T> Set_mesh_0001_calfem(){
+
+            this->_name = std::string ("Test_domain_2_rectangle_dirichlet_only_0001_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh0001_calfem");
             return *this;
         }
 

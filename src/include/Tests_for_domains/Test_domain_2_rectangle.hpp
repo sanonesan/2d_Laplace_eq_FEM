@@ -43,17 +43,17 @@ class Test_domain_2_rectangle: virtual public Class_2d_Laplace_equation<T>{
             return *this;
         }
 
-        Test_domain_2_rectangle<T> Set_mesh_005_test(){
-
-            this->_name = std::string ("Test_domain_2_rectangle_005_test");
-            this->Set_domain(*this, "../domains/domain_2/mesh005_test");
-            return *this;
-        }
-
         Test_domain_2_rectangle<T> Set_mesh_001(){
 
             this->_name = std::string ("Test_domain_2_rectangle_001");
             this->Set_domain(*this, "../domains/domain_2/mesh001");
+            return *this;
+        }
+
+        Test_domain_2_rectangle<T> Set_mesh_0005_calfem(){
+
+            this->_name = std::string ("Test_domain_2_rectangle_0005_calfem");
+            this->Set_domain(*this, "../domains/domain_2/mesh0005_calfem");
             return *this;
         }
 

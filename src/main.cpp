@@ -30,27 +30,27 @@ int main(int args, char **argv){
 
     t_start  = clock();
 
-    Test_domain_1_sin<T> test1;
+    // Test_domain_1_sin<T> test1;
 
-    test1.Set_mesh_01();
-    solver.output_folder = "../output/domain_1/mesh01/";
-    solver.file_name = test1._name;
-    solver.solve_eq(test1);
+    // test1.Set_mesh_01();
+    // solver.output_folder = "../output/domain_1/mesh01/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq(test1);
 
-    test1.Set_mesh_005();
-    solver.output_folder = "../output/domain_1/mesh005/";
-    solver.file_name = test1._name;
-    solver.solve_eq(test1);
+    // test1.Set_mesh_005();
+    // solver.output_folder = "../output/domain_1/mesh005/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq(test1);
 
-    test1.Set_mesh_001();
-    solver.output_folder = "../output/domain_1/mesh001/";
-    solver.file_name = test1._name;
-    solver.solve_eq(test1);       
+    // test1.Set_mesh_001();
+    // solver.output_folder = "../output/domain_1/mesh001/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq(test1);       
 
-    test1.Set_mesh_0001();
-    solver.output_folder = "../output/domain_1/mesh0001/";
-    solver.file_name = test1._name;
-    solver.solve_eq(test1);
+    // test1.Set_mesh_0001();
+    // solver.output_folder = "../output/domain_1/mesh0001/";
+    // solver.file_name = test1._name;
+    // solver.solve_eq(test1);
 
 
     /*
@@ -63,13 +63,13 @@ int main(int args, char **argv){
     // solver.file_name = test2._name;
     // solver.solve_eq(test2);
 
-    // test2.Set_mesh_005_test();    
-    // solver.output_folder = "../output/domain_2/mesh005_test/";
+    // test2.Set_mesh_005_calfem();    
+    // solver.output_folder = "../output/domain_2/mesh005_calfem/";
     // solver.file_name = test2._name;
     // solver.solve_eq(test2);
 
     // test2.Set_mesh_001();    
-    // solver.output_folder = "../output/domain_2/mesh001_test/";
+    // solver.output_folder = "../output/domain_2/mesh001_calfem/";
     // solver.file_name = test2._name;
     // solver.solve_eq(test2);
 
@@ -103,38 +103,52 @@ int main(int args, char **argv){
 
 
 
-    // Test_domain_2_rectangle_dirichlet_only<T> test4;
+    Test_domain_2_rectangle_dirichlet_only<T> test4;
 
-    // test4.Set_mesh_005();
-    // solver.output_folder = "../output/domain_2_extra/mesh005/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_005();
+    solver.output_folder = "../output/domain_2_extra/mesh005/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
-    // test4.Set_mesh_005_test();
-    // solver.output_folder = "../output/domain_2_extra/mesh005_test/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_005_calfem();
+    solver.output_folder = "../output/domain_2_extra/mesh005_calfem/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
+    test4.Set_mesh_001();
+    solver.output_folder = "../output/domain_2_extra/mesh001/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
-    // test4.Set_mesh_001();
-    // solver.output_folder = "../output/domain_2_extra/mesh001/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_001_calfem();
+    solver.output_folder = "../output/domain_2_extra/mesh001_calfem/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
-    // test4.Set_mesh_0001();
-    // solver.output_folder = "../output/domain_2_extra/mesh0001/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_0005_calfem();
+    solver.output_folder = "../output/domain_2_extra/mesh0005_calfem/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
-    // test4.Set_mesh_00008();
-    // solver.output_folder = "../output/domain_2_extra/mesh00008/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_0001();
+    solver.output_folder = "../output/domain_2_extra/mesh0001/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
-    // test4.Set_mesh_00008_s();
-    // solver.output_folder = "../output/domain_2_extra/mesh00008_s/";
-    // solver.file_name = test4._name;
-    // solver.solve_eq_testing(test4);
+    test4.Set_mesh_0001_calfem();
+    solver.output_folder = "../output/domain_2_extra/mesh0001_calfem/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
+
+    test4.Set_mesh_00008();
+    solver.output_folder = "../output/domain_2_extra/mesh00008/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
+
+    test4.Set_mesh_00008_s();
+    solver.output_folder = "../output/domain_2_extra/mesh00008_s/";
+    solver.file_name = test4._name;
+    solver.solve_eq_dirichlet_only(test4);
 
     
 

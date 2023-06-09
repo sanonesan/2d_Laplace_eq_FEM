@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  9 JUN 2023 00:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  9 JUN 2023 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,93 +1091,126 @@ let_only_exact_sol.png  used on input line 439.
 (pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
  [10 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.
 png>]
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pdf, id
-=162, 542.025pt x 289.08pt>
-File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pd
-f Graphic file (type pdf)
-<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pdf
->
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_net.
+pdf, id=162, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem
+_net.pdf Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_
+net.pdf>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_005_net.pdf  used on input line 455.
+let_only_005_calfem_net.pdf  used on input line 456.
 (pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf, id
-=163, 542.025pt x 289.08pt>
-File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pd
-f Graphic file (type pdf)
-<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf
->
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_net.
+pdf, id=163, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem
+_net.pdf Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_
+net.pdf>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001_net.pdf  used on input line 462.
+let_only_001_calfem_net.pdf  used on input line 463.
 (pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pdf, i
-d=164, 542.025pt x 289.08pt>
-File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.p
-df Graphic file (type pdf)
-<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pd
-f>
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem_net
+.pdf, id=164, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfe
+m_net.pdf Graphic file (type pdf)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
+_net.pdf>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_0001_net.pdf  used on input line 469.
-(pdftex.def)             Requested size: 273.14922pt x 145.68208pt.
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png, id=165
-, 542.025pt x 289.08pt>
-File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png Gr
-aphic file (type png)
-<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png>
+let_only_0001_calfem_net.pdf  used on input line 470.
+(pdftex.def)             Requested size: 409.71689pt x 218.52092pt.
+ [11 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem
+_net.pdf> <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_c
+alfem_net.pdf> <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_
+0001_calfem_net.pdf>]
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.png,
+ id=174, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem
+.png Graphic file (type png)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.
+png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_005.png  used on input line 490.
+let_only_005_calfem.png  used on input line 493.
 (pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
 
-Overfull \hbox (8.98518pt too wide) in paragraph at lines 500--543
+Overfull \hbox (8.98518pt too wide) in paragraph at lines 503--552
  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 554--561
 
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001.png, id=166
-, 542.025pt x 289.08pt>
-File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001.png Gr
-aphic file (type png)
-<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001.png>
+ []
+
+[12 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.
+png>]
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.png,
+ id=182, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem
+.png Graphic file (type png)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.
+png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001.png  used on input line 555.
+let_only_001_calfem.png  used on input line 569.
 (pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
 
-Overfull \hbox (8.98518pt too wide) in paragraph at lines 565--608
+Overfull \hbox (8.98518pt too wide) in paragraph at lines 580--629
  [][] 
  []
 
-[11 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_net.pdf
-> <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pdf> 
-<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_net.pdf> <
-./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005.png>]
-[12 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 632--639
+
+ []
+
+[13 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.
+png>]
+<./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem.png
+, id=191, 542.025pt x 289.08pt>
+File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfe
+m.png Graphic file (type png)
+<use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
+.png>
+Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
+let_only_0001_calfem.png  used on input line 647.
+(pdftex.def)             Requested size: 364.19664pt x 194.24278pt.
+
+Overfull \hbox (8.98518pt too wide) in paragraph at lines 658--707
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--717
+
+ []
+
+[14 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
+.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 623.
+(hyperref)                removing `\hss' on input line 725.
 
-[13]
+[15]
 \@mysp=\skip101
 \@myspinner=\skip102
-LaTeX Info: Redefining \textso on input line 634.
-LaTeX Info: Redefining \textso on input line 634.
+LaTeX Info: Redefining \textso on input line 736.
+LaTeX Info: Redefining \textso on input line 736.
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--636
+Underfull \hbox (badness 10000) in paragraph at lines 736--738
 []\T2A/cmr/m/n/12 Ã à -ë à -í è í , Ì . Ï . Ì å -ò î -ä û ÷ è ñ -ë å í -í î -ã 
 î à í à -ë è -ç à ì à -ò å -ì à -ò è -÷ å -ñ ê è õ ì î -ä å -
  []
 
-[14] (./kursovaya2.aux)
+[16] (./kursovaya2.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 16133 strings out of 476025
- 259459 string characters out of 5796532
+ 16148 strings out of 476025
+ 260479 string characters out of 5796532
  1873388 words of memory out of 5000000
- 36197 multiletter control sequences out of 15000+600000
+ 36207 multiletter control sequences out of 15000+600000
  534122 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,15n,90p,1244b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1197,10 +1230,10 @@ ts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public
 095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist
 /fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on kursovaya2.pdf (14 pages, 1145171 bytes).
+Output written on kursovaya2.pdf (16 pages, 1185151 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 202 words of extra memory for PDF output out of 10000 (max. 10000000)
 

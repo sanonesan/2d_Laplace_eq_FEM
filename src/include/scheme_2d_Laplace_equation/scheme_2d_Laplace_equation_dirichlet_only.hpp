@@ -27,7 +27,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     std::vector<T> solution(laplace_eq._nodes.size());
 
 
-    //fout << std::scientific;
+    fout << std::scientific;
     fout << std::setprecision(8);
 
     if (output_stiffness_matricies_bool)
@@ -71,7 +71,6 @@ void scheme_2d_Laplace_equation_dirichlet_only(
 
         // Find square of triangle element
         S_el = ((el.x[1] - el.x[0]) * (el.y[2] - el.y[0]) - (el.x[2] - el.x[0]) * (el.y[1] - el.y[0])) / 2;
-        //S_el = 1 / 2. * ( el.x[0] * (el.y[1] - el.y[2]) +  el.x[1] * (el.y[2] - el.y[0]) +  el.x[2] * (el.y[0] - el.y[1]));
         // Transformation for the next formula (for numerial integral over the triangle)
         S_el = 1 / ( 4. * S_el );
         
