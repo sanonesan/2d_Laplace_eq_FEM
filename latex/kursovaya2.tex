@@ -5,7 +5,6 @@
 \usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{./fn2kursstyle}
 
 
-
 \usepackage{subfig}
 %\usepackage{amsmath}
 %\usepackage{amssymb} 
@@ -18,13 +17,14 @@
 \usepackage{supertabular}
 \usepackage{multicol}
 \usepackage{scalerel}
+\usepackage{graphicx}
 %\usepackage{txfonts}
-
 
 \graphicspath{
 	{./style/}
 	{./illustr/}
 	{./illustr/domain_rectangle_dirichlet_only/}
+	{./illustr/domain_4/}
 }
 
 %\usepackage{multirow}
@@ -415,7 +415,7 @@
 				
 		\section{Примеры решения задачи}
 		
-			\subsection{Задача №\,1}
+			\subsection{Задача №\,1 (задача с граничными условиями первого рода)}
 				\subsubsection{Условие задачи}
 					\looser{0.01}{Для проверки алгоритма, рассмотрим его работу на примере задачи для которой решение известно:
 					поиск потенциала в прямоугольной области $\Omega = \left[ 0 , 4\right] \times  \left[ 0 , 2\right]$} с граничными условиями первого рода:
@@ -489,7 +489,7 @@
 			\subsubsection{Оценка погрешности аппроксимации решения}
 				Для оценки погрешности полученного решения $u_{approx}$ относительно точного решения $u_{exact}$ возьмем среднее значении абсолютной погрешности по всем узлам (\ref{abs_err}) и погрешность решения в норме $L_2$ (\ref{l2_err}):
 				\begin{equation}
-					\mathrm{AbsErr} = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i}, \right|
+					\mathrm{AbsErr} = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i} \right|,
 					\label{abs_err}
 				\end{equation}
 				\looser{0.02}{где $N$ --- количество узлов, $u_{exact, i},\ u_{approx, i}$ --- точное и приближенное решения в $i$-ом узле;}
@@ -521,7 +521,7 @@
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_005_calfem.png}
+				\includegraphics[width=1\textwidth]{rect_dirichlet_only_005_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.05$}
 				\label{fig:dom_rect_005}
 			\end{figure*}
@@ -598,7 +598,7 @@
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_001_calfem.png}
+				\includegraphics[width=1\textwidth]{rect_dirichlet_only_001_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.01$}
 				\label{fig:dom_rect_001}
 			\end{figure*}
@@ -677,7 +677,7 @@
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_0001_calfem.png}
+				\includegraphics[width=1\textwidth]{rect_dirichlet_only_0001_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.001$}
 				\label{fig:dom_rect_0001}
 			\end{figure*}
@@ -753,64 +753,147 @@
 	
 	
 	
-	\newpage
-	
-	\noindent
-	\begin{table}[!h]
-		\centering
-		\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
-		\vspace*{2mm}
-		\begin{tabular}{|c|c|c|c|}
-			
-			\hline
-			 
-			\begin{tabular}[c]{@{}l@{}}
-				Количество \\
-				элементов
-			\end{tabular}
-			& \begin{tabular}[c]{@{}c@{}}Максимальная площадь\\ элемента\end{tabular}
-			& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular}}
-			& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Погрешность решения\\ в норме $L_2$\end{tabular}} \\
-			
-			\hline
-			216
-			& 0.05
-			& 0.02889112 
-			& 0.05392223 \\ 
-			
-			
-			\hline
-			1020
-			& 0.01
-			& 0.01213012 
-			& 0.01467814 \\ 
-			
+		\newpage
+		
+		\noindent
+		\begin{table}[!h]
+			\centering
+			\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
+			\vspace*{2mm}
+			\begin{tabular}{|c|c|c|c|}
 				
-			\hline
-			1874
-			& 0.005
-			& 0.00438909 
-			& 0.00417991 \\
+				\hline
+				 
+				\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}c@{}}
+				Количество\\ 
+				конечных \\ 
+				элементов\end{tabular}}
+				& \begin{tabular}[c]{@{}c@{}}Максимальная площадь\\ элемента\end{tabular}
+				& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular}}
+				& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Погрешность решения\\ в норме $L_2$\end{tabular}} \\
+				
+				\hline
+				216
+				& 0.05
+				& 0.02889112 
+				& 0.05392223 \\ 
+				
+				
+				\hline
+				1020
+				& 0.01
+				& 0.01213012 
+				& 0.01467814 \\ 
+				
+					
+				\hline
+				1874
+				& 0.005
+				& 0.00438909 
+				& 0.00417991 \\
+				
+				\hline
+				10778
+				& 0.001
+				& 0.00107663 
+				& 0.00096066 \\ 
+				
+				\hline
+				22124
+				& 0.0005
+				& 0.00052738 
+				& 0.00046246 \\ 
+				
+				\hline
+			\end{tabular}				
+		\end{table}		
+		\vspace*{-5mm}
 			
-			\hline
-			10778
-			& 0.001
-			& 0.00107663 
-			& 0.00096066 \\ 
+	\newpage
+	\subsection{Задача №\,2 (периодические граничные условия и граничные условия первого рода)}
+		\subsubsection{Условие задачи}
+			\looser{0.01}{Найти потенциал в области $\Omega = \left\{ -\infty \leqslant x \leqslant \infty, \  w(x) \leqslant y \leqslant 2 \right\}$}, где $w(x)$ --- периодическая функция с периодом $T = 2$, такая что $w(x) = |x - 1| + 1, \forall x \in \left[ 0, 2 \right]$. 
+		\subsubsection{Решение}
+			Рассмотрим задачу на отрезке $\left[ 0, 2 \right]$. Запишем систему, которую нужно решить:
+			\begin{equation*}
+				\begin{cases}
+					\Delta \phi (x, y)  = 0, \\
+					\phi (x, 2) = 0, \\
+					\phi (x, w(x)) = 10, \\
+					\phi (0, y) = \phi (2, y).\\
+				\end{cases}
+			\end{equation*}
 			
-			\hline
-			22124
-			& 0.0005
-			& 0.00052738 
-			& 0.00046246 \\ 
+			Тогда численное решение задачи №\,2, полученное методом конечных элементов при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.01$ выглядит следующим образом: 
+		
+			%% TODO: \usepackage{graphicx} required
+			%\begin{figure}[!h]
+			%	\centering
+			%	\includegraphics[width=0.7\linewidth]{Test_domain_4_mesh001_calfem.png}
+			%	\caption{Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$}
+			%	\label{fig:domain4_mesh001_calfem}
+			%\end{figure}
+		
+			\begin{figure}[h]       
+				\vspace{5.0mm} 
+				%\begin{center} 
+				\centering
+					{ 
+						\begin{tabular}{@{}c@{}}
+							%\centering 
+							\includegraphics[width=0.35\linewidth]{Test_domain_4_mesh001_calfem_net.pdf} \\[\abovecaptionskip]
+							\textit{a} 
+						\end{tabular}                          
+					} 
+					\vspace{\floatsep}
+					{ 
+						\begin{tabular}{@{}c@{}}
+							%\centering 
+							\includegraphics[width=0.55\linewidth]{Test_domain_4_mesh001_calfem.png}\\[\abovecaptionskip]
+							\textit{b} 
+						\end{tabular}                                 
+					}
+									
+				%\end{center} 
+				%\vspace*{-0.0mm} 
+				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
+					\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{b} --- Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
+				} 
+			\end{figure}
 			
-			\hline
-		\end{tabular}				
-	\end{table}		
-	\vspace*{-5mm}
+			\newpage
+			\looser{-0.02}{Аналогично рассмотрим задачу, расширив область поиска решения до трех периодов функции $w(x)$:}
 			
+			\begin{figure}[h]       
+				\vspace{5.0mm} 
+				%\begin{center} 
+				\centering
+				{ 
+					\begin{tabular}{@{}c@{}}
+						%\centering 
+						\includegraphics[width=0.35\linewidth]{Test_domain_4_mesh001_calfem_net.pdf} \\[\abovecaptionskip]
+						\textit{a} 
+					\end{tabular}                          
+				} 
+				\vspace{\floatsep}
+				{ 
+					\begin{tabular}{@{}c@{}}
+						%\centering 
+						\includegraphics[width=0.55\linewidth]{Test_domain_4_mesh001_calfem.png}\\[\abovecaptionskip]
+						\textit{b} 
+					\end{tabular}                                 
+				}
+				
+				%\end{center} 
+				%\vspace*{-0.0mm} 
+				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
+					\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{b} --- Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
+				} 
+			\end{figure}
 			
-
+		
 	
 	\newpage
 	\section{Программная реализация алгоритма}
