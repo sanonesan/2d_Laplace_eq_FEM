@@ -3,22 +3,23 @@
 \contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {1.\ }}}}{{\textbf {\ignorespaces {Постановка задачи}}}}}{3}{section*.3}%
 \contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {2.\ }}}}{{\textbf {\ignorespaces {Обзор задачи}}}}}{3}{section*.4}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{2.1.\ }}}{\ignorespaces {Физическая составляющая задачи}}}{3}{section*.5}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{2.2.\ }}}{\ignorespaces {Математическая постановка задачи}}}{3}{section*.6}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {3.\ }}}}{{\textbf {\ignorespaces {Решение двумерного уравнения Лапласа}}}}}{4}{section*.8}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.1.\ }}}{\ignorespaces {Аппроксимация уравнения Лапласа методом конечных элементов}}}{4}{section*.9}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{2.2.\ }}}{\ignorespaces {Математическая постановка задачи}}}{4}{section*.6}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {3.\ }}}}{{\textbf {\ignorespaces {Решение двумерного уравнения Лапласа}}}}}{5}{section*.8}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.1.\ }}}{\ignorespaces {Аппроксимация уравнения Лапласа методом конечных элементов}}}{5}{section*.9}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.2.\ }}}{\ignorespaces {Метод конечных элементов на треугольной сетке}}}{6}{section*.10}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.1.\ }}}{\ignorespaces {Триангуляция области}}}{6}{section*.11}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.2.\ }}}{\ignorespaces {Сборка глобальной матрицы жесткости}}}{7}{section*.12}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.3.\ }}}{\ignorespaces {Применение граничных условий первого рода}}}{8}{section*.13}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.2.\ }}}{\ignorespaces {Сборка глобальной матрицы жесткости}}}{8}{section*.12}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.3.\ }}}{\ignorespaces {Применение граничных условий первого рода}}}{9}{section*.13}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.4.\ }}}{\ignorespaces {Применение периодических граничных условий}}}{9}{section*.14}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Примеры решения задачи}}}}}{10}{section*.15}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.1.\ }}}{\ignorespaces {Задача №\,1 (задача с граничными условиями первого рода)}}}{10}{section*.16}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.1.\ }}}{\ignorespaces {Условие задачи}}}{10}{section*.17}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.2.\ }}}{\ignorespaces {Построение сетки}}}{11}{section*.19}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.3.\ }}}{\ignorespaces {Оценка погрешности аппроксимации решения}}}{12}{section*.21}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.2.\ }}}{\ignorespaces {Задача №\,2 (периодические граничные условия и граничные условия первого рода)}}}{17}{section*.29}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.1.\ }}}{\ignorespaces {Условие задачи}}}{17}{section*.30}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.2.\ }}}{\ignorespaces {Решение}}}{17}{section*.31}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{19}{section*.33}%
-\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{19}{section*.34}%
-\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{20}{section*.36}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Примеры решения задачи}}}}}{11}{section*.15}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.1.\ }}}{\ignorespaces {Задача №\,1 (задача с граничными условиями первого рода)}}}{11}{section*.16}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.1.\ }}}{\ignorespaces {Условие задачи}}}{11}{section*.17}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.2.\ }}}{\ignorespaces {Построение сетки}}}{12}{section*.19}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.3.\ }}}{\ignorespaces {Оценка погрешности аппроксимации решения}}}{13}{section*.21}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.2.\ }}}{\ignorespaces {Задача №\,2 (периодические граничные условия и граничные условия первого рода)}}}{18}{section*.29}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.1.\ }}}{\ignorespaces {Условие задачи}}}{18}{section*.30}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.2.\ }}}{\ignorespaces {Решение}}}{18}{section*.31}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{19}{section*.34}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{21}{section*.37}%
+\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{21}{section*.38}%
+\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{22}{section*.40}%

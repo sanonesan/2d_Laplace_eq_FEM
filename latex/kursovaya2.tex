@@ -68,6 +68,7 @@
 	\newpage
 	
 	\section-{Введение}
+		Задача по вычислению потенциала электрического поля является задачей раздела электростатики. Она возникает при вычислении электростатического поля в различных конденсаторах. Ее решение сводится к решению уравнения Пуассона или его частного случая --- уравнения Лапласа. Данные уравнения появляются и при решении ряда задач из других сфер: аэродинамики, гидродинамики, механики сплошных сред. Так что методы примененные в данной работе, могут быть применены и к другим задачам, что показывает актуальность данной проблемы.
 		
 	
 	\section {Постановка задачи}
@@ -121,12 +122,12 @@
 			\end{equation}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=0.65\textwidth]{illustr.pdf}
+				\includegraphics[width=1\textwidth]{illustr.pdf}
 				\caption{Иллюстрация области, в которой будет решаться задача}
 				\label{fig:illustr_1}
 			\end{figure*}
 	
-	
+	\newpage
 	\section{Решение двумерного уравнения Лапласа}
 		
 		
@@ -412,7 +413,8 @@
 					\item удалить $q$-ую строку и $q$-ый столбец из системы.
 				\end{itemize} 
 				\looser{-0,009}{В результате размер решаемой системы уменьшится на единицу, а условие $u_p = u_q$} будет применено уже к итоговому решению \cite{Stahel}. Таким образом рассматриваются все узлы, на которые наложено условие периодичности.
-				
+		
+		\newpage
 		\section{Примеры решения задачи}
 		
 			\subsection{Задача №\,1 (задача с граничными условиями первого рода)}
@@ -501,7 +503,7 @@
 				\begin{gather*}
 					\int_S (u_{exact} - u_{approx})^2 dS = \sum_{i = 1}^{N_{el}} \int_{S_i} (u_{exact} - u_{approx})^2 dS, \\
 					\int_{S_i} (u_{exact} - u_{approx})^2 dS \approx \dfrac{S_i}{N_v} \sum_{j = 1}^{N_v}  (u_{exact,\,ij} - u_{approx,\,ij})^2, \\
-					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_k,		
+					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{apсодержимое...prox,\,ij} \, \phi_k,		
 				\end{gather*} 
 				\looser{0.0115}{где 
 					где $N_{el}$ --- количество конечных элементов,
@@ -805,16 +807,19 @@
 				& 0.00046246 \\ 
 				
 				\hline
-			\end{tabular}				
+			\end{tabular}
+			\label{table: 4}				
 		\end{table}		
 		\vspace*{-5mm}
+		
+		Из таблицы \ref{table: 4} видно, что погрешность решения является величиной порядка $O(h^2)$, где $h$ --- длина ребра конечного элемента, и меняется линейно в зависимости от площади конечного элемента.
 			
 	\newpage
 	\subsection{Задача №\,2 (периодические граничные условия и граничные условия первого рода)}
 		\subsubsection{Условие задачи}
 			\looser{0.01}{Найти потенциал в области $\Omega = \left\{ -\infty \leqslant x \leqslant \infty, \  w(x) \leqslant y \leqslant 2 \right\}$}, где $w(x)$ --- периодическая функция с периодом $T = 2$, такая что $w(x) = |x - 1| + 1, \forall x \in \left[ 0, 2 \right]$. 
 		\subsubsection{Решение}
-			Рассмотрим задачу на отрезке $\left[ 0, 2 \right]$. Запишем систему, которую нужно решить:
+			Рассмотрим задачу при $x \in \left[ 0, 2 \right]$. Запишем систему, которую нужно решить:
 			\begin{equation*}
 				\begin{cases}
 					\Delta \phi (x, y)  = 0, \\
@@ -833,66 +838,199 @@
 			%	\caption{Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$}
 			%	\label{fig:domain4_mesh001_calfem}
 			%\end{figure}
-		
+			
 			\begin{figure}[h]       
 				\vspace{5.0mm} 
-				%\begin{center} 
-				\centering
+				\begin{center} 
 					{ 
-						\begin{tabular}{@{}c@{}}
-							%\centering 
-							\includegraphics[width=0.35\linewidth]{Test_domain_4_mesh001_calfem_net.pdf} \\[\abovecaptionskip]
+						\begin{minipage}{0.47\textwidth} 
+							\centering 
+							\hspace*{-9.5mm}
+							\includegraphics[width=0.99\columnwidth]{Test_domain_4_mesh001_calfem_net.pdf}\\
 							\textit{a} 
-						\end{tabular}                          
+						\end{minipage}                                 
 					} 
-					\vspace{\floatsep}
 					{ 
-						\begin{tabular}{@{}c@{}}
-							%\centering 
-							\includegraphics[width=0.55\linewidth]{Test_domain_4_mesh001_calfem.png}\\[\abovecaptionskip]
+						\begin{minipage}{0.47\textwidth} 
+							\centering 
+							\hspace*{-17.5mm}
+							\includegraphics[width=1.4\columnwidth]{Test_domain_4_mesh001_calfem.png}\\
 							\textit{b} 
-						\end{tabular}                                 
-					}
-									
-				%\end{center} 
-				%\vspace*{-0.0mm} 
+						\end{minipage}                                 
+					} 
+					
+				\end{center} 
+				\vspace*{-0.0mm} 
 				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
-					\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.01$; \\
-					\textit{b} --- Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{b} --- численное решение задачи №\,2 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
 				} 
 			\end{figure}
 			
+						
 			\newpage
 			\looser{-0.02}{Аналогично рассмотрим задачу, расширив область поиска решения до трех периодов функции $w(x)$:}
 			
 			\begin{figure}[h]       
 				\vspace{5.0mm} 
-				%\begin{center} 
-				\centering
-				{ 
-					\begin{tabular}{@{}c@{}}
-						%\centering 
-						\includegraphics[width=0.35\linewidth]{Test_domain_4_mesh001_calfem_net.pdf} \\[\abovecaptionskip]
-						\textit{a} 
-					\end{tabular}                          
-				} 
-				\vspace{\floatsep}
-				{ 
-					\begin{tabular}{@{}c@{}}
-						%\centering 
-						\includegraphics[width=0.55\linewidth]{Test_domain_4_mesh001_calfem.png}\\[\abovecaptionskip]
-						\textit{b} 
-					\end{tabular}                                 
-				}
-				
-				%\end{center} 
-				%\vspace*{-0.0mm} 
+				\begin{center} 
+					{ 
+						\begin{minipage}{0.9\textwidth} 
+							\centering 
+							\hspace*{-8mm}
+							\includegraphics[width=0.9\columnwidth]{Test_domain_4_mesh001_3_in_row_calfem_net.pdf}\\ 
+							\textit{a} 
+						\end{minipage}                                 
+					} 
+					{ 
+						\begin{minipage}{1\textwidth} 
+							\centering 
+							\hspace*{-15.4mm}
+							\includegraphics[width=1.2\columnwidth]{Test_domain_4_mesh001_3_in_row_calfem.png}\\ 
+							\textit{b} 
+						\end{minipage}                                 
+					} 
+								
+				\end{center} 
+				\vspace*{-0.0mm} 
 				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
-					\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.01$; \\
-					\textit{b} --- Численное решение задачи №\,2 с разбиением области $\Omega$ на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.01$; \\
+					\textit{b} --- численное решение задачи №\,2 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.01$; \\
 				} 
 			\end{figure}
+			\vspace*{-10mm}
+			\subsubsection{Проверка решения на удовлетворение условиям периодичности}
 			
+				Из графиков видно, что решение гладко меняется внутри области, значения потенциалов в точках
+				$(x, w(x))$ и $(x + T, w(x + T))$ выглядят равными. Удостоверимся в этом численно: с помощью формулы интерполирования на треугольной сетке 
+				\begin{equation*}
+					u(x, y) \approx \sum_{j = 1}^{N} u_{j} \phi_{j}^{xy}, 
+				\end{equation*}
+				\looser{0.01}{где 
+				$N$ --- количество узлов сетки, 
+				$u_j$ --- известное значение функции в $j$-ом узле,} 
+				$\phi_{j}^{xy}$ --- значение базисной функции в точке $(x, y)$ \cite{Galanin}.
+				Вычислим значения в точках, в которых идеологически эти значения должны совпадать. 
+				Рассмотрим две группы точек:
+				\begin{enumerate}
+					\item Точки вида: $(0, y),\ (2, y)$ --- для решения построенного на одном периоде функции $w(x)$,
+					$(0, y),\ (2, y),\ (4, y),\ (6, y)$ --- для решения построенного на трех периодах функции $w(x)$:	
+				
+					\begin{table}[!h]
+						\centering
+						\begin{tabular}{|c|c|c|}
+							\hline
+							Область решения
+							& Координата точки (x, y)
+							& Значение потенциала $\phi$ в точке, В\\
+							
+							\hline
+							\hline
+							
+							\multirow{2}{*}{1 период $w(x)$}  
+							& (0.0, 1.27)                                                      
+							& 6.3158	\\ \cline{2-3} 
+							
+							& (2.0, 1.27)                                                      
+							& 6.3158	\\ \hline
+							
+							
+							\multirow{4}{*}{3 периода $w(x)$} 
+							& (0.0, 1.27)                                                     
+							& 6.3093	\\ \cline{2-3} 
+							
+							& (2.0, 1.27)                                                      
+							& 6.2896	\\ \cline{2-3} 
+							
+							& (4.0, 1.27)                                                      
+							& 6.2946    \\ \cline{2-3} 
+							
+							& (6.0, 1.27)                                                      
+							& 6.3093	
+							\\ 
+							
+							\hline
+							\hline
+							
+							\multirow{2}{*}{1 период $w(x)$}  
+							& (0.0, 1.92)                                                      
+							& 0.6551	\\ \cline{2-3} 
+							& (2.0, 1.92)   
+							& 0.6551	\\ 
+							
+							\hline
+							
+							\multirow{4}{*}{3 периода $w(x)$} 
+							& (0.0, 1.92)                                                      
+							& 0.6547	\\ \cline{2-3} 
+							& (2.0, 1.92)                                                      
+							& 0.6549	\\ \cline{2-3}        
+							& (4.0, 1.92)                                                      
+							& 0.6555	\\ \cline{2-3}           
+							& (6.0, 1.92)                                                      
+							& 0.6547 	\\ \hline
+							
+							
+							
+						\end{tabular}
+					\end{table}
+					
+					\item Точки вида $(1, y)$ для решения построенного на одном периоде функции $w(x)$,
+					$(1, y),\ (3, y),\ (5, y)$--- для решения построенного на трех периодах функции $w(x)$:
+					
+					\begin{table}[!h]
+						\centering
+						\begin{tabular}{|c|c|c|}
+							\hline
+							Область решения
+							& Координата точки (x, y)
+							& Значение потенциала $\phi$ в точке, В\\
+							
+							\hline
+							\hline
+							
+							1 период $w(x)$                 
+							& (1.0, 0.75)                                                     
+							& 8.3049           \\ \hline
+							\multirow{3}{*}{3 периода $w(x)$} 
+							& (1.0, 0.75)                                                      
+							& 8.305            \\ \cline{2-3} 
+							& (3.0, 0.75)                                                      
+							& 8.3061           \\ \cline{2-3} 
+							& (5.0, 0.75)                                                      
+							& 8.3055           \\ 
+							
+							
+							\hline
+							\hline
+							
+							1 период $w(x)$                   
+							& (1.0, 1.62)                                                      
+							& 2.8561           \\ \hline
+							\multirow{3}{*}{3 периода $w(x)$} 
+							& (1.0, 1.62)                                                      
+							& 2.8556           \\ \cline{2-3} 
+							& (3.0, 1.62)                                                      
+							& 2.858            \\ \cline{2-3} 
+							& (5.0, 1.62)                                                      
+							& 2.8562           \\ \hline					
+							
+							
+							
+						\end{tabular}
+					\end{table}
+				
+				\end{enumerate}
+				
+				\looser{0.02}{Из таблиц видно, что значения отличаются примерно на порядок $O(h^2)$, что} показывает, что решение удовлетворяет условиям периодичности.
+				
+			
+				
+				
+				
+				
+			
+						
 		
 	
 	\newpage
