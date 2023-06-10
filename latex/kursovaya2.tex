@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
-\usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{fn2kursstyle}
+\usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{./fn2kursstyle}
 
 
 
@@ -41,7 +41,7 @@
 
 
 % Параметры титульного листа
-\title{Поиск потенциала электрического поля в периодической структуре}
+\title{Поиск потенциала электрического поля между заряженными пластинами}
 \author{А.\,Д.~Егоров}
 \supervisor{К.\,Е.~Казаков}
 \group{ФН2-62Б}
@@ -416,89 +416,120 @@
 		\section{Примеры решения задачи}
 		
 			\subsection{Задача №\,1}
+				\subsubsection{Условие задачи}
+					\looser{0.01}{Для проверки алгоритма, рассмотрим его работу на примере задачи для которой решение известно:
+					поиск потенциала в прямоугольной области $\Omega = \left[ 0 , 4\right] \times  \left[ 0 , 2\right]$} с граничными условиями первого рода:
+					\begin{equation*}
+						\begin{cases}
+							\Delta \varphi (x, y)  = 0, \\
+							\varphi (x, 0) = \varphi (0, y) = \varphi (4, y) = 0, \\
+							\varphi (x, 2) = 10.
+						\end{cases}
+					\end{equation*}
+					Точное решение этой задачи:
+					\begin{equation}
+						\displaystyle
+						\varphi\left(x, y\right) = \sum_{n = 1}^{\infty} \dfrac{20 \left(1 - (-1)^n \right)}{\pi n \left[ \mathrm{exp}\left({-\dfrac{\pi n}{2}}\right) - \mathrm{exp}\left({\dfrac{\pi n}{2}}\right)  \right]} \left[ \mathrm{exp}\left({-\dfrac{\pi n}{4}} y \right) -  \mathrm{exp}\left({\dfrac{\pi n}{4}} y \right)  \right] \sin{\left( \dfrac{\pi n}{4} x \right)}
+						\label{exact_solution}
+					\end{equation}	
+					
+					Естественно, все члены ряда вычислить не получится, ограничимся первыми 350. Тогда точное решение в области $\left[ 0 , 4\right] \times  \left[ 0 , 2\right]$ выглядит как на рис.~2.
+					\begin{figure*}[!h]
+						\centering
+						\includegraphics[width=1\textwidth]{rect_dirichlet_only_exact_sol.png}
+						\caption{Точное решение задачи №\,1}
+						\label{fig:rect_dom_dir_exact}
+					\end{figure*}
 				
-				\looser{0.01}{Для проверки алгоритма, рассмотрим его работу на примере задачи для которой решение известно:
-				поиск потенциала в прямоугольной области $\Omega = \left[ 0 , 4\right] \times  \left[ 0 , 2\right]$} с граничными условиями первого рода:
-				\begin{equation*}
-					\begin{cases}
-						\Delta \varphi (x, y)  = 0, \\
-						\varphi (x, 0) = \varphi (0, y) = \varphi (4, y) = 0, \\
-						\varphi (x, 2) = 10.
-					\end{cases}
-				\end{equation*}
-				Точное решение этой задачи:
-				\begin{equation}
-					\displaystyle
-					\varphi\left(x, y\right) = \sum_{n = 1}^{\infty} \dfrac{20 \left(1 - (-1)^n \right)}{\pi n \left[ exp\left({-\dfrac{\pi n}{2}}\right) - exp\left({\dfrac{\pi n}{2}}\right)  \right]} \left[ exp\left({-\dfrac{\pi n}{4}} y \right) -  exp\left({\dfrac{\pi n}{4}} y \right)  \right] \sin{\left( \dfrac{\pi n}{4} x \right)}
-					\label{exact_solution}
-				\end{equation}	
-				
-				Естественно, все члены ряда вычислить не получится, ограничимся первыми 350. Тогда точное решение в области $\left[ 0 , 4\right] \times  \left[ 0 , 2\right]$ выглядит как на рис.~2.
-				\begin{figure*}[!h]
-					\centering
-					\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_exact_sol.png}
-					\caption{Точное решение задачи №\,1}
-					\label{fig:rect_dom_dir_exact}
-				\end{figure*}
-				
-				Численное решение будем искать на сетках с разными размерами конечного элемента: будет варьироваться параметр, отвечающий за максимальную площадь конечного элемента. 
-				 				
-				Построим сетки, на которых площадь конечного элемента ограничена следующими значениями: $0.05, \ 0.01, \ 0.001$, они выглядят следующим образом: 
 				
 				\newpage
-									
-				\begin{figure}[h]       
-					\vspace{-0.0mm} 
-					\begin{center} 
-						{ 
-							\begin{minipage}{0.45\textwidth} 
-								\centering 
-								\includegraphics[width=1\columnwidth]{rect_dirichlet_only_005_calfem_net.pdf}\\ 
-								\textit{a} 
-							\end{minipage}                                 
+				\subsubsection{Построение сетки}
+					Численное решение будем искать на сетках с разными размерами конечного элемента: будет варьироваться параметр $S_{max}$, отвечающий за максимальную площадь конечного элемента. 
+					 				
+					Построим сетки, на которых площадь конечного элемента ограничена следующими значениями: $0.05, \ 0.01, \ 0.001$, они выглядят следующим образом: 
+					
+					%\newpage
+										
+					\begin{figure}[h]       
+						\vspace{5.0mm} 
+						\begin{center} 
+							{ 
+								\begin{minipage}{0.45\textwidth} 
+									\centering 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_005_calfem_net.pdf}\\ 
+									\textit{a} 
+								\end{minipage}                                 
+							} 
+							{ 
+								\begin{minipage}{0.45\textwidth} 
+									\centering 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.pdf}\\ 
+									\textit{b} 
+								\end{minipage}                                 
+							} 
+							{ 
+								\begin{minipage}{0.9\textwidth} 
+									\centering 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_0001_calfem_net.pdf}\\ 
+									\textit{c} 
+								\end{minipage}                                 
+							} 						
+						\end{center} 
+						\vspace*{-0.0mm} 
+						\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
+							\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.05$; \\
+							\textit{b} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow  0.01$; \\
+							\textit{c} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.001$
 						} 
-						{ 
-							\begin{minipage}{0.45\textwidth} 
-								\centering 
-								\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.pdf}\\ 
-								\textit{b} 
-							\end{minipage}                                 
-						} 
-						{ 
-							\begin{minipage}{0.9\textwidth} 
-								\centering 
-								\includegraphics[width=1\columnwidth]{rect_dirichlet_only_0001_calfem_net.pdf}\\ 
-								\textit{c} 
-							\end{minipage}                                 
-						} 						
-					\end{center} 
-					\vspace*{-0.0mm} 
-					\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
-						\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$; \\
-						\textit{b} --- иллюстрация разбиения области $\Omega$ с параметром $MaxCellMeasure
-						\rightarrow  0.01$; \\
-						\textit{c} --- иллюстрация разбиения области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.001$
-					} 
-				\end{figure}
-			
-			\noindent
-			%Для более точного исследования погрешности метода, для вычисления значений на границах области будет использоваться точное решение (\refeq{exact_solution}).
+					\end{figure}
+		
 			
 			\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$ выглядит следующим образом: 
+			\subsubsection{Оценка погрешности аппроксимации решения}
+				Для оценки погрешности полученного решения $u_{approx}$ относительно точного решения $u_{exact}$ возьмем среднее значении абсолютной погрешности по всем узлам (\ref{abs_err}) и погрешность решения в норме $L_2$ (\ref{l2_err}):
+				\begin{equation}
+					\mathrm{AbsErr} = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i}, \right|
+					\label{abs_err}
+				\end{equation}
+				\looser{0.02}{где $N$ --- количество узлов, $u_{exact, i},\ u_{approx, i}$ --- точное и приближенное решения в $i$-ом узле;}
+				\begin{equation}
+					\mathrm{Err}_{L_2} = || u_{exact} - u_{approx} ||_{L_2} = \int_S (u_{exact} - u_{approx})^2 dS,
+					\label{l2_err}
+				\end{equation}
+				где $S$ --- площадь области $\Omega$. Численная аналог формулы (\refeq{l2_err}) получается следующим образом:
+				\begin{gather*}
+					\int_S (u_{exact} - u_{approx})^2 dS = \sum_{i = 1}^{N_{el}} \int_{S_i} (u_{exact} - u_{approx})^2 dS, \\
+					\int_{S_i} (u_{exact} - u_{approx})^2 dS \approx \dfrac{S_i}{N_v} \sum_{j = 1}^{N_v}  (u_{exact,\,ij} - u_{approx,\,ij})^2, \\
+					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_k,		
+				\end{gather*} 
+				\looser{0.0115}{где 
+					где $N_{el}$ --- количество конечных элементов,
+					$S_i$ --- площадь $i$-ого конечного элемента, $N_v$ --- количество узлов конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента, $\phi_k$ --- базисная функция в $k$-ом узле $i$-ого кочечного элемента.} 
+				
+				Так как в качестве конечного элемента выбран треугольный элемент, а базисные функции такие, что имеют значение 1 в своем узле и 0 во всех остальных, то формула для вычисления погрешности решения в норме $L_2$ примет вид
+				\begin{equation}
+					\mathrm{Err}_{L_2} \approx \sum_{i = 1}^{N_{el}} S_i
+					\sum_{j = 1}^{3}  \dfrac{\phantom{|}(u_{exact,\,ij} - u_{approx,\,ij})^2}{3}.
+					\label{l2_err_approx}
+				\end{equation}
+				%Для более точного исследования погрешности метода, для вычисления значений на границах области будет использоваться точное решение (\refeq{exact_solution}).
+			
+			\newpage
+			
+			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.05$ выглядит следующим образом: 
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
 				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_005_calfem.png}
-				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$}
+				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.05$}
 				\label{fig:dom_rect_005}
 			\end{figure*}
 			
 			\noindent
 			\begin{table}[!h]
 				\centering
-				\caption{\label{table_comparison_005} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.05$  задачи №\,1}
+				\caption{\label{table_comparison_005} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.05$  задачи №\,1}
 				\vspace*{2mm}
 				\begin{tabular}{|c|c|c|c|c|c|}
 					\hline
@@ -563,12 +594,12 @@
 			
 			\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$ выглядит следующим образом: 
+			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.01$ выглядит следующим образом: 
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
 				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_001_calfem.png}
-				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$}
+				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.01$}
 				\label{fig:dom_rect_001}
 			\end{figure*}
 			
@@ -576,7 +607,7 @@
 			\noindent
 			\begin{table}[!h]
 				\centering
-				\caption{\label{table_comparison_001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$  задачи №\,1}
+				\caption{\label{table_comparison_001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.01$  задачи №\,1}
 				\vspace*{2mm}
 				\begin{tabular}{|c|c|c|c|c|c|}
 					\hline
@@ -642,12 +673,12 @@
 			
 			\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$ выглядит следующим образом: 
+			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.001$ выглядит следующим образом: 
 			\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
 				\includegraphics[width=0.8\textwidth]{rect_dirichlet_only_0001_calfem.png}
-				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$}
+				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.001$}
 				\label{fig:dom_rect_0001}
 			\end{figure*}
 			
@@ -655,7 +686,7 @@
 			\noindent
 			\begin{table}[!h]
 				\centering
-				\caption{\label{table_comparison_0001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $MaxCellMeasure \rightarrow 0.01$  задачи №\,1}
+				\caption{\label{table_comparison_0001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.001$  задачи №\,1}
 				\vspace*{2mm}
 				\begin{tabular}{|c|c|c|c|c|c|}
 					\hline
@@ -719,11 +750,15 @@
 			Погрешность в норме $L_2$: 0.00096066. \\
 		 	
 			
+	
+	
+	
 	\newpage
+	
 	\noindent
 	\begin{table}[!h]
 		\centering
-		\caption{\label{table_comparison} Сводная таблица задачи №\,1}
+		\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
 		\vspace*{2mm}
 		\begin{tabular}{|c|c|c|c|}
 			
@@ -776,7 +811,7 @@
 			
 			
 
-	\newpage
+	
 	\newpage
 	\section{Программная реализация алгоритма}
 		
