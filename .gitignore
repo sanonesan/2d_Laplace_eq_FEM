@@ -1,4 +1,4 @@
-./mathematica_files/*
+mathematica_files/
 # Prerequisites
 *.d
 
