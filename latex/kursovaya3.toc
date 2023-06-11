@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{2.1.\ }}}{\ignorespaces {Физическая составляющая задачи}}}{3}{section*.5}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{2.2.\ }}}{\ignorespaces {Математическая постановка задачи}}}{4}{section*.6}%
 \contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {3.\ }}}}{{\textbf {\ignorespaces {Решение двумерного уравнения Лапласа}}}}}{5}{section*.8}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.1.\ }}}{\ignorespaces {Аппроксимация уравнения Лапласа методом конечных элементов}}}{5}{section*.9}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.1.\ }}}{\ignorespaces {Аппроксимация уравнения Лапласа}}}{5}{section*.9}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{3.2.\ }}}{\ignorespaces {Метод конечных элементов на треугольной сетке}}}{6}{section*.10}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.1.\ }}}{\ignorespaces {Триангуляция области}}}{6}{section*.11}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{3.2.2.\ }}}{\ignorespaces {Сборка глобальной матрицы жесткости}}}{8}{section*.12}%

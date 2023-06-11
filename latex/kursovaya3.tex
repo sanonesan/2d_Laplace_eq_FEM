@@ -95,7 +95,7 @@
 				\Delta \varphi = - 4 \pi \rho.
 				\label{Pois_eq}
 			\end{equation}
-			Уравнение (\refeq{Pois_eq}) есть уравнение Пуассона. При $\rho = 0$, т.е. при отсутствии внешних сил, потенциал удовлетворяет уравнению Лапласа
+			Уравнение (\refeq{Pois_eq}) есть уравнение Пуассона. При $\rho = 0$, т.е. при отсутствии внешних сил, потенциал удовлетворяет уравнению Лапласа \cite{Landau}
 			\begin{equation}
 				\Delta \phi = 0.
 				\label{Laplace_eq}
@@ -126,7 +126,7 @@
 	\section{Решение двумерного уравнения Лапласа}
 		
 		
-		\subsection{Аппроксимация уравнения Лапласа методом конечных элементов}
+		\subsection{Аппроксимация уравнения Лапласа}
 		
 			Рассмотрим уравнение Лапласа в двумерной области $\Omega \subset \mathbb{R}^2$
 			\begin{equation*}
@@ -1257,12 +1257,12 @@
 	\newpage
 	\section{Программная реализация}
 		
-		Алгоритм для решения задачи методом конечных элементов (МКЭ) был реализован на языке C++. МКЭ предполагает решение системы линейных алгебраических уравнений с разреженной матрицей, для этого использовалась библиотека линейной алгебры для языка C++ --- Eigen. Для построения сеток использовались математический пакет Wolfram Mathematica и библиотека CALFEM для языка Python. Графики и иллюстрации строились с помощью встоенных средств Wolfram Mathematica и библиотеки Matplotlib для языка Python. 
+		Алгоритм для решения задачи методом конечных элементов (МКЭ) был реализован на языке C++. МКЭ предполагает решение системы линейных алгебраических уравнений с разреженной матрицей, для этого использовалась библиотека линейной алгебры для языка C++ --- Eigen \cite{eigen}. Для построения сеток использовались математический пакет Wolfram Mathematica и библиотека CALFEM \cite{calfem} для языка Python \cite{python}. Графики и иллюстрации строились с помощью встоенных средств Wolfram Mathematica и библиотеки Matplotlib \cite{matplotlib} для языка Python. 
 		
 	
 	\section-{Заключение}
 		
-		В ходе курсовой работы был изучен и реализован метод конечных элементов. Реализация метода была проверена на тестовом примере с известным решением, также с ее помощью были решены и исследованы несколько вариантов исходной задачи с разными профилями пластин и заданными на них напряжениями.
+		В ходе курсовой работы был изучен и реализован метод конечных элементов для решения уравнения Лапласа. Реализация метода была проверена на тестовом примере с известным решением, также с ее помощью были решены и исследованы несколько вариантов исходной задачи с разными профилями пластин и заданными на них напряжениями.
 		Все описанные подходы выполнены на языке C++ с демонстрацией результатов работы.		
 	
 	
@@ -1270,13 +1270,28 @@
 	
 	\begin{thebibliography}{4}
 		
+		\bibitem{Landau} Ландау Л.Д., Лифшиц Е.М. Теория поля. -- 6-е изд., испр. -- Москва : Издательство Наука, 1973. 507 с.
+		
 		\bibitem{Galanin} \looser{0.05}{Галанин, М.П. Методы численного анализа математических моделей\,/\,М.\,П~Галанин,} Е.\,Б.~Савенков. -- 2-е изд., испр. -- Москва : Издательство МГТУ им. Н.\,Э.~Баумана, 2018. -- 591 с.: ил. 
 		-- ISBN 978-5-7038-4796-1.
 		\bibitem{Stahel} Stahel, A. Calculus of Variations and Finite Elements. 2003. P. 151--152.
 		
+		\bibitem{eigen} Eigen. C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms. \\
+		URL:  \href{https://eigen.tuxfamily.org}{https://eigen.tuxfamily.org/} \\
+		(дата обращения 20.05.2023)
 		
+		\bibitem{calfem} CALFEM for Python. Computer Aided Learning of the Finite Element Method \\
+		URL:  \href{https://calfem-for-python.readthedocs.io}{
+		https://calfem-for-python.readthedocs.io/} \\
+		(дата обращения 8.06.2023)		
 		
+		\bibitem{python} Python.  A high-level, general-purpose programming language \\
+		URL:  \href{https://www.python.org/}{https://www.python.org/} \\
+		(дата обращения 20.05.2023)
 		
+		\bibitem{matplotlib} Matplotlib. A comprehensive library for creating static, animated, and interactive visualizations in Python.  \\
+		URL:  \href{https://matplotlib.org/}{https://matplotlib.org/} \\
+		(дата обращения 20.05.2023)
 		
 		
 		

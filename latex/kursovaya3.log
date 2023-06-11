@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  12 JUN 2023 00:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  12 JUN 2023 00:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -933,7 +933,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 104.
 
 [3]
-<./illustr//illustr.pdf, id=104, 326.21875pt x 172.645pt>
+<./illustr//illustr.pdf, id=106, 326.21875pt x 172.645pt>
 File: ./illustr//illustr.pdf Graphic file (type pdf)
 <use ./illustr//illustr.pdf>
 Package pdftex.def Info: ./illustr//illustr.pdf  used on input line 120.
@@ -1093,7 +1093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 418--419
  []
 
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.png, 
-id=179, 542.025pt x 289.08pt>
+id=181, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.
 png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_exact_sol.p
@@ -1108,7 +1108,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 443.
 
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_net.
-pdf, id=188, 542.025pt x 289.08pt>
+pdf, id=190, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem
 _net.pdf Graphic file (type pdf)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_
@@ -1117,7 +1117,7 @@ Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
 let_only_005_calfem_net.pdf  used on input line 456.
 (pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_net.
-pdf, id=189, 542.025pt x 289.08pt>
+pdf, id=191, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem
 _net.pdf Graphic file (type pdf)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_
@@ -1126,7 +1126,7 @@ Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
 let_only_001_calfem_net.pdf  used on input line 463.
 (pdftex.def)             Requested size: 204.85844pt x 109.25604pt.
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem_net
-.pdf, id=190, 542.025pt x 289.08pt>
+.pdf, id=192, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfe
 m_net.pdf Graphic file (type pdf)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
@@ -1158,7 +1158,7 @@ Underfull \hbox (badness 4132) in paragraph at lines 502--506
 
 [13]
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.png,
- id=212, 542.025pt x 289.08pt>
+ id=214, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem
 .png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.
@@ -1179,7 +1179,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 582--590
 [14 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem.
 png>]
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.png,
- id=220, 542.025pt x 289.08pt>
+ id=222, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem
 .png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.
@@ -1200,7 +1200,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 661--669
 [15 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem.
 png>]
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem.png
-, id=228, 542.025pt x 289.08pt>
+, id=230, 542.025pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfe
 m.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
@@ -1250,7 +1250,7 @@ LaTeX Info: Redefining \textso on input line 815.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 816.
 
-<./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png, id=242, 433.62pt x
+<./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png, id=244, 433.62pt x
  289.08pt>
 File: ./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png Graphic file (
 type png)
@@ -1263,7 +1263,7 @@ Overfull \hbox (27.02187pt too wide) in paragraph at lines 843--844
  []|  [] 
  []
 
-<./illustr/domain_4//Test_domain_4_mesh001_calfem.png, id=243, 433.62pt x 289.0
+<./illustr/domain_4//Test_domain_4_mesh001_calfem.png, id=245, 433.62pt x 289.0
 8pt>
 File: ./illustr/domain_4//Test_domain_4_mesh001_calfem.png Graphic file (type p
 ng)
@@ -1294,7 +1294,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 867--868
 -ð è -î -
  []
 
-<./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png, id=252, 1
+<./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png, id=254, 1
 228.59pt x 361.35pt>
 File: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png Graph
 ic file (type png)
@@ -1307,7 +1307,7 @@ Overfull \hbox (36.18294pt too wide) in paragraph at lines 875--876
  []|  [] 
  []
 
-<./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png, id=253, 1228.59
+<./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png, id=255, 1228.59
 pt x 361.35pt>
 File: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png Graphic fil
 e (type png)
@@ -1393,7 +1393,7 @@ LaTeX Info: Redefining \textso on input line 1034.
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 1035.
 
-<./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png, id=271, 
+<./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png, id=273, 
 722.7pt x 361.35pt>
 File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png Grap
 hic file (type png)
@@ -1406,7 +1406,7 @@ Overfull \hbox (34.19333pt too wide) in paragraph at lines 1053--1054
  []|  [] 
  []
 
-<./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png, id=272, 722.7p
+<./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png, id=274, 722.7p
 t x 361.35pt>
 File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png Graphic fi
 le (type png)
@@ -1427,7 +1427,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1074--1074
 [21 <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png> <./i
 llustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png>]
 <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1.png,
- id=280, 1084.05pt x 289.08pt>
+ id=282, 1084.05pt x 289.08pt>
 File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1
 .png Graphic file (type png)
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1.
@@ -1441,7 +1441,7 @@ Overfull \hbox (74.882pt too wide) in paragraph at lines 1087--1088
  []
 
 <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png, id=28
-1, 1084.05pt x 289.08pt>
+3, 1084.05pt x 289.08pt>
 File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png G
 raphic file (type png)
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png>
@@ -1488,10 +1488,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [24]
 \@mysp=\skip119
 \@myspinner=\skip120
-LaTeX Info: Redefining \textso on input line 1273.
-LaTeX Info: Redefining \textso on input line 1273.
+LaTeX Info: Redefining \textso on input line 1275.
+LaTeX Info: Redefining \textso on input line 1275.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1273--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1277
 []\T2A/cmr/m/n/12 Ã à -ë à -í è í , Ì . Ï . Ì å -ò î -ä û ÷ è ñ -ë å í -í î -ã 
 î à í à -ë è -ç à ì à -ò å -ì à -ò è -÷ å -ñ ê è õ ì î -ä å -
  []
@@ -1503,10 +1503,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 16279 strings out of 476025
- 265664 string characters out of 5796532
+ 16289 strings out of 476025
+ 265765 string characters out of 5796532
  1871388 words of memory out of 5000000
- 36292 multiletter control sequences out of 15000+600000
+ 36297 multiletter control sequences out of 15000+600000
  534122 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,16n,90p,1244b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1528,10 +1528,10 @@ usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf
 -dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
 per/sfti1200.pfb>
-Output written on kursovaya3.pdf (25 pages, 2552203 bytes).
+Output written on kursovaya3.pdf (25 pages, 2554664 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 398 compressed objects within 4 object streams
- 99 named destinations out of 1000 (max. 500000)
+ 511 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
  330 words of extra memory for PDF output out of 10000 (max. 10000000)
 
