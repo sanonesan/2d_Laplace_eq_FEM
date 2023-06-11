@@ -56,21 +56,7 @@ class Test_domain_1_1_sin: virtual public Class_2d_Laplace_equation<T>{
         // }
 
 
-        // Test_domain_1_1_sin<T> Set_mesh_005(){
-
-        //     this->_name = std::string ("Test_domain_1_1_sin_mesh_005");
-
-        //     this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
-        //         return 10.;
-        //     };
-
-        //     this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
-        //         return 0.;
-        //     };
-
-        //     this->Set_domain(*this, "../domains/domain_1_1/mesh005");
-        //     return *this;
-        // }
+        
 
 
         Test_domain_1_1_sin<T> Set_mesh_001(){
@@ -89,21 +75,68 @@ class Test_domain_1_1_sin: virtual public Class_2d_Laplace_equation<T>{
             return *this;
         }
 
-        // Test_domain_1_1_sin<T> Set_mesh_0001(){
 
-        //     this->_name = std::string ("Test_domain_1_1_sin_mesh_0001");
+        Test_domain_1_1_sin<T> Set_mesh_0005_calfem(){
 
-        //     this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
-        //         return 10.;
-        //     };
+            this->_name = std::string ("Test_domain_1_1_sin_mesh_0005_calfem");
 
-        //     this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
-        //         return 0.;
-        //     };
+            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
+                return -7.;
+            };
+            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
+                return 12.;
+            };
 
-        //     this->Set_domain(*this, "../domains/domain_1_1/mesh0001");
-        //     return *this;
-        // }
+            this->Set_domain(*this, "../domains/domain_1_1/mesh0005_calfem");
+            return *this;
+        }
 
+
+        Test_domain_1_1_sin<T> Set_mesh_0005_3_in_row_calfem(){
+
+            this->_name = std::string ("Test_domain_1_1_sin_mesh_0005_3_in_row_calfem");
+
+            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
+                return -7.;
+            };
+            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
+                return 12.;
+            };
+
+            this->Set_domain(*this, "../domains/domain_1_1/mesh0005_3_in_row_calfem");
+            return *this;
+        }
+
+
+        Test_domain_1_1_sin<T> Set_mesh_0001_calfem(){
+
+            this->_name = std::string ("Test_domain_1_1_sin_mesh_0001_calfem");
+
+            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
+                return -7.;
+            };
+            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
+                return 12.;
+            };
+
+            this->Set_domain(*this, "../domains/domain_1_1/mesh0001_calfem");
+            return *this;
+        }
+
+
+        Test_domain_1_1_sin<T> Set_mesh_0001_3_in_row_calfem(){
+
+            this->_name = std::string ("Test_domain_1_1_sin_mesh_0001_3_in_row_calfem");
+
+            this->_dirichlet_lower_boundary_condition = [](const T x, const T y){
+                return -7.;
+            };
+            this->_dirichlet_upper_boundary_condition = [](const T x, const T y){
+                return 12.;
+            };
+
+            this->Set_domain(*this, "../domains/domain_1_1/mesh0001_3_in_row_calfem");
+            return *this;
+        }
 
 };

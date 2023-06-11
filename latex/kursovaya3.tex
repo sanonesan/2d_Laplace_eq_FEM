@@ -25,6 +25,7 @@
 	{./illustr/}
 	{./illustr/domain_rectangle_dirichlet_only/}
 	{./illustr/domain_4/}
+	{./illustr/domain_1_1/}
 }
 
 %\usepackage{multirow}
@@ -845,8 +846,8 @@
 					{ 
 						\begin{minipage}{0.47\textwidth} 
 							\centering 
-							\hspace*{-9.5mm}
-							\includegraphics[width=0.99\columnwidth]{Test_domain_4_mesh001_calfem_net.pdf}\\
+							\hspace*{-20.5mm}
+							\includegraphics[width=1.4\columnwidth]{Test_domain_4_mesh001_calfem_net_1.png}\\
 							\textit{a} 
 						\end{minipage}                                 
 					} 
@@ -861,7 +862,7 @@
 					
 				\end{center} 
 				\vspace*{-0.0mm} 
-				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
+				\caption{Иллюстрации к решению задачи №\,2 на отрезке $\left[ 0, 2 \right]$:\\
 					\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.01$; \\
 					\textit{b} --- численное решение задачи №\,2 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.01$ \\
 				} 
@@ -877,15 +878,15 @@
 					{ 
 						\begin{minipage}{0.9\textwidth} 
 							\centering 
-							\hspace*{-8mm}
-							\includegraphics[width=0.9\columnwidth]{Test_domain_4_mesh001_3_in_row_calfem_net.pdf}\\ 
+							\hspace*{-17mm}
+							\includegraphics[width=1.2\columnwidth]{Test_domain_4_mesh001_3_in_row_calfem_net_1.png}\\ 
 							\textit{a} 
 						\end{minipage}                                 
 					} 
 					{ 
 						\begin{minipage}{1\textwidth} 
 							\centering 
-							\hspace*{-15.4mm}
+							\hspace*{-8.5mm}
 							\includegraphics[width=1.2\columnwidth]{Test_domain_4_mesh001_3_in_row_calfem.png}\\ 
 							\textit{b} 
 						\end{minipage}                                 
@@ -893,7 +894,7 @@
 								
 				\end{center} 
 				\vspace*{-2.0mm} 
-				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
+				\caption{Иллюстрации к решению задачи №\,2 на отрезке $\left[ 0, 6 \right]$:\\
 					\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.01$; \\
 					\textit{b} --- численное решение задачи №\,2 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.01$ \\
 				} 
@@ -918,6 +919,8 @@
 				
 					\begin{table}[!h]
 						\centering
+						\caption{Сравнение значений численного решения в первой группе точек}
+						\vspace*{2mm}
 						\begin{tabular}{|c|c|c|}
 							\hline
 							Область решения
@@ -973,6 +976,8 @@
 							
 							
 						\end{tabular}
+					
+						
 					\end{table}
 					
 					\item Точки вида $(1, y)$ --- для решения построенного на одном периоде функции $w(x)$,
@@ -980,6 +985,8 @@
 					
 					\begin{table}[!h]
 						\centering
+						\caption{Сравнение значений численного решения во второй группе точек}
+						\vspace*{2mm}
 						\begin{tabular}{|c|c|c|}
 							\hline
 							Область решения
@@ -1025,7 +1032,97 @@
 				\looser{0.02}{Из таблиц видно, что значения отличаются примерно на порядок $O(h^2)$, что} показывает, что решение удовлетворяет условиям периодичности.
 				
 			
+	\newpage
+	\subsection{Задача №\,3 (периодические граничные условия и граничные условия первого рода)}
+	\subsubsection{Условие задачи}
+	\looser{0.01}{Найти потенциал в области $\Omega = \left\{ -\infty \leqslant x \leqslant \infty, \  w(x) \leqslant y \leqslant 2 \right\}$}, где $w(x)$ --- периодическая функция, такая что $w(x) = \dfrac{1}{2} sin \left(\dfrac{\pi x}{2} \right)$, на верхней пластине потенциал равен $12$ В, на нижней --- $-7$ В.
+	\subsubsection{Решение}
+	Рассмотрим задачу при $x \in \left[ 1, 5 \right]$. Запишем систему, которую нужно решить:
+	\begin{equation*}
+		\begin{cases}
+			\Delta \phi (x, y)  = 0, \\
+			\phi (x, 2) = 12, \\
+			\phi (x, w(x)) = -7, \\
+			\phi (1, y) = \phi (5, y).\\
+		\end{cases}
+	\end{equation*}
+	
+	Тогда численное решение задачи №\,3, полученное методом конечных элементов при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.001$ выглядит следующим образом: 
+	\vspace*{5mm}
+	\begin{figure}[h]       
+		%\vspace{5.0mm} 
+			{ 
+				\begin{minipage}{0.47\textwidth} 
+					\centering 
+					\hspace*{-20mm}
+					\includegraphics[width=1.4\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem_net_1.png}\\
+					\textit{a}
+					
+				\end{minipage}                                 
+			} 
+			{ 
+				\begin{minipage}{0.47\textwidth} 
+					\centering 
+					\hspace*{-10.mm}
+					\includegraphics[width=1.4\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem.png}\\
+					\textit{b}
 				
+				\end{minipage}                                 
+			} 
+			
+		
+		\vspace*{5mm}
+		\caption{Иллюстрации к решению задачи №\,3 на отрезке $\left[ 1, 5 \right]$:\\
+			\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.001$; \\
+			\textit{b} --- численное решение задачи №\,3 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.001$ \\
+		} 
+	\end{figure}
+	
+	Как и в задаче №\,2 расширим область до 3 периодов и рассмотрим точки, в которых значения решения должны совпадать.			
+	
+	\newpage
+	
+	\begin{figure}[h]       
+		%\vspace{5.0mm} 
+		\begin{center} 
+			{ 
+				\begin{minipage}{0.9\textwidth} 
+					\centering 
+					\hspace*{-25mm}
+					\includegraphics[width=1.35\columnwidth]{Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1.png}\\ 
+					\textit{a} 
+				\end{minipage}                                 
+			} 
+			{ 
+				\begin{minipage}{1\textwidth} 
+					\centering 
+					\hspace*{-8.5mm}
+					\includegraphics[width=1.2\columnwidth]{Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png}\\ 
+					\textit{b} 
+				\end{minipage}                                 
+			} 
+			
+		\end{center} 
+		\vspace*{-2.0mm} 
+		\caption{Иллюстрации к решению задачи №\,3 на отрезке $\left[ 1, 13 \right]$:\\
+			\textit{a} --- иллюстрация разбиения исследуемой области с параметром $S_{max} \rightarrow 0.001$; \\
+			\textit{b} --- численное решение задачи №\,3 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.001$ \\
+		} 
+	\end{figure}
+
+	\subsubsection{Проверка решения на удовлетворение условиям периодичности}
+		Аналогично предыдущей задаче рассмотрим две группы точек:
+		\begin{enumerate}
+			
+			\item Точки вида: $(1, y),\ (5, y)$ --- для решения построенного на одном периоде функции $w(x)$,
+			$(1, y),\ (5, y),\ (9, y),\ (13, y)$ --- для решения построенного на трех периодах функции $w(x)$ (таблица ).
+			
+			\item Точки вида $(1, y)$ --- для решения построенного на одном периоде функции $w(x)$,
+			\looser{-0.02}{$(1, y),\ (3, y),\ (5, y)$ --- для решения построенного на трех периодах функции $w(x)$ (таблица ).}
+			
+		\end{enumerate}
+		
+		
 				
 				
 				

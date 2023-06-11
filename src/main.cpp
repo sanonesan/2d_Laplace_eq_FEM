@@ -160,10 +160,27 @@ int main(int args, char **argv){
 
 
 
-    // Test_domain_1_1_sin<T> test1_1;
-    // solver.output_folder = "../output/domain_1_1/mesh001/";
+    Test_domain_1_1_sin<T> test1_1;
+    // test1_1.Set_mesh_0005_calfem();
+    // solver.output_folder = "../output/domain_1_1/mesh0005_calfem/";
     // solver.file_name = test1_1._name;
     // solver.solve_eq(test1_1);
+
+    // test1_1.Set_mesh_0005_3_in_row_calfem();
+    // solver.output_folder = "../output/domain_1_1/mesh0005_3_in_row_calfem/";
+    // solver.file_name = test1_1._name;
+    // solver.solve_eq(test1_1);
+
+    // test1_1.Set_mesh_0001_calfem();
+    // solver.output_folder = "../output/domain_1_1/mesh0001_calfem/";
+    // solver.file_name = test1_1._name;
+    // solver.solve_eq(test1_1);
+
+    test1_1.Set_mesh_0001_3_in_row_calfem();
+    solver.output_folder = "../output/domain_1_1/mesh0001_3_in_row_calfem/";
+    solver.file_name = test1_1._name;
+    solver.solve_eq(test1_1);
+
 
     // Test_domain_1_1_1_sin<T> test1_1_1;
     // solver.output_folder = "../output/domain_1_1_1/mesh001/";
@@ -171,17 +188,17 @@ int main(int args, char **argv){
     // solver.solve_eq(test1_1_1);
 
 
-    Test_domain_4_abs_x<T> test5;
+    // Test_domain_4_abs_x<T> test5;
 
-    test5.Set_mesh001_calfem();
-    solver.output_folder = "../output/domain_4/mesh001_calfem/";
-    solver.file_name = test5._name;
-    solver.solve_eq(test5);
+    // test5.Set_mesh001_calfem();
+    // solver.output_folder = "../output/domain_4/mesh001_calfem/";
+    // solver.file_name = test5._name;
+    // solver.solve_eq(test5);
 
 
-    solver.output_folder = "../output/domain_4/mesh001_3_in_row_calfem/";
-    solver.file_name = test5._name;
-    solver.solve_eq(test5);
+    // solver.output_folder = "../output/domain_4/mesh001_3_in_row_calfem/";
+    // solver.file_name = test5._name;
+    // solver.solve_eq(test5);
     
 
     

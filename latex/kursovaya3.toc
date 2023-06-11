@@ -20,6 +20,10 @@
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.1.\ }}}{\ignorespaces {Условие задачи}}}{18}{section*.30}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.2.\ }}}{\ignorespaces {Решение}}}{18}{section*.31}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{19}{section*.34}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{21}{section*.37}%
-\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{21}{section*.38}%
-\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{22}{section*.40}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.3.\ }}}{\ignorespaces {Задача №\,3 (периодические граничные условия и граничные условия первого рода)}}}{21}{section*.37}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.1.\ }}}{\ignorespaces {Условие задачи}}}{21}{section*.38}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.2.\ }}}{\ignorespaces {Решение}}}{21}{section*.39}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{22}{section*.42}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{23}{section*.43}%
+\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{23}{section*.44}%
+\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{24}{section*.46}%
