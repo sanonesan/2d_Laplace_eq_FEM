@@ -6,8 +6,6 @@
 
 
 \usepackage{subfig}
-%\usepackage{amsmath}
-%\usepackage{amssymb} 
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{enumitem}
@@ -18,7 +16,7 @@
 \usepackage{multicol}
 \usepackage{scalerel}
 \usepackage{graphicx}
-%\usepackage{txfonts}
+
 
 \graphicspath{
 	{./style/}
@@ -28,17 +26,11 @@
 	{./illustr/domain_1_1/}
 }
 
-%\usepackage{multirow}
-%\usepackage{supertabular}
-%\usepackage{multicol}
-
 \frenchspacing
 \sloppy
 \counterwithout{equation}{section}
 \counterwithout{figure}{section}
 \newenvironment{comment}{}{}
-
-
 
 
 % Параметры титульного листа
@@ -54,12 +46,14 @@
 \renewcommand{\phi}{\varphi}
 \newcommand\Tau{\scalerel*{\tau}{T}}
 
+
 \newcommand\thh[1]{\text{\mathversion{bold}${#1}$}}
 %Переопределение команды нумерации перечней: точки заменяются на скобки
 %\renewcommand{\labelenumi}{\theenumi)}
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+
 
 
 \begin{document}
@@ -281,7 +275,7 @@
 					}.
 				\end{equation*}
 				
-				В результату получаем следующее выражение для матрицы жесткости конечного элемента $T$:
+				В результате получаем следующее выражение для матрицы жесткости конечного элемента $T$:
 				\begin{eqnarray}
 					A_{T,ij} = \int_{T} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega
 					= \dfrac{|T|}{(2|T|)^2} 
@@ -497,18 +491,18 @@
 				\end{equation}
 				\looser{0.02}{где $N$ --- количество узлов, $u_{exact, i},\ u_{approx, i}$ --- точное и приближенное решения в $i$-ом узле;}
 				\begin{equation}
-					\mathrm{Err}_{L_2} = || u_{exact} - u_{approx} ||_{L_2} = \int_S (u_{exact} - u_{approx})^2 dS,
+					\mathrm{Err}_{L_2} = \| u_{exact} - u_{approx} \|_{L_2} = \int_S (u_{exact} - u_{approx})^2 dS,
 					\label{l2_err}
 				\end{equation}
 				где $S$ --- площадь области $\Omega$. Численная аналог формулы (\refeq{l2_err}) получается следующим образом:
 				\begin{gather*}
 					\int_S (u_{exact} - u_{approx})^2 dS = \sum_{i = 1}^{N_{el}} \int_{S_i} (u_{exact} - u_{approx})^2 dS, \\
 					\int_{S_i} (u_{exact} - u_{approx})^2 dS \approx \dfrac{S_i}{N_v} \sum_{j = 1}^{N_v}  (u_{exact,\,ij} - u_{approx,\,ij})^2, \\
-					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_k,		
+					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_{ik},		
 				\end{gather*} 
 				\looser{0.0115}{где 
 					где $N_{el}$ --- количество конечных элементов,
-					$S_i$ --- площадь $i$-ого конечного элемента, $N_v$ --- количество узлов конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента, $\phi_k$ --- базисная функция в $k$-ом узле $i$-ого кочечного элемента.} 
+					$S_i$ --- площадь $i$-ого конечного элемента, $N_v$ --- количество узлов конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента, $\phi_{ik}$ --- базисная функция в $k$-ом узле $i$-ого кочечного элемента.} 
 				
 				Так как в качестве конечного элемента выбран треугольный элемент, а базисные функции такие, что имеют значение 1 в своем узле и 0 во всех остальных, то формула для вычисления погрешности решения в норме $L_2$ примет вид
 				\begin{equation}
@@ -846,7 +840,7 @@
 					{ 
 						\begin{minipage}{0.47\textwidth} 
 							\centering 
-							\hspace*{-20.5mm}
+							\hspace*{-21.5mm}
 							\includegraphics[width=1.4\columnwidth]{Test_domain_4_mesh001_calfem_net_1.png}\\
 							\textit{a} 
 						\end{minipage}                                 
@@ -925,7 +919,7 @@
 						\begin{tabular}{|c|c|c|}
 							\hline
 							Область решения
-							& Координата точки (x, y)
+							& Координата точки $(x, y)$
 							& Значение потенциала $\phi$ в точке, В\\
 							
 							\hline
@@ -992,7 +986,7 @@
 						\begin{tabular}{|c|c|c|}
 							\hline
 							Область решения
-							& Координата точки (x, y)
+							& Координата точки $(x, y)$
 							& Значение потенциала $\phi$ в точке, В\\
 							
 							\hline
@@ -1134,7 +1128,7 @@
 				\begin{tabular}{|c|c|c|}
 					\hline
 					Область решения
-					& Координата точки (x, y)
+					& Координата точки $(x, y)$
 					& Значение потенциала $\phi$ в точке, В\\ 
 					
 					\hline
@@ -1203,7 +1197,7 @@
 				\begin{tabular}{|c|c|c|}
 					\hline
 					Область решения
-					& Координата точки (x, y)
+					& Координата точки $(x, y)$
 					& Значение потенциала $\phi$ в точке, В\\
 					
 					\hline
@@ -1261,12 +1255,15 @@
 		
 	
 	\newpage
-	\section{Программная реализация алгоритма}
+	\section{Программная реализация}
 		
+		Алгоритм для решения задачи методом конечных элементов (МКЭ) был реализован на языке C++. МКЭ предполагает решение системы линейных алгебраических уравнений с разреженной матрицей, для этого использовалась библиотека линейной алгебры для языка C++ --- Eigen. Для построения сеток использовались математический пакет Wolfram Mathematica и библиотека CALFEM для языка Python. Графики и иллюстрации строились с помощью встоенных средств Wolfram Mathematica и библиотеки Matplotlib для языка Python. 
 		
-		Построение сеток --- Wolfram Mathematica и CALFEM, алгоритм метода конечных элементов реализован на языке C++
 	
 	\section-{Заключение}
+		
+		В ходе курсовой работы был изучен и реализован метод конечных элементов. Реализация метода была проверена на тестовом примере с известным решением, также с ее помощью были решены и исследованы несколько вариантов исходной задачи с разными профилями пластин и заданными на них напряжениями.
+		Все описанные подходы выполнены на языке C++ с демонстрацией результатов работы.		
 	
 	
 	\newpage

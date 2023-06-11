@@ -24,6 +24,6 @@
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.1.\ }}}{\ignorespaces {Условие задачи}}}{21}{section*.38}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.2.\ }}}{\ignorespaces {Решение}}}{21}{section*.39}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{22}{section*.42}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация алгоритма}}}}}{24}{section*.45}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация}}}}}{24}{section*.45}%
 \contentsline {section}{\textbf {\ignorespaces {Заключение}}}{24}{section*.46}%
 \contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{25}{section*.48}%
