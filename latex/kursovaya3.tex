@@ -440,375 +440,622 @@
 				
 				
 				\newpage
-				\subsubsection{Построение сетки}
+				\subsubsection{Решение}
 					Численное решение будем искать на сетках с разными размерами конечного элемента: будет варьироваться параметр $S_{max}$, отвечающий за максимальную площадь конечного элемента. 
-					 				
-					Построим сетки, на которых площадь конечного элемента ограничена следующими значениями: $0.05, \ 0.01, \ 0.001$, они выглядят следующим образом: 
+					Для построения сеток в данном примере использовалась библиотека CALFEM \cite{calfem}, в которой отношение самой длинной и самой короткой сторон треугольного конечного элемента в среднем стремится к 1. 
+							
+					Полученные сетки с параметром $S_{max}$ равным $0.05, \ 0.01, \ 0.001$ выглядят следующим образом: 
 					
 					%\newpage
 										
-					\begin{figure}[h]       
+					\begin{figure}[h]  
+						\centering     
 						\vspace{5.0mm} 
 						\begin{center} 
 							{ 
 								\begin{minipage}{0.45\textwidth} 
 									\centering 
-									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_005_calfem_net.pdf}\\ 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_005_calfem_net.png}\\ 
 									\textit{a} 
 								\end{minipage}                                 
 							} 
 							{ 
 								\begin{minipage}{0.45\textwidth} 
 									\centering 
-									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.pdf}\\ 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.png}\\ 
 									\textit{b} 
 								\end{minipage}                                 
 							} 
 							{ 
-								\begin{minipage}{0.9\textwidth} 
+								\begin{minipage}{0.7\textwidth} 
 									\centering 
-									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_0001_calfem_net.pdf}\\ 
+									\includegraphics[width=1\columnwidth]{rect_dirichlet_only_0001_calfem_net.png}\\ 
 									\textit{c} 
 								\end{minipage}                                 
 							} 						
 						\end{center} 
 						\vspace*{-0.0mm} 
-						\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1:\\
-							\textit{a} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.05$; \\
-							\textit{b} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow  0.01$; \\
-							\textit{c} --- иллюстрация разбиения области $\Omega$ с параметром $S_{max} \rightarrow 0.001$
+						\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1: 
+							\textit{a} --- параметр $S_{max} \rightarrow 0.05$;\\
+							\textit{b} --- параметр $S_{max} \rightarrow  0.01$;
+							\textit{c} --- параметр $S_{max} \rightarrow 0.001$
 						} 
+						\label{fig: meshs_for_rect}
 					\end{figure}
+					
+					\looser{-0.02}{Для того, чтобы в дальнейшем качественно сравнить результаты, граничные условия для алгоритма МКЭ будут задаваться с помощью точного решения. Тогда решения поставленной задачи, полученные на сетках рис. }\ref{fig: meshs_for_rect}, выглядят следующим образом:
 		
 			
-			\newpage
 			
-			\subsubsection{Оценка погрешности аппроксимации решения}
-				Для оценки погрешности полученного решения $u_{approx}$ относительно точного решения $u_{exact}$ возьмем среднее значении абсолютной погрешности по всем узлам (\ref{abs_err}) и погрешность решения в норме $L_2$ (\ref{l2_err}):
-				\begin{equation}
-					\mathrm{AbsErr} = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i} \right|,
-					\label{abs_err}
-				\end{equation}
-				\looser{0.02}{где $N$ --- количество узлов, $u_{exact, i},\ u_{approx, i}$ --- точное и приближенное решения в $i$-ом узле;}
-				\begin{equation}
-					\mathrm{Err}_{L_2} = \| u_{exact} - u_{approx} \|_{L_2} = \int_S (u_{exact} - u_{approx})^2 dS,
-					\label{l2_err}
-				\end{equation}
-				где $S$ --- площадь области $\Omega$. Численная аналог формулы (\refeq{l2_err}) получается следующим образом:
-				\begin{gather*}
-					\int_S (u_{exact} - u_{approx})^2 dS = \sum_{i = 1}^{N_{el}} \int_{S_i} (u_{exact} - u_{approx})^2 dS, \\
-					\int_{S_i} (u_{exact} - u_{approx})^2 dS \approx \dfrac{S_i}{N_v} \sum_{j = 1}^{N_v}  (u_{exact,\,ij} - u_{approx,\,ij})^2, \\
-					u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_{ik},		
-				\end{gather*} 
-				\looser{0.0115}{где 
-					где $N_{el}$ --- количество конечных элементов,
-					$S_i$ --- площадь $i$-ого конечного элемента, $N_v$ --- количество узлов конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента, $\phi_{ik}$ --- базисная функция в $k$-ом узле $i$-ого кочечного элемента.} 
-				
-				Так как в качестве конечного элемента выбран треугольный элемент, а базисные функции такие, что имеют значение 1 в своем узле и 0 во всех остальных, то формула для вычисления погрешности решения в норме $L_2$ примет вид
-				\begin{equation}
-					\mathrm{Err}_{L_2} \approx \sum_{i = 1}^{N_{el}} S_i
-					\sum_{j = 1}^{3}  \dfrac{\phantom{|}(u_{exact,\,ij} - u_{approx,\,ij})^2}{3}.
-					\label{l2_err_approx}
-				\end{equation}
-				%Для более точного исследования погрешности метода, для вычисления значений на границах области будет использоваться точное решение (\refeq{exact_solution}).
 			
-			\newpage
+			%\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.05$ выглядит следующим образом: 
-			\vspace*{-5mm}
+			%Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.05$ выглядит следующим образом: 
+			%\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=1\textwidth]{rect_dirichlet_only_005_calfem.png}
+				\includegraphics[width=0.75\textwidth]{rect_dirichlet_only_005_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.05$}
 				\label{fig:dom_rect_005}
 			\end{figure*}
 			
-			\noindent
-			\begin{table}[!h]
-				\centering
-				\caption{\label{table_comparison_005} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.05$  задачи №\,1}
-				\vspace*{2mm}
-				\begin{tabular}{|c|c|c|c|c|c|}
-					\hline
-					Узел №
-					& Точное решение
-					& Приближенное решение 
-					& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
-					& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 				
+			% %{	\noindent
+			% \begin{table}[!h]
+			% 	\centering
+			% 	\caption{\label{table_comparison_005} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.05$  задачи №\,1}
+			% 	\vspace*{2mm}
+			% 	\begin{tabular}{|c|c|c|c|c|c|}
+			% 		\hline
+			% 		Узел №
+			% 		& Точное решение
+			% 		& Приближенное решение 
+			% 		& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
+			% 		& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 				
 					
-					\hline
-					40
-					& 1.27392652
-					& 1.25634191 
-					& 0.01758461
-					& 0.01380348 \\ 
-					
-					
-					\hline
-					60
-					& 3.72330814
-					& 3.70649274 
-					& 0.0168154
-					& 0.00451625 \\ 
+			% 		\hline
+			% 		40
+			% 		& 1.27392652
+			% 		& 1.25634191 
+			% 		& 0.01758461
+			% 		& 0.01380348 \\ 
 					
 					
-					\hline
-					80
-					& 1.95722711
-					& 1.93729186 
-					& 0.01993525
-					& 0.01018546 \\ 
+			% 		\hline
+			% 		60
+			% 		& 3.72330814
+			% 		& 3.70649274 
+			% 		& 0.0168154
+			% 		& 0.00451625 \\ 
 					
 					
-					\hline
-					100
-					& 2.69063261
-					& 2.68065981 
-					& 0.0099728
-					& 0.00370649 \\ 
+			% 		\hline
+			% 		80
+			% 		& 1.95722711
+			% 		& 1.93729186 
+			% 		& 0.01993525
+			% 		& 0.01018546 \\ 
 					
 					
-					\hline
-					120
-					& 1.9138927
-					& 1.90537176 
-					& 0.00852094
-					& 0.00445215 \\ 
+			% 		\hline
+			% 		100
+			% 		& 2.69063261
+			% 		& 2.68065981 
+			% 		& 0.0099728
+			% 		& 0.00370649 \\ 
 					
-					\hline
-				\end{tabular}				
-			\end{table}		
+					
+			% 		\hline
+			% 		120
+			% 		& 1.9138927
+			% 		& 1.90537176 
+			% 		& 0.00852094
+			% 		& 0.00445215 \\ 
+					
+			% 		\hline
+			% 	\end{tabular}				
+			% \end{table}		
 				
-			\noindent
-			Количество конечных элементов: 216.\\
-			Средняя площадь элемента:  0.04. \\
-			Максимальная площадь элемента:  0.05. \\
-			Среднее значение абсолютной погрешности: 	0.01087074.\\
-			Среднее значение относительной погрешности: 0.02889112. \\
-			Максимальное значение абсолютной погрешности: 0.66276194. \\			
-			Погрешность в норме $L_2$: 0.05392223. \\
+			% \noindent
+			% Количество конечных элементов: 216.\\
+			% Средняя площадь элемента:  0.04. \\
+			% Максимальная площадь элемента:  0.05. \\
+			% Среднее значение абсолютной погрешности: 	0.01087074.\\
+			% Среднее значение относительной погрешности: 0.02889112. \\
+			% Максимальное значение абсолютной погрешности: 0.66276194. \\			
+			% Погрешность в норме $L_2$: 0.05392223. \\
 			
 			
-			\newpage
+			%\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.01$ выглядит следующим образом: 
-			\vspace*{-5mm}
+			%Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.01$ выглядит следующим образом: 
+			%\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=1\textwidth]{rect_dirichlet_only_001_calfem.png}
+				\includegraphics[width=0.75\textwidth]{rect_dirichlet_only_001_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.01$}
 				\label{fig:dom_rect_001}
 			\end{figure*}
 			
 			
-			\noindent
-			\begin{table}[!h]
-				\centering
-				\caption{\label{table_comparison_001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.01$  задачи №\,1}
-				\vspace*{2mm}
-				\begin{tabular}{|c|c|c|c|c|c|}
-					\hline
-					Узел №
-					& Точное решение
-					& Приближенное решение 
-					& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
-					& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 
+			% \noindent
+			% \begin{table}[!h]
+			% 	\centering
+			% 	\caption{\label{table_comparison_001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.01$  задачи №\,1}
+			% 	\vspace*{2mm}
+			% 	\begin{tabular}{|c|c|c|c|c|c|}
+			% 		\hline
+			% 		Узел №
+			% 		& Точное решение
+			% 		& Приближенное решение 
+			% 		& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
+			% 		& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 
 									
-					\hline
-					100
-					& 8.79692038
-					& 8.7754521 
-					& 0.02146828
-					& 0.00244043 \\ 
+			% 		\hline
+			% 		100
+			% 		& 8.79692038
+			% 		& 8.7754521 
+			% 		& 0.02146828
+			% 		& 0.00244043 \\ 
 					
 					
-					\hline
-					200
-					& 4.20092245
-					& 4.18212546 
-					& 0.01879699
-					& 0.00447449 \\ 
+			% 		\hline
+			% 		200
+			% 		& 4.20092245
+			% 		& 4.18212546 
+			% 		& 0.01879699
+			% 		& 0.00447449 \\ 
 					
 					
-					\hline
-					300
-					& 1.26335365
-					& 1.26129625 
-					& 0.0020574
-					& 0.00162853 \\ 
+			% 		\hline
+			% 		300
+			% 		& 1.26335365
+			% 		& 1.26129625 
+			% 		& 0.0020574
+			% 		& 0.00162853 \\ 
 					
 					
-					\hline
-					400
-					& 2.55278075
-					& 2.5283193 
-					& 0.02446145
-					& 0.00958228 \\ 
+			% 		\hline
+			% 		400
+			% 		& 2.55278075
+			% 		& 2.5283193 
+			% 		& 0.02446145
+			% 		& 0.00958228 \\ 
 					
 					
-					\hline
-					500
-					& 2.88063844
-					& 2.68968953 
-					& 0.19094891
-					& 0.06628701 \\ 
+			% 		\hline
+			% 		500
+			% 		& 2.88063844
+			% 		& 2.68968953 
+			% 		& 0.19094891
+			% 		& 0.06628701 \\ 
 					
-					\hline
-				\end{tabular}				
-			\end{table}		
-			\vspace*{-5mm}
+			% 		\hline
+			% 	\end{tabular}				
+			% \end{table}		
+			% \vspace*{-5mm}
 			
-			\noindent
-			Количество конечных элементов: 1020.\\
-			Средняя площадь элемента:  0.008. \\
-			Максимальная площадь элемента:  0.01. \\
-			Среднее значение относительной погрешности: 0.00395515. \\
-			Среднее значение абсолютной погрешности: 	0.01213012.\\			
-			Максимальное значение абсолютной погрешности: 0.66741336. \\			
-			Погрешность в норме $L_2$: 0.01467814. \\
+			% \noindent
+			% Количество конечных элементов: 1020.\\
+			% Средняя площадь элемента:  0.008. \\
+			% Максимальная площадь элемента:  0.01. \\
+			% Среднее значение относительной погрешности: 0.00395515. \\
+			% Среднее значение абсолютной погрешности: 	0.01213012.\\			
+			% Максимальное значение абсолютной погрешности: 0.66741336. \\			
+			% Погрешность в норме $L_2$: 0.01467814. \\
 			
 			
-			\newpage
+			%\newpage
 			
-			Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.001$ выглядит следующим образом: 
-			\vspace*{-5mm}
+			%Решение задачи №\,1 при разбиение $\Omega$ с параметром $S_{max} \rightarrow 0.001$ выглядит следующим образом: 
+			%\vspace*{-5mm}
 			\begin{figure*}[!h]
 				\centering
-				\includegraphics[width=1\textwidth]{rect_dirichlet_only_0001_calfem.png}
+				\includegraphics[width=0.75\textwidth]{rect_dirichlet_only_0001_calfem.png}
 				\caption{Численное решение задачи №\,1 с разбиением области $\Omega$ на элементы с параметром $S_{max} \rightarrow 0.001$}
 				\label{fig:dom_rect_0001}
 			\end{figure*}
 			
 			
-			\noindent
-			\begin{table}[!h]
-				\centering
-				\caption{\label{table_comparison_0001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.001$  задачи №\,1}
-				\vspace*{2mm}
-				\begin{tabular}{|c|c|c|c|c|c|}
-					\hline
-					Узел №
-					& Точное решение
-					& Приближенное решение 
-					& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
-					& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 
+			% \noindent
+			% \begin{table}[!h]
+			% 	\centering
+			% 	\caption{\label{table_comparison_0001} Сравнение значений точного решения и численного решения с разбиением области $\Omega$ с параметром $S_{max} \rightarrow 0.001$  задачи №\,1}
+			% 	\vspace*{2mm}
+			% 	\begin{tabular}{|c|c|c|c|c|c|}
+			% 		\hline
+			% 		Узел №
+			% 		& Точное решение
+			% 		& Приближенное решение 
+			% 		& \begin{tabular}[c]{@{}l@{}}Абсолютная \\ погрешность\end{tabular} 
+			% 		& \begin{tabular}[c]{@{}l@{}}Относительная \\ погрешность\end{tabular} \\ 
 					
-					\hline
-					1000
-					& 7.01809786
-					& 7.0179319 
-					& 0.00016596
-					& 2.365e-05 \\ 
-					
-					
-					\hline
-					2000
-					& 3.09142766
-					& 3.09091957 
-					& 0.00050809
-					& 0.00016436 \\ 
+			% 		\hline
+			% 		1000
+			% 		& 7.01809786
+			% 		& 7.0179319 
+			% 		& 0.00016596
+			% 		& 2.365e-05 \\ 
 					
 					
-					\hline
-					3000
-					& 2.36605127
-					& 2.36557367 
-					& 0.0004776
-					& 0.00020185 \\ 
+			% 		\hline
+			% 		2000
+			% 		& 3.09142766
+			% 		& 3.09091957 
+			% 		& 0.00050809
+			% 		& 0.00016436 \\ 
 					
 					
-					\hline
-					4000
-					& 6.36926022
-					& 6.36913706 
-					& 0.00012316
-					& 1.934e-05 \\ 
+			% 		\hline
+			% 		3000
+			% 		& 2.36605127
+			% 		& 2.36557367 
+			% 		& 0.0004776
+			% 		& 0.00020185 \\ 
 					
 					
-					\hline
-					5000
-					& 4.37751466
-					& 4.37639743 
-					& 0.00111723
-					& 0.00025522 \\ 
+			% 		\hline
+			% 		4000
+			% 		& 6.36926022
+			% 		& 6.36913706 
+			% 		& 0.00012316
+			% 		& 1.934e-05 \\ 
 					
-					\hline
-				\end{tabular}				
-			\end{table}		
-			\vspace*{-5mm}
+					
+			% 		\hline
+			% 		5000
+			% 		& 4.37751466
+			% 		& 4.37639743 
+			% 		& 0.00111723
+			% 		& 0.00025522 \\ 
+					
+			% 		\hline
+			% 	\end{tabular}				
+			% \end{table}		
+			% \vspace*{-5mm}
 			
-			\noindent
-			Количество конечных элементов: 10778.\\
-			Средняя площадь элемента:  0.0007. \\
-			Максимальная площадь элемента:  0.001. \\
-			Среднее значение относительной погрешности: 0.00030776. \\
-			Среднее значение абсолютной погрешности: 	0.00107663.\\			
-			Максимальное значение абсолютной погрешности: 0.62899979. \\			
-			Погрешность в норме $L_2$: 0.00096066. \\
+			% \noindent
+			% Количество конечных элементов: 10778.\\
+			% Средняя площадь элемента:  0.0007. \\
+			% Максимальная площадь элемента:  0.001. \\
+			% Среднее значение относительной погрешности: 0.00030776. \\
+			% Среднее значение абсолютной погрешности: 	0.00107663.\\			
+			% Максимальное значение абсолютной погрешности: 0.62899979. \\			
+			% Погрешность в норме $L_2$: 0.00096066. \\
 		 	
+	 	\newpage
+	 	
+	 	\subsubsection{Оценка погрешности аппроксимации решения}
+	 	Для оценки погрешности полученного решения $u_{approx}$ относительно точного решения $u_{exact}$ возьмем среднее значении абсолютной погрешности по всем узлам (\ref{abs_err}) и погрешность решения в норме $L_2$ (\ref{l2_err}):
+	 	\begin{equation}
+	 		\mathrm{AbsErr} = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i} \right|,
+	 		\label{abs_err}
+	 	\end{equation}
+	 	\looser{0.02}{где $N$ --- количество узлов, $u_{exact, i},\ u_{approx, i}$ --- точное и приближенное решения в $i$-ом узле;}
+	 	\begin{equation}
+	 		\mathrm{Err}_{L_2} = \| u_{exact} - u_{approx} \|_{L_2} = \int_S (u_{exact} - u_{approx})^2 dS,
+	 		\label{l2_err}
+	 	\end{equation}
+	 	где $S$ --- площадь области $\Omega$. Численный аналог формулы (\refeq{l2_err}) получается следующим образом:
+	 	\begin{gather*}
+	 		\int_S (u_{exact} - u_{approx})^2 dS = \sum_{i = 1}^{N_{el}} \int_{S_i} (u_{exact} - u_{approx})^2 dS, \\
+	 		\int_{S_i} (u_{exact} - u_{approx})^2 dS \approx \dfrac{S_i}{N_v} \sum_{j = 1}^{N_v}  (u_{exact,\,ij} - u_{approx,\,ij})^2, \\
+	 		u_{approx,\,ij} = \sum_{k = 1}^{N_v} u_{approx,\,ij} \, \phi_{ik},		
+	 	\end{gather*} 
+	 	\looser{0.0115}{где 
+	 		где $N_{el}$ --- количество конечных элементов,
+	 		$S_i$ --- площадь $i$-ого конечного элемента, $N_v$ --- количество узлов конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента, $\phi_{ik}$ --- базисная функция в $k$-ом узле $i$-ого кочечного элемента.} 
+	 	
+	 	Так как в качестве конечного элемента выбран треугольный элемент, а базисные функции такие, что имеют значение 1 в своем узле и 0 во всех остальных, то формула для вычисления погрешности решения в норме $L_2$ примет вид
+	 	\begin{equation}
+	 		\mathrm{Err}_{L_2} \approx \sum_{i = 1}^{N_{el}} S_i
+	 		\sum_{j = 1}^{3}  \dfrac{\phantom{|}(u_{exact,\,ij} - u_{approx,\,ij})^2}{3}.
+	 		\label{l2_err_approx}
+	 	\end{equation}
+	 	%Для более точного исследования погрешности метода, для вычисления значений на границах области будет использоваться точное решение (\refeq{exact_solution}).
 			
 	
 	
 	
 		\newpage
-		
-		\noindent
-		\begin{table}[!h]
-			\centering
-			\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
-			\vspace*{2mm}
-			\begin{tabular}{|c|c|c|c|}
 				
-				\hline
-				 
-				\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}c@{}}
-				Количество\\ 
-				конечных \\ 
-				элементов\end{tabular}}
-				& \begin{tabular}[c]{@{}c@{}}Максимальная площадь\\ элемента\end{tabular}
-				& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular}}
-				& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Погрешность решения\\ в норме $L_2$\end{tabular}} \\
-				
-				\hline
-				216
-				& 0.05
-				& 0.02889112 
-				& 0.05392223 \\ 
-				
-				
-				\hline
-				1020
-				& 0.01
-				& 0.01213012 
-				& 0.01467814 \\ 
-				
-					
-				\hline
-				1874
-				& 0.005
-				& 0.00438909 
-				& 0.00417991 \\
-				
-				\hline
-				10778
-				& 0.001
-				& 0.00107663 
-				& 0.00096066 \\ 
-				
-				\hline
-				22124
-				& 0.0005
-				& 0.00052738 
-				& 0.00046246 \\ 
-				
-				\hline
-			\end{tabular}
-			\label{table: 4}				
-		\end{table}		
-		\vspace*{-5mm}
-		
-		Из таблицы \ref{table: 4} видно, что погрешность решения является величиной порядка $O(h^2)$, где $h$ --- длина ребра конечного элемента, и меняется линейно в зависимости от площади конечного элемента.
+		\subsubsection{Погрешность аппроксимации на сетках}
 			
+			Для анализа качества аппроксимации дополнительно построим решения на сетках с параметром $S_{max}$ равным 0.005, 0.0005. 
+			
+			\vspace*{-1mm}
+			\begin{table}[!h]
+				\centering
+				\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
+				\vspace*{2mm}
+				\hspace*{-8mm}
+				\begin{tabular}{|c|c|c|c|c|}
+					
+					\hline
+					 
+					\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}c@{}}
+					Количество\\ 
+					конечных \\ 
+					элементов\end{tabular}}
+					& \begin{tabular}[c]{@{}c@{}c@{}}Максимальная \\ площадь $S_{max}$ \\ конечного элемента \end{tabular}
+					& \begin{tabular}[c]{@{}c@{}c@{}}Средняя длина \\ ребра $h$ конечного \\  элемента \end{tabular}
+					& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular}}
+					& \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Погрешность \\ решения\\ в норме $L_2$\end{tabular}} \\
+					
+					\hline
+					216
+					& 0.05
+					& 0.3
+					& 0.0289 
+					& 0.0539 \\ 
+					
+					
+					\hline
+					1020
+					& 0.01
+					& 0.135
+					& 0.0121
+					& 0.0147 \\ 
+					
+						
+					\hline
+					1874
+					& 0.005
+					& 0.1
+					& 0.0044
+					& 0.0042 \\
+					
+					\hline
+					10778
+					& 0.001
+					& 0.041
+					& 0.00107
+					& 0.00096 \\ 
+					
+					\hline
+					22124
+					& 0.0005
+					& 0.029
+					& 0.00053 
+					& 0.00046 \\ 
+					
+					\hline
+				\end{tabular}
+				\label{table: 4}				
+			\end{table}		
+			\vspace*{-5mm}
+			
+			Из таблицы \ref{table: 4} видно, что погрешность решения является величиной порядка $O(h^2)$ или же $O(S_{max})$ и меняется линейно в зависимости от площади конечного элемента.
+		 
+			Исследуем зависимость погрешности решения от отношение самой длинной и самой короткой сторон треугольного конечного элемента. Для этого построим сетки с помощью Wolfram Mathematica, c параметром $S_{max}$ равным 0.05, 0.01, 0.001.
+			
+			
+			\begin{figure}[h]  
+				\centering     
+				\vspace{-2.0mm} 
+				\begin{center} 
+					{ 
+						\begin{minipage}{0.47\textwidth} 
+							\centering 
+							\hspace*{-17.7mm}
+							\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_001_net.png}\\ 
+							\hspace*{-11mm}
+							\textit{a} 
+						\end{minipage}                                 
+					} 
+					{ 
+						\begin{minipage}{0.47\textwidth} 
+							\centering 
+							\hspace*{-7.2mm}
+							\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_001_calfem_net.png}\\
+							\hspace*{7.2mm} 
+							\textit{b} 
+						\end{minipage}                                 
+					} 				
+				\end{center} 
+				\vspace*{-0.0mm} 
+				\caption{Иллюстрации разбиения области $\Omega$ задачи №\,1 с параметром $S_{max} \rightarrow 0.01$: \\
+					\textit{a} --- сетка Wolfram Mathematica;
+					\textit{b} --- сетка CALFEM;
+				} 
+				\label{fig: comp_mesh_calfem_wolfram}
+			\end{figure}
+			
+		%	\begin{figure*}[!h]
+		%		\includegraphics[width=0.7\textwidth]{rect_dirichlet_only_001_net.png}
+		%		\caption{Пример сетки построенной в Wolfram Mathematica параметром $S_{max} \rightarrow 0.01$}
+		%		\label{fig:dom_rect_005_wolfram}
+		%	\end{figure*}
+			
+			На этапе построения сетки видно, что, в отличие от CALFEM, где соотношение среднее отношение большего и меньшего ребер конечного элемента 
+			$\dfrac{h_{max}}{h_{min}}\approx 1$, сетка в Wolfram Mathematica выходит менее структурированной, для нее среднее отношение большего и меньшего ребер $\dfrac{h_{max}}{h_{min}}\approx 1.4$. 
+			
+			
+			
+			
+			\begin{table}[!h]
+				\centering
+				\hspace*{-2mm}
+				\begin{tabular}{|c|c|c|c|c|}
+					
+					\hline
+					
+					\begin{tabular}[c]{@{}c@{}}Средняя длина\\ ребра $h$\\ конечного элемента\end{tabular} 
+					& $\mathrm{avg} \left( \dfrac{h_{max}}{h_{min}} \right) $
+					& $\max \left( \dfrac{h_{max}}{h_{min}} \right) $
+					& \begin{tabular}[c]{@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular} 
+					& \begin{tabular}[c]{@{}c@{}}Погрешность \\ решения\\ в норме $L_2$\end{tabular} \\ 
+					\hline\hline
+					
+					
+					0.3                                                                                
+					&  1.1                                                                         
+					&  1.5                                                                                        
+					& 0.03                                                                                
+					& 0.05   \\
+					\hline
+					
+					0.3                                                                                
+					&  1.4                                                                         
+					&  2                                                                                          
+					& 0.02                                                                                
+					& 0.034  \\
+					\hline
+					\hline
+					
+					0.135                                                                              
+					&  1.1                                                                         
+					&  1.4                                                                                        
+					& 0.01                                                                                
+					& 0.015  \\
+					\hline
+					
+					0.127                                                                              
+					&  1.4                                                                         
+					&  2.3                                                                                        
+					& 0.008                                                                               
+					& 0.013  \\
+					\hline
+					\hline
+					
+					0.04             
+					&  1.1                                                                         
+					&  1.4                                                                                        
+					& 0.001                                                                               
+					& 0.001  \\
+					\hline
+					
+					0.04                                                                               
+					&  1.4                                                                         
+					&  2.3                                                                                        
+					& 0.003                                                                               
+					& 0.007  \\
+					\hline
+					\hline
+					
+					0.038          
+					&  1
+					&  1.5
+					& 0.0007 
+					& 0.0004 \\
+					\hline
+					
+					0.036           
+					&  1.4                                    
+					&  2.3
+					& 0.0052 
+					& 0.0047    \\ 
+					\hline
+					
+				\end{tabular}
+			\end{table}
+			\vspace*{5mm}
+			Из таблицы видно, что при уменьшении ребра $h$, соотношение длин сторон конечного элемента начинает играть существенную роль.			
+			Также отдельно рассмотрим узлы сетки, в которых абсолютная погрешность отличается от своего среднего значения больше чем на $20\%$. 
+			\vspace*{5mm}
+			\begin{figure}[!h]  
+				\centering     
+				\vspace{5.0mm} 
+				\begin{center} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-32.7mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_005_err_nodes.png}\\ 
+							\hspace*{-42.7mm}
+							\textit{a} 
+						\end{minipage}                                 
+					} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-8.2mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_005_calfem_err_nodes.png}\\ 
+							\hspace*{2.2mm}
+							\textit{b} 
+						\end{minipage}                                 
+					} 
+									
+				\end{center} 
+				\vspace*{-0.0mm} 
+				\caption{Иллюстрация точек с наибольшим отклонением численного решения от точного для задачи №\,1 с параметром $S_{max} \rightarrow 0.05$: 
+					\textit{a} --- на сетке Wolfram Mathematica;
+					\textit{b} --- на сетке CALFEM;
+				} 
+				\label{fig: max_err_005}
+			\end{figure}
+			
+			\newpage
+			
+			\begin{figure}[!h]  
+				\centering     
+				\vspace{5.0mm} 
+				\begin{center} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-32.7mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_001_err_nodes.png}\\ 
+							\hspace*{-42.7mm}
+							\textit{a} 
+						\end{minipage}                                 
+					} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-8.2mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_001_calfem_err_nodes.png}\\
+							\hspace*{2.2mm} 
+							\textit{b} 
+						\end{minipage}                                 
+					} 
+					
+				\end{center} 
+				\vspace*{-0.0mm} 
+				\caption{Иллюстрация точек с наибольшим отклонением численного решения от точного для задачи №\,1 с параметром $S_{max} \rightarrow 0.01$: 
+					\textit{a} --- на сетке Wolfram Mathematica;
+					\textit{b} --- на сетке CALFEM;
+				} 
+				\label{fig: max_err_001}
+			\end{figure}
+			
+			
+			\begin{figure}[!h]  
+				\centering     
+				\vspace{5.0mm} 
+				\begin{center} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-32.7mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_0001_err_nodes.png}\\ 
+							\hspace*{-42.7mm}
+							\textit{a} 
+						\end{minipage}                                 
+					} 
+					{ 
+						\begin{minipage}{0.45\textwidth} 
+							\centering 
+							\hspace*{-8.2mm}
+							\includegraphics[width=1.4\columnwidth]{rect_dirichlet_only_0001_calfem_err_nodes.png}\\ 
+							\hspace*{2.2mm}
+							\textit{b} 
+						\end{minipage}                                 
+					} 
+					
+				\end{center} 
+				\vspace*{-0.0mm} 
+				\caption{Иллюстрация точек с наибольшим отклонением численного решения от точного для задачи №\,1 с параметром $S_{max} \rightarrow 0.001$: 
+					\textit{a} --- на сетке Wolfram Mathematica;
+					\textit{b} --- на сетке CALFEM;
+				} 
+				\label{fig: max_err_0001}
+			\end{figure}
+			
+			
+			
+			Как видно из рисунков \ref{fig: max_err_005}--\ref{fig: max_err_0001} большая погрешность аппроксимации возникает в приграничных областях, где заданы разные значения на границах. Так же видно, что на сетке с большим отношением  $\mathrm{avg} \left( \dfrac{h_{max}}{h_{min}} \right) $ ошибка <<проникает>> глубже внутрь области, чем на сетке с меньшим $\mathrm{avg} \left( \dfrac{h_{max}}{h_{min}} \right) $. 
+			
+	
 	\newpage
 	\subsection{Задача №\,2 (периодические граничные условия)}
 		\subsubsection{Условие задачи}
@@ -842,6 +1089,7 @@
 							\centering 
 							\hspace*{-21.5mm}
 							\includegraphics[width=1.4\columnwidth]{Test_domain_4_mesh001_calfem_net_1.png}\\
+							\hspace*{-12.5mm}
 							\textit{a} 
 						\end{minipage}                                 
 					} 
@@ -850,6 +1098,7 @@
 							\centering 
 							\hspace*{-17.5mm}
 							\includegraphics[width=1.4\columnwidth]{Test_domain_4_mesh001_calfem.png}\\
+							\hspace*{-1.5mm}
 							\textit{b} 
 						\end{minipage}                                 
 					} 
@@ -861,6 +1110,8 @@
 					\textit{b} --- численное решение задачи №\,2 с разбиением исследуемой области на  элементы с параметром $S_{max} \rightarrow 0.01$ \\
 				} 
 			\end{figure}
+			
+			
 			
 						
 			\newpage
@@ -1050,8 +1301,9 @@
 					{ 
 						\begin{minipage}{0.47\textwidth} 
 							\centering 
-							\hspace*{-26.5mm}
+							\hspace*{-28.5mm}
 							\includegraphics[width=1.5\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem_net_1.png}\\
+							\hspace*{-18.5mm}
 							\textit{a}
 							
 						\end{minipage}                                 
@@ -1061,8 +1313,8 @@
 							\centering 
 							\hspace*{-11.mm}
 							\includegraphics[width=1.5\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem.png}\\
-							\textit{b}
-						
+							\hspace*{7.mm}
+							\textit{b}						
 						\end{minipage}                                 
 					} 
 					
@@ -1257,7 +1509,7 @@
 	\newpage
 	\section{Программная реализация}
 		
-		Алгоритм для решения задачи методом конечных элементов (МКЭ) был реализован на языке C++. МКЭ предполагает решение системы линейных алгебраических уравнений с разреженной матрицей, для этого использовалась библиотека линейной алгебры для языка C++ --- Eigen \cite{eigen}. Для построения сеток использовались математический пакет Wolfram Mathematica и библиотека CALFEM \cite{calfem} для языка Python \cite{python}. Графики и иллюстрации строились с помощью встоенных средств Wolfram Mathematica и библиотеки Matplotlib \cite{matplotlib} для языка Python. 
+		Алгоритм для решения задачи методом конечных элементов (МКЭ) был реализован на языке C++. МКЭ предполагает решение системы линейных алгебраических уравнений с разреженной матрицей, для этого использовалась библиотека линейной алгебры для языка C++ --- Eigen \cite{eigen}. Для построения сеток использовались математический пакет Wolfram Mathematica и библиотека CALFEM \cite{calfem} для языка Python. Графики и иллюстрации строились с помощью встоенных средств Wolfram Mathematica и библиотеки Matplotlib \cite{matplotlib} для языка Python. 
 		
 	
 	\section-{Заключение}
@@ -1276,18 +1528,22 @@
 		-- ISBN 978-5-7038-4796-1.
 		\bibitem{Stahel} Stahel, A. Calculus of Variations and Finite Elements. 2003. P. 151--152.
 		
+		\bibitem{calfem} CALFEM for Python. Computer Aided Learning of the Finite Element Method \\
+		URL:  \href{https://calfem-for-python.readthedocs.io}{https://calfem-for-python.readthedocs.io/} \\
+		(дата обращения 8.06.2023)	
+		
+		%\bibitem{wolfram} Wolfram Mathematica. The world's definitive system for modern technical computing \\
+		%URL:  \href{https://www.wolfram.com/mathematica/}{https://www.wolfram.com/mathematica/} \\
+		%(дата обращения 8.06.2023)	
+		
 		\bibitem{eigen} Eigen. C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms. \\
 		URL:  \href{https://eigen.tuxfamily.org}{https://eigen.tuxfamily.org/} \\
 		(дата обращения 20.05.2023)
+					
 		
-		\bibitem{calfem} CALFEM for Python. Computer Aided Learning of the Finite Element Method \\
-		URL:  \href{https://calfem-for-python.readthedocs.io}{
-		https://calfem-for-python.readthedocs.io/} \\
-		(дата обращения 8.06.2023)		
-		
-		\bibitem{python} Python.  A high-level, general-purpose programming language \\
-		URL:  \href{https://www.python.org/}{https://www.python.org/} \\
-		(дата обращения 20.05.2023)
+		%\bibitem{python} Python.  A high-level, general-purpose programming language \\
+		%URL:  \href{https://www.python.org/}{https://www.python.org/} \\
+		%(дата обращения 20.05.2023)
 		
 		\bibitem{matplotlib} Matplotlib. A comprehensive library for creating static, animated, and interactive visualizations in Python.  \\
 		URL:  \href{https://matplotlib.org/}{https://matplotlib.org/} \\

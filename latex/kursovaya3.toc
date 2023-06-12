@@ -14,16 +14,17 @@
 \contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {4.\ }}}}{{\textbf {\ignorespaces {Примеры решения задачи}}}}}{11}{section*.15}%
 \contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.1.\ }}}{\ignorespaces {Задача №\,1 (задача с граничными условиями первого рода)}}}{11}{section*.16}%
 \contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.1.\ }}}{\ignorespaces {Условие задачи}}}{11}{section*.17}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.2.\ }}}{\ignorespaces {Построение сетки}}}{12}{section*.19}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.3.\ }}}{\ignorespaces {Оценка погрешности аппроксимации решения}}}{13}{section*.21}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.2.\ }}}{\ignorespaces {Задача №\,2 (периодические граничные условия)}}}{18}{section*.29}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.1.\ }}}{\ignorespaces {Условие задачи}}}{18}{section*.30}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.2.\ }}}{\ignorespaces {Решение}}}{18}{section*.31}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{19}{section*.34}%
-\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.3.\ }}}{\ignorespaces {Задача №\,3 (периодические граничные условия)}}}{21}{section*.37}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.1.\ }}}{\ignorespaces {Условие задачи}}}{21}{section*.38}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.2.\ }}}{\ignorespaces {Решение}}}{21}{section*.39}%
-\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{22}{section*.42}%
-\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация}}}}}{24}{section*.45}%
-\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{24}{section*.46}%
-\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{25}{section*.48}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.2.\ }}}{\ignorespaces {Решение}}}{12}{section*.19}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.3.\ }}}{\ignorespaces {Оценка погрешности аппроксимации решения}}}{14}{section*.24}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.1.4.\ }}}{\ignorespaces {Погрешность аппроксимации на сетках}}}{15}{section*.25}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.2.\ }}}{\ignorespaces {Задача №\,2 (периодические граничные условия)}}}{18}{section*.32}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.1.\ }}}{\ignorespaces {Условие задачи}}}{18}{section*.33}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.2.\ }}}{\ignorespaces {Решение}}}{18}{section*.34}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.2.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{19}{section*.37}%
+\contentsline {subsection}{\numberline {\hbox to 0pt{\hss }{{4.3.\ }}}{\ignorespaces {Задача №\,3 (периодические граничные условия)}}}{21}{section*.40}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.1.\ }}}{\ignorespaces {Условие задачи}}}{21}{section*.41}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.2.\ }}}{\ignorespaces {Решение}}}{21}{section*.42}%
+\contentsline {subsubsection}{\numberline {\hbox to 0pt{\hss }{{4.3.3.\ }}}{\ignorespaces {Проверка решения на удовлетворение условиям периодичности}}}{22}{section*.45}%
+\contentsline {section}{\numberline {\hbox to 0pt{\hss }{{\textbf {5.\ }}}}{{\textbf {\ignorespaces {Программная реализация}}}}}{24}{section*.48}%
+\contentsline {section}{\textbf {\ignorespaces {Заключение}}}{24}{section*.49}%
+\contentsline {section}{\textbf {\ignorespaces {Список использованных источников}}}{25}{section*.51}%
