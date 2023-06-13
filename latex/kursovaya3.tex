@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
-\usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{./fn2kursstyle}
+\usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{fn2kursstyle}
 
 
 \usepackage{subfig}
@@ -16,6 +16,10 @@
 \usepackage{multicol}
 \usepackage{scalerel}
 \usepackage{graphicx}
+
+\usepackage{colortbl}
+\usepackage{nicematrix}
+\usepackage{stackengine}
 
 
 \graphicspath{
@@ -46,8 +50,8 @@
 \renewcommand{\phi}{\varphi}
 \newcommand\Tau{\scalerel*{\tau}{T}}
 
-
 \newcommand\thh[1]{\text{\mathversion{bold}${#1}$}}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
 %Переопределение команды нумерации перечней: точки заменяются на скобки
 %\renewcommand{\labelenumi}{\theenumi)}
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
@@ -768,16 +772,15 @@
 				\caption{\label{table_comparison} Оценка погрешности аппроксимации решения в зависимости от максимальной площади конечного элемента для задачи №\,1}
 				\vspace*{2mm}
 				%\hspace*{-8mm}
-				\begin{tabular}{|c|c|c|c|c|}
+				\begin{NiceTabular}{|c|c|c|c|c|}[colortbl-like]
 					
 					\hline
-					 
 					\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}c@{}}
 					Количество\\ 
 					конечных \\ 
 					элементов\end{tabular}}
-					& \begin{tabular}[c]{@{}c@{}c@{}}Максимальная \\ площадь $S_{max}$ \\ конечного элемента \end{tabular}
-					& \begin{tabular}[c]{@{}c@{}c@{}}Средняя длина \\ ребра $h$ конечного \\  элемента \end{tabular}
+					& \begin{tabular}[c]{@{}c@{}c@{}}Максимальная \\ площадь конечного\\  элемента, $S_{max}$ \end{tabular}
+					& \begin{tabular}[c]{@{}c@{}c@{}}Средняя длина\\ ребра конечного\\  элемента, $h$ \end{tabular}
 					% & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular}}
 					& $\mathrm{avg}(\mathrm{AbsErr})$
 					& $\mathrm{Err}_{L_2}^2$  \\
@@ -821,10 +824,10 @@
 					& 0.00046 \\ 
 					
 					\hline
-				\end{tabular}
+				\end{NiceTabular}
 				\label{table: 4}				
 			\end{table}		
-			\vspace*{-5mm}
+			\vspace*{2mm}
 			
 			Из таблицы \ref{table: 4} видно, что $\mathrm{avg}(\mathrm{AbsErr})$ и
 			$\mathrm{Err}_{L_2}^2$ являются величинами порядка $O(h^2)$ или же $O(S_{max})$ и меняются линейно в зависимости от площади конечного элемента.
@@ -877,14 +880,14 @@
 			
 			\begin{table}[!h]
 				\centering
-				\hspace*{-2mm}
+				%\hspace*{-2mm}
 				\caption{Сравнение решений задачи №\,1 в зависимости от отношения большего и меньшего ребер конечного элемента}
-				\hspace*{2mm}
-				\begin{tabular}{|c|c|c|c|c|}
+				\vspace*{2mm}
+				\begin{NiceTabular}{|c|c|c|c|c|}[colortbl-like]
 					
 					\hline
-					
-					\begin{tabular}[c]{@{}c@{}}Средняя длина\\ ребра $h$\\ конечного элемента\end{tabular} 
+					\rowcolor[HTML]{ededed}\xrowht{20pt}   
+					\begin{tabular}[c]{@{}c@{}}Средняя длина\\ ребра конечного\\  элемента, $h$\end{tabular} 
 					& $\mathrm{avg} \left( \dfrac{h_{max}}{h_{min}} \right) $
 					& $\max \left( \dfrac{h_{max}}{h_{min}} \right) $
 					% & \begin{tabular}[c]{@{}c@{}}Среднее значение\\ абсолютной\\ погрешности\end{tabular} 
@@ -907,8 +910,9 @@
 					& 0.02                                                                                
 					& 0.034  \\
 					\hline
-					\hline
 					
+					
+					\rowcolor[HTML]{ededed}\xrowht{5pt}   
 					0.135                                                                              
 					&  1.1                                                                         
 					&  1.4                                                                                        
@@ -916,13 +920,14 @@
 					& 0.015  \\
 					\hline
 					
-					0.127                                                                              
+					0.127                                                                   
+					\rowcolor[HTML]{ededed}\xrowht{5pt}              
 					&  1.4                                                                         
 					&  2.3                                                                                        
 					& 0.008                                                                               
 					& 0.013  \\
 					\hline
-					\hline
+					
 					
 					0.04             
 					&  1.1                                                                         
@@ -937,8 +942,8 @@
 					& 0.003                                                                               
 					& 0.007  \\
 					\hline
-					\hline
 					
+					\rowcolor[HTML]{ededed}\xrowht{5pt}   
 					0.038          
 					&  1
 					&  1.5
@@ -946,6 +951,7 @@
 					& 0.0004 \\
 					\hline
 					
+					\rowcolor[HTML]{ededed}\xrowht{5pt}   
 					0.036           
 					&  1.4                                    
 					&  2.3
@@ -953,7 +959,7 @@
 					& 0.0047    \\ 
 					\hline
 					
-				\end{tabular}
+				\end{NiceTabular}
 				\label{table:vert_comp}
 			\end{table}
 			\vspace*{5mm}
@@ -1175,11 +1181,13 @@
 						\caption{ Сравнение\;значений\;численного\;решения\;задачи\;№\,2\;в\;первой\;группе\;точек 
 						}
 						\vspace*{2mm}
-						\begin{tabular}{|c|c|c|}
+						\begin{NiceTabular}{|c|c|c|}[colortbl-like]
 							\hline
+							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							Область решения
-							& Координата точки $(x, y)$
-							& Значение потенциала $\phi$ в точке, В\\
+							& Координаты $(x, y)$
+							& Значение потенциала $\phi$, В\\
 							
 							\hline
 							\hline
@@ -1192,21 +1200,24 @@
 							& 6.3158	\\ \hline
 							
 							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							\multirow{4}{*}{3 периода $w(x)$} 
 							& (0.0, 1.27)                                                     
 							& 6.3093	\\ \cline{2-3} 
 							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (2.0, 1.27)                                                      
 							& 6.2896	\\ \cline{2-3} 
 							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (4.0, 1.27)                                                      
 							& 6.2946    \\ \cline{2-3} 
 							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (6.0, 1.27)                                                      
 							& 6.3093	
 							\\ 
 							
-							\hline
 							\hline
 							
 							\multirow{2}{*}{1 период $w(x)$}  
@@ -1217,19 +1228,27 @@
 							
 							\hline
 							
+							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							\multirow{4}{*}{3 периода $w(x)$} 
 							& (0.0, 1.92)                                                      
 							& 0.6547	\\ \cline{2-3} 
+							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (2.0, 1.92)                                                      
-							& 0.6549	\\ \cline{2-3}        
+							& 0.6549	\\ \cline{2-3}   
+							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}        
 							& (4.0, 1.92)                                                      
-							& 0.6555	\\ \cline{2-3}           
+							& 0.6555	\\ \cline{2-3}
+							 
+							\rowcolor[HTML]{ededed}\xrowht{5pt}             
 							& (6.0, 1.92)                                                      
 							& 0.6547 	\\ \hline
 							
 							
 							
-						\end{tabular}
+						\end{NiceTabular}
 					
 						
 					\end{table}
@@ -1242,11 +1261,12 @@
 						\caption{ Сравнение\;значений\;численного\;решения\;задачи\;№\,2\;во\;второй\;группе\;точек 
 						}
 						\vspace*{2mm}
-						\begin{tabular}{|c|c|c|}
+						\begin{NiceTabular}{|c|c|c|}[colortbl-like]
 							\hline
+							\rowcolor[HTML]{ededed} \xrowht{15pt}
 							Область решения
-							& Координата точки $(x, y)$
-							& Значение потенциала $\phi$ в точке, В\\
+							& Координаты $(x, y)$
+							& Значение потенциала $\phi$, В\\
 							
 							\hline
 							\hline
@@ -1254,32 +1274,39 @@
 							1 период $w(x)$                 
 							& (1.0, 0.75)                                                     
 							& 8.3049           \\ \hline
+							
+							\rowcolor[HTML]{ededed} \xrowht{5pt}
 							\multirow{3}{*}{3 периода $w(x)$} 
-							& (1.0, 0.75)                                                      
+							& (1.0, 0.75)         
 							& 8.305            \\ \cline{2-3} 
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (3.0, 0.75)                                                      
 							& 8.3061           \\ \cline{2-3} 
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (5.0, 0.75)                                                      
 							& 8.3055           \\ 
 							
 							
 							\hline
-							\hline
 							
 							1 период $w(x)$                   
 							& (1.0, 1.62)                                                      
 							& 2.8561           \\ \hline
+							
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							\multirow{3}{*}{3 периода $w(x)$} 
 							& (1.0, 1.62)                                                      
 							& 2.8556           \\ \cline{2-3} 
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (3.0, 1.62)                                                      
 							& 2.858            \\ \cline{2-3} 
+							\rowcolor[HTML]{ededed}\xrowht{5pt}   
 							& (5.0, 1.62)                                                      
 							& 2.8562           \\ \hline					
 							
 							
 							
-						\end{tabular}
+						\end{NiceTabular}
 					\end{table}
 				
 				\end{enumerate}
@@ -1385,11 +1412,12 @@
 				\caption{ Сравнение\;значений\;численного\;решения\;задачи\;№\,3\;в\;первой\;группе\;точек 
 				}
 				\vspace*{2mm}
-				\begin{tabular}{|c|c|c|}
+				\begin{NiceTabular}{|c|c|c|}[colortbl-like]
 					\hline
+					\rowcolor[HTML]{ededed} \xrowht{15pt}
 					Область решения
-					& Координата точки $(x, y)$
-					& Значение потенциала $\phi$ в точке, В\\ 
+					& Координаты $(x, y)$
+					& Значение потенциала $\phi$, В\\ 
 					
 					\hline
 					\hline
@@ -1404,18 +1432,24 @@
 					
 					\hline
 					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					\multirow{4}{*}{3 периода $w(x)$} 
 					& (1.0, 1.25)             
 					& 3.4191          \\ 
 					\cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (5.0, 1.25)             
 					& 3.4185          \\ \cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (9.0, 1.25)             
 					& 3.4184          \\ \cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (13.0, 1.25)            
 					& 3.4191          \\ 
 					
-					\hline
 					\hline
 					
 					\multirow{2}{*}{1 период $w(x)$}  
@@ -1426,23 +1460,30 @@
 					& (5.0, 1.6)             
 					& 7.4927          \\ 
 					\hline
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					\multirow{4}{*}{3 периода $w(x)$} 
 					& (1.0, 1.6)             
 					& 7.4927          \\ 
 					\cline{2-3} 
 					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (5.0, 1.6)             
 					& 7.4926          \\ 
 					\cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (9.0, 1.6)             
 					& 7.4927          \\ 
 					\cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (13.0, 1.6)            
 					& 7.4927        \\ 
 					\hline
 					
 					
-				\end{tabular}
+				\end{NiceTabular}
 				\label{table:comparison_sin_0001_1}
 			\end{table}
 			
@@ -1454,11 +1495,13 @@
 				\caption{ Сравнение\;значений\;численного\;решения\;задачи\;№\,3\;во\;второй\;группе\;точек 
 				}
 				\vspace*{2mm}
-				\begin{tabular}{|c|c|c|}
+				\begin{NiceTabular}{|c|c|c|}[colortbl-like]
 					\hline
+					
+					\rowcolor[HTML]{ededed} \xrowht{15pt}
 					Область решения
-					& Координата точки $(x, y)$
-					& Значение потенциала $\phi$ в точке, В\\
+					& Координаты $(x, y)$
+					& Значение потенциала $\phi$, В\\
 					
 					\hline
 					\hline
@@ -1467,17 +1510,21 @@
 					& (3.0, 0.0)                                                       
 					& -4.7379         \\ 
 					\hline
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					\multirow{3}{*}{3 периода $w(x)$} 
 					& (3.0, 0.0)                                                       
-					& -4.7382        \\ 
-					
+					& -4.7382        \\ 					
 					\cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (7.0, 0.0)                                                       
 					& -4.73749         \\ \cline{2-3} 
+					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (11.0, 0.0)                                                      
 					& -4.7386        \\ 
 					
-					\hline
 					\hline
 					
 					1 период $w(x)$                   
@@ -1485,31 +1532,31 @@
 					& 7.205          \\ 
 					\hline
 					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					\multirow{3}{*}{3 периода$ w(x)$} 
 					& (3.0, 1.5)              
 					& 7.2051         \\ 
 					\cline{2-3} 
 					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (7.0, 1.5)              
 					& 7.2051          \\ 
 					\cline{2-3} 
 					
+					\rowcolor[HTML]{ededed} \xrowht{5pt}
 					& (11.0, 1.5)             
 					& 7.205          \\ 
 					\hline
 					
-				
-				\end{tabular}
+					
+				\end{NiceTabular}
 				\label{table:comparison_sin_0001_2}
 			\end{table}
-			
+
+
+
 			Из таблиц \ref{table:comparison_sin_0001_1}, \ref{table:comparison_sin_0001_2} видно, что значения отличаются примерно на порядок $O(h^2)$, что показывает выполнение условий периодичности.
 			
-			
-			
-					
-				
-				
 			
 						
 		
