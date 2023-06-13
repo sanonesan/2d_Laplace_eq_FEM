@@ -1,4 +1,5 @@
-\documentclass[ignoreonframetext,unicode]{beamer}
+\documentclass[ignoreonframetext,xcolor=table, unicode, 10pt]{beamer}
+\geometry{paperwidth=140mm,paperheight=105mm}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -9,16 +10,22 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-
+\usepackage{scalerel}
+\usepackage{tabularray}
+\usepackage{colortbl}
+\usepackage{nicematrix}
+\usepackage{stackengine}
+\usepackage{multirow}
+\usepackage{supertabular}
+\usepackage{multicol}
 %\usepackage[oglav,spisok,boldsect,eqwhole,figwhole,hyperref,hyperprint,remarks,greekit]{fn2kursstyle}
 
 \graphicspath{
 	{./style/}
-	{../wolfram/f_22600_10.08.26/plots/}
-	{../wolfram/f_22601_10.08.26/plots/}
-	{../wolfram/f_22609_10.08.25/plots/}
-	{../wolfram/f_22608_10.08.28/plots/}
 	{./illustr/}
+	{./illustr/domain_rectangle_dirichlet_only/}
+	{./illustr/domain_4/}
+	{./illustr/domain_1_1/}
 }
 
 \usetheme{Warsaw}
@@ -35,6 +42,11 @@
 \newcommand\be[1]{\text{\mathversion{bold}${#1}$}}
 \newcommand\bi[1]{\text{\mathversion{bold}${#1}$}}
 \newcommand\mathbi[1]{\text{\mathversion{bold}${#1}$}}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand\Tau{\scalerel*{\tau}{T}}
+\renewcommand{\vec}[1]{\text{\mathversion{bold}${#1}$}}%{\bi{#1}}
 
 %номера слайдов
 \newcommand*\oldmacro{}%
@@ -47,11 +59,10 @@
 \captionsetup{justification=centering,labelsep=defffis}
 
 %\title{Курсовая работа}
-%\subtitle{Численные схемы для аппроксимации неограниченных решений при моделировании обтекания профиля крыла в вихревых методах}
-\title{Линейная аппроксимация зашумленных данных}
+\title[Поиск потенциала электрического поля...]{Поиск потенциала электрического поля между заряженными пластинами}
 \author[Егоров А.\,Д.]{Докладчик: Егоров А.\,Д.\and\\[0.5mm] Научный руководитель: Казаков К.\,Е.}
 
-\institute[каф. Прикладная математика ФН-2]{группа ФН2-52Б}
+\institute[каф. Прикладная математика ФН-2]{Группа ФН2-62Б}
 \date{\today}
 \titlegraphic{\includegraphics[width=2cm]{emblema.pdf}}
 %\renewcommand{\vec}[1]{\text{\mathversion{bold}${#1}$}}
@@ -59,29 +70,42 @@
 \begin{document}
 	
 	\begin{frame}[plain]
+		\large
 		\maketitle
-		%\insertshortinstitute{Группа ФН2-41Б}
+		%\insertshortinstitute{Группа ФН2-62Б}
 	\end{frame}
 
-%\begin{frame}{Введение}
-	
-%	Данные, полученные во время реального эксперимента, часто являются весьма не точными, так как при считывании показаний с датчиков, сигнал всегда приходит с шумами. Причиной возникновения шума может стать что угодно: будь то перебой связи или сильная тряска. Следовательно, возникает необходимость в его подавлении и аппроксимации полученных данных.
-	
-%	Задача, рассматриваемая в этой работе, пришла из транспортной отрасли, из сферы перевозки грузов, где необходимо отслеживать уровень топлива задействованного автомобиля.
-	
-%\end{frame}
-
 \begin{frame}{Постановка задачи}
-	\small
-	%\begin{columns}\vspace*{-2.0mm}
-	%	\column{0.5\textwidth}			
-	\begin{block}{Задача}
-		Требуется обработать экспериментально полученный график функции при условии, что в процессе измерений наблюдаются шумы. Необходимо построить линейную аппроксимацию графика, которая убирает шумы и позволяет достаточно точно определить как места существенного возрастания или убывания функции, так и величины этих изменений. Рассмотреть случай, когда функция не обладает периодичностью.
-	\end{block}
+	%\small
 			
-	\center
-	\includegraphics[width=0.65\textwidth]{f_22608_10.08.28_data.pdf}
+	\begin{block}{Задача}
+		Найти потенциал электрического поля между двумя бесконечными пластинами, профиль одной из которых плоский, а профиль другой описывается некоторой периодической функцией. Значения потенциала на пластинах заданы и константны.	
+	\end{block}
+	\vspace*{-2.0mm}
+	\begin{columns}\vspace*{-2.0mm}
+		\column{0.45\textwidth}	
+		\begin{block}{Математическая формулировка задачи}
+		%	\vspace*{-5.0mm}
+			\begin{equation*}
+				\begin{cases}
+					\Delta u (x, y)  = 0, \\
+					u (x, y_a) = \phi_a, \\
+					u (x, w(x)) = \phi_w, \\
+					u (x, y) = u (x + T, y).\\
+				\end{cases}
+				\vspace*{0mm}
+			\end{equation*} 
+			$w(x)$ --- периодическая функция, задающая профиль искривленной пластины, $\phi_a, \phi_w$ --- значения потенциалов на пластинах.
+		\end{block}
+		\column{0.55\textwidth}	
+			\centering
+			\includegraphics[width=1\textwidth]{illustr.pdf}
+			\flushleft
+			Иллюстрация области, в которой будет решаться задача
 		
+		
+	\end{columns}
+	
 	\normalsize
 \end{frame}
 
@@ -98,220 +122,622 @@
 
 
 
-\begin{frame}{Построение непрерывной кусочно-линейной аппроксимирующей функции}
-	\small
+\begin{frame}{Аппроксимация уравнения Лапласа}
+	%\small
+	%\begin{columns}
+	%	\column{0.45\textwidth}
+	%	\begin{block}{Уравнение Лапласа в двумерной области $\Omega \subset \mathbb{R}^2$}
+	%		\begin{equation*}
+	%			\begin{cases}
+	%				- \Delta u  = 0 \ \  \text{в}\ \  \Omega, \\
+	%				u = g \ \ \text{на}\ \  \Gamma_D,
+	%			\end{cases}			
+	%		\end{equation*}
+	%		$\Gamma_D$ --- часть границы области, на которой заданы граничные условия первого рода, $\Gamma_D = \partial \Omega,$  $\Gamma_D \ne \emptyset$. 
+	%	\end{block}
+	%	\column{0.55\textwidth}
+		
+		Представим решение задачи в виде $u = u_0 + u_g,$
+		где
+		$u_0$ --- функция, обращающаяся в ноль на границе $\Gamma_D$,
+		$u_g$ --- произвольная функция, значения которой совпадают с $g$ на границе области, $u_g |_{\Gamma_D} = g$.
+		
+		\begin{block}{Задача с однородными граничными условиями первого рода на $\Gamma_D$ относительно функции $u_0$}
+			\begin{equation*}
+				\begin{cases}
+					- \Delta u  = \Delta u_g \ \  \text{в}\ \  \Omega, \\
+					u_0 = 0 \ \ \text{на}\ \  \Gamma_D.
+				\end{cases}			
+			\end{equation*}
+		\end{block}
+		
+		\hspace*{-2mm}
+		%	\column{0.6\textheight}
+		\begin{block}{Слабая постановка задачи для определения $u_0 \in V_D$}
+			\begin{equation*}
+				\int_{\Omega} \nabla u_0 \cdot \nabla v \, d\Omega = 
+				- \int_{\Omega} \nabla u_g \cdot \nabla v \, d\Omega,
+			\end{equation*}	
+			\begin{equation*}
+				\quad v \in V_D = \left\{ v \in V: \ v |_{\Gamma_D} = 0 \right\},
+			\end{equation*}
+			Пространство $V$ состоит из произвольных заданных в $\Omega$ функций, имеющих суммируемые с квадратом первые производные.
+		\end{block}
+		
+		
 	
-	Для отрезка $[a, b] \in \mathbb{R}$ существует
-	некоторая неизвестная функция $F\!: [a, b]  \rightarrow \mathbb{R}$ и 
-	%$X = \{x_0, x_1, \dots, x_n\}$,  %Датчик проводит замеры раз в 15 секунд, т.е. 
-	задан набор точек  $\eta = \left\{(x_i, y_i) \right\}_{i=0}^{n}$, такой что
-	\vspace*{-2.mm}
-	\begin{gather*}
-		%Z =\left\{(x_0, y_0), (x_1, y_1),\dots, (x_n, y_n)  \right\}, \\
-		a = x_0 < x_1 < \cdots < x_n = b, \quad y_i  = F(x_i), \quad i = 0, \dots, n.
-	\end{gather*}
+	%\end{columns}
 	
-	%Исходные данные аппроксимируются кусочно-линейной функцией с меньшим числом узлов, за счет чего уменьшается количество шума. 
-%\vspace*{-2.mm}
-%$= \{\xi_0, \xi_1, \dots, \xi_m \} ,  \ $
-	\vspace*{-2.mm}
-	Для $\eta$ выбирается сетка 
-	$\xi = \{\xi_k\}_{k=0}^{m}, \ (m < n).$
-	\center
-	\includegraphics[width=0.6\textwidth]{illustr_spline.png}
-	\vspace*{-2.mm}
-	\flushleft
-	Необходимо найти вертикальные координаты $z_k$ в соответствующих точек $\xi_k$.
 	\normalsize
 \end{frame}
 
-%\begin{frame}{Построение непрерывной кусочно-линейной аппроксимирующей функции}
-%	\small
-%	Исходные данные аппроксимируются кусочно-линейной функцией с меньшим числом узлов, за счет чего уменьшается количество шума. 
-%	\vspace*{-2.mm}
+\begin{frame}{}
+	%\small
+	%\begin{columns}
+		
+		
+	%	\column{0.68\textheight}
+		\begin{block}{Аппроксимация методом конечных элементов}
+			\begin{equation*}
+				\int_{\Omega} \nabla u_{0,h} \cdot \nabla \phi_{i} \, d\Omega = 
+				- \int_{\Omega} \nabla u_{g,h} \cdot \nabla \phi_{i} \, d\Omega, \quad i \in I. 
+			\end{equation*}
+			где $\phi_i$ --- функции, образующие базис в пространстве $V_h$ (конечномерное пространство аппроксимирующее V), $ i = \overline{1, N}$,\\
+			$I$ --- множество идексов ф-ий $\phi_i$, образующих базис в пространстве 
+			$V_{D,h} = V_h \cap V_D(\Omega)$, $\Gamma_D$. $M = |I| < N,\ |I| > 1.$
+		\end{block}
+		Представляя неизвестное решение в виде линейной комбинации базисных функций:		
+		\vspace*{-5mm}
+		\begin{equation*}
+			u_{0,h} = \sum_{i \in I} u_{0,h,i} \phi_i, \quad 
+			u_{g,h} = \sum_{i = 1}^{N} u_{g,h,i} \phi_i, 
+		\end{equation*}		
+		Получим СЛАУ для определения неизвестных коэффициентов $\left\{u_{0, h, i}\right\}$:
+		\begin{equation}
+			A u_{0,h} = b,
+			\label{SLE}
+		\end{equation}
+		где $A = A_{M \times M}$ --- матрица жесткости, $b = b_{M \times 1}$,
+		\begin{equation*}
+			A_{ij} = \int_{\Omega} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega,
+			\ i, j\in I,
+			\quad
+			b_i = - \sum_{j=1}^{N} u_{g,h, j} \int_{\Omega} \nabla \phi_i  \cdot \nabla \phi_j \, d\Omega, \  i \in I.
+		\end{equation*}
+	\normalsize
+\end{frame}
+
+
+
+\begin{frame}{Триангуляция области}
+	%\small
+	Зададим правильную триангуляцию $\Tau$ области $\Omega$.
 	
-%	Для набора точек 
-%	$\{(x_i, y_i)\}_{i=0}^{n} =\{ (x_0, y_0), (x_1, y_1) \dots (x_n, y_n)\},$
+	Для отдельного треугольника $T \in \Tau$ c координатами вершин $P_i = (x_i, y_i),$ $i=\overline{1,3}$, базисные функции $\phi_i$, соответствующие этим вершинам, в $T$ продолжены линейно.
+	\begin{equation*}
+		\phi_i(x_j, y_j) = \delta_{ij}, \quad 
+		\nabla \phi_{i}(x,y) = \dfrac{1}{2 |T|} 
+		\begin{pmatrix}
+			y_{i+1} - y_{i+2} \\
+			x_{i+2} - x_{i+1} \\
+		\end{pmatrix}, \ i,j = 1,2,3,
+	\end{equation*}
+	где $|T|$ --- площадь треугольника. Тогда формулы коэффициентов СЛАУ \eqref{SLE} примут вид	
+	\begin{equation*}
+		A_{ij} = \sum_{T \in \Tau}\int_{T} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega 
+		= \sum_{T \in \Tau} \dfrac{1}{4 |T|} 
+		\begin{pmatrix}
+			y_{i+1} - y_{i+2}\\
+			x_{i+2} - x_{i+1}\\
+		\end{pmatrix}^T
+		\begin{pmatrix}
+			y_{j+1} - y_{j+2}\\
+			x_{j+2} - x_{j+1}\\
+		\end{pmatrix},
+		\  i, j\in I,
+	\end{equation*}
+	\begin{equation*}
+		\begin{aligned}
+			b_i = - \sum_{j=1}^{N} u_{g,h, j} & \sum_{T \in \Tau} \int_{T} \nabla \phi_i  \cdot \nabla \phi_j \, d\Omega = \\
+			& = - \sum_{j=1}^{N} u_{g,h, j}  \sum_{T \in \Tau} \dfrac{1}{4 |T|} 
+			\begin{pmatrix}
+				y_{i+1} - y_{i+2}\\
+				x_{i+2} - x_{i+1}\\
+			\end{pmatrix}^T
+			\begin{pmatrix}
+				y_{j+1} - y_{j+2}\\
+				x_{j+2} - x_{j+1}\\
+			\end{pmatrix},
+			\quad i \in I.
+		\end{aligned}		
+	\end{equation*}
+	\normalsize
+\end{frame}
+
+
+
+\begin{frame}{Задача №\,1}%{Линейный сплайн}
 	
-%	\vspace*{2.mm}
-%	выбирается сетка
-%	$\{\xi_k\}_{k=0}^{m} = \{\xi_0, \xi_1, \dots, \xi_m \} ,  \ (m < n).$
-%	\center
-%	\includegraphics[width=0.5\textwidth]{illustr_spline.png}
+	\begin{columns}
+		\column{0.5\textwidth}
+		
+		Условие:
+		\begin{equation*}
+			\begin{cases}
+				\Delta \varphi (x, y)  = 0, \\
+				\varphi (x, 0) = \varphi (0, y) = \varphi (4, y) = 0, \\
+				\varphi (x, 2) = 10.
+			\end{cases}
+		\end{equation*}
+		
+		\column{0.5\textwidth}\hspace*{-10mm}
+		\centering
+		\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_exact_sol.png}
+		
+		\hspace*{-13mm}Точное решения\vspace*{2mm}
+	\end{columns}
+	
+	\begin{columns}
+		\column{0.5\textwidth}\hspace*{-5mm}
+		\centering
+		\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.png}\\ 
+		Разбиение области $\Omega$ с элементы с $S_{max} = 0.01$
+		
+		\vspace*{-3.5mm}\column{0.5\textwidth}\hspace*{-10mm}
+		\centering
+		\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_001_calfem.png}\
+		\hspace*{-13mm}Решение на сетке с $S_{max} = 0.01$
+	\end{columns}
+	
+	%\begin{equation*}
+	%	\displaystyle
+	%	\varphi\left(x, y\right) = \sum_{n = 1}^{\infty} \dfrac{20 \left(1 - (-1)^n \right)}{\pi n \left[ \mathrm{exp}\left({-\dfrac{\pi n}{2}}\right) - \mathrm{exp}\left({\dfrac{\pi n}{2}}\right)  \right]} \left[ \mathrm{exp}\left({-\dfrac{\pi n}{4}} y \right) -  \mathrm{exp}\left({\dfrac{\pi n}{4}} y \right)  \right] \sin{\left( \dfrac{\pi n}{4} x \right)}
+	%	\label{exact_solution}
+	%\end{equation*}	
+	
+	
+	\normalsize
+	
+\end{frame}
+
+%\begin{frame}{}
 	%
-%	\flushleft
-%	Необходимо найти вертикальные координаты $z_k$ в соответствующих точек $\xi_k$.
-%	\normalsize
+	%\begin{columns}
+%		\column{0.5\textwidth}\hspace*{-5mm}
+%		\includegraphics[width=1.\columnwidth]{rect_dirichlet_only_005_calfem_net.png}
+%		Разбиение области $\Omega$ с элементы с $S_{max} = 0.05$
+%		\column{0.5\textwidth}\hspace*{-10mm}
+%		\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_005_calfem.png}
+%		Решение на сетке с $S_{max} = 0.05$
+%	\end{columns}
+	%
+%	\begin{columns}
+%		\column{0.5\textwidth}\hspace*{-5mm}
+%		\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.png}\\ 
+%		Разбиение области $\Omega$ с элементы с $S_{max} = 0.05$
+%		
+%		\column{0.5\textwidth}\hspace*{-10mm}
+%		\includegraphics[width=1.2\columnwidth]{rect_dirichlet_only_001_calfem.png}\
+%		Решение на сетке с $S_{max} = 0.01$
+%	\end{columns}
+	
+	
 %\end{frame}
 
-
-
-\begin{frame}{}%{Построение непрерывной кусочно-линейной аппроксимирующей функции}
-	\small
+\begin{frame}{}
 	
-	%Координату $z_k$ будем искать из следующих соображений:
-	%есть набор из $r$ точек $ \{(x_{k, j}, y_{k, j})\}_{j=0}^{r} $ принадлежащих участку  $ ( \xi_k, \xi_{k+1} ) $, всего таких наборов $m$ штук.	
-	Для нахождения $z_k$ будем минимизировать квадраты отклонений точек, принадлежащих участку  $ [ \xi_k, \xi_{k+1} ] $, от прямой $p$, соединяющей
-	точки $ (\xi_k, z_k)$ и $(\xi_{k+1} , z_{k+1})$:
-	\vspace*{-2.mm}
-	
-	\begin{equation}
-			(z_{k,0} - y_{k, 0})^2 + (z_{k,1} - y_{k, 1})^2 + (z_{k,2} - y_{k, 2})^2 + \dots + (z_{k, r_k} - y_{k, r_k})^2 \rightarrow min, 
-	\label{min_eq}
-	\end{equation}
-	\,\ $k=\overline{0,m},$
-	
-	\vspace*{1.mm}
-	где $r_k$ --- количество точек из $\eta$ принадлежащих участку  $ [ \xi_k, \xi_{k+1} ]$, \\
-	$z_{k,j}$ --- координата соответствующая значению прямой $p$ в точке $x_{k, j}$, ее находим из следующих уравнений:
 	\begin{equation*}
-		z_{k,0} = z_k, \ \ 
-		z_{k,j} = \dfrac{z_{k+1}-z_{k}}{\xi_{k+1} - \xi_k} x_{k, j} -  \dfrac{z_{k+1}-z_{k}}{\xi_{k+1} - \xi_k} \xi_{k} + z_k, \ \ 
-		z_{k,r_k} = z_{k+1}.
+		\mathrm{avg}(\mathrm{AbsErr}) = \dfrac{1}{N} \sum_{i = 1}^{N} \left| u_{exact, i} - u_{approx, i} \right|, \quad \text{$N$ --- количество узлов сетки}
 	\end{equation*}
+	\begin{equation*}
+		\mathrm{Err}_{L_2}^2 = \| u_{exact} - u_{approx} \|_{L_2}^{2} \approx \sum_{i = 1}^{N_{el}} S_i
+		\sum_{j = 1}^{3}  \dfrac{\phantom{|}(u_{exact,\,ij} - u_{approx,\,ij})^2}{3}.
+		\label{l2_err_approx}
+	\end{equation*}
+	$N_{el}$ --- количество конечных элементов,
+	$S_i$ --- площадь $i$-ого конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента.
+	
+	Оценка погрешности аппроксимации решения в зависимости от длины ребра и максимальной площади конечного элемента для задачи №\,1
+	\normalsize
+	\begin{table}[!h]
+		\centering
+		
+		\vspace*{2mm}
+		\begin{NiceTabular}{|c|c|c|c|c|}[hvlines,colortbl-like]
+			
+			\rowcolor[HTML]{CBCEFB}\xrowht{20pt}
+			$N$
+			& $S_{max}$
+			& $\mathrm{avg}(\mathrm{h})$
+			& $\mathrm{avg}(\mathrm{AbsErr})$
+			& $\mathrm{Err}_{L_2}^2$  \\
+			
+			\rowcolor{white}\xrowht{7pt}
+			216
+			& 0.05
+			& 0.3
+			& 0.0289 
+			& 0.0539 \\ 
+			
+			\rowcolor{white}\xrowht{7pt}
+			1020
+			& 0.01
+			& 0.135
+			& 0.0121
+			& 0.0147 \\ 
+			
+			\rowcolor{white}\xrowht{7pt}
+			1874
+			& 0.005
+			& 0.1
+			& 0.0044
+			& 0.0042 \\
+			
+			\rowcolor{white}\xrowht{7pt}
+			10778
+			& 0.001
+			& 0.041
+			& 0.00107
+			& 0.00096 \\ 
+			
+			\rowcolor{white}\xrowht{7pt}
+			22124
+			& 0.0005
+			& 0.029
+			& 0.00053 
+			& 0.00046 \\ 
+			
+		\end{NiceTabular}			
+	\end{table}		
 
+\end{frame}
+
+\begin{frame}{}
+	\small
+	\vspace*{2mm}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_net.png}\\ 
+		\vspace*{-2mm}
+		Разбиение области $\Omega$ с $S_{max} = 0.01$ и 
+		$\mathrm{avg} \left( h_{max} / h_{min} \right) \approx 1.4 $
+		
+		\column{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{rect_dirichlet_only_001_calfem_net.png}
+		\\
+		\vspace*{-2mm}
+		Разбиение области $\Omega$ с $S_{max} = 0.01$ и 
+		$\mathrm{avg} \left( h_{max} / h_{min} \right) \approx 1.1$
+	\end{columns}
+	
 	
 	\normalsize
-\end{frame}
+	\vspace*{0mm}
+	\begin{table}
+	\begin{NiceTabular}{|c|c|c|c|c|}[hvlines,colortbl-like]
+		
+		\rowcolor[HTML]{CBCEFB}\xrowht[()]{20pt}
+		$\mathrm{avg}\left( h \right) $
+		& $\mathrm{avg}\left( \dfrac{h_{max}}{h_{min}} \right) $
+		& $\max \left( \dfrac{h_{max}}{h_{min}} \right) $
+		& $\mathrm{avg}(\mathrm{AbsErr})$
+		& $\mathrm{Err}_{L_2}^2$  \\
+		
+		
+		0.3  \xrowht{7pt}
+		&  1.1                                                                         
+		& 1.5    
+		& 0.03 
+		& 0.05   \\
+		
+		0.3 \xrowht{7pt}
+		&  1.4                                                                         
+		& 2
+		& 0.02 
+		& 0.034  \\
 
+		\rowcolor[HTML]{ECF4FF} \xrowht{7pt}
+		0.135   
+		& 1.1                                                                         
+		&  1.4                                                                                        
+		& 0.01                                                                                
+		& 0.015  \\
+		
+		\rowcolor[HTML]{ECF4FF} \xrowht{7pt}
+		0.127 
+		&  1.4                                                                         
+		&  2.3                                                                                        
+		& 0.008                                                                               
+		& 0.013  \\
+		
+		0.04 \xrowht{7pt}             
+		&  1.1                                                                         
+		&  1.4                                                                                        
+		& 0.001                                                                               
+		& 0.001  \\
+		
+		0.04 \xrowht{7pt}
+		&  1.4                                                                         
+		&  2.3                                                                                        
+		& 0.003                                                                               
+		& 0.007  \\
 
+		\rowcolor[HTML]{ECF4FF} \xrowht{7pt}
+		0.038          
+		&  1
+		&  1.5
+		& 0.0007 
+		& 0.0004 \\
 
-\begin{frame}{}%{Линейный сплайн}
-	\small
-	Из (\refeq{min_eq}) получим систему линейных алгебраических уравнений относительно $\{z_k\}_{k=0}^m$:
-	\begin{equation*}
-		%\label{spline_sys}
-		\begin{dcases}
-			\dfrac{\partial}{\partial{z_0}} \Big[(z_{0,0} - y_{0,0})^2 + (z_{0,1} - y_{0,1})^2  + \dots + (z_{0,r_0} - y_{0,r_0})^2 \Big] = 0,\\				
-			\dfrac{\partial}{\partial{z_1}}\Big[	(z_{1,0} - y_{1,0})^2 + (z_{1,1} - y_{1,1})^2  + \dots + (z_{1,r_1} - y_{1,r_1})^2 \Big]= 0,\\
-			\dotsm \\
-			\dfrac{\partial}{\partial{z_{m\!-\!1}}} \Big[	(z_{m\!-\!1,0} - y_{m\!-\!1,0})^2 + \dots + (z_{m\!-\!1,r_{m-1}} - y_{m\!-\!1,r_{m-1}})^2 \Big]= 0,\\				
-			\dfrac{\partial}{\partial{z_{m}}} \Big[ 	(z_{m,0} - y_{m,0})^2 \Big]= 0,\\				
-		\end{dcases}			
-	\end{equation*}
-	решением которой будут требуемые нам координаты. Cтоит отметить, что матрица
-	данной системы двухдиагональна.
-	\normalsize
-	
-\end{frame}
+		\rowcolor[HTML]{ECF4FF} \xrowht{7pt}
+		0.036           
+		&  1.4                                    
+		&  2.3
+		& 0.0052 
+		& 0.0047    \\ 
+		
+	\end{NiceTabular}
+	\end{table}
 
-\begin{frame}{Начальная сетка}
-	Сетку будем строить с определенным шагом $\mathrm{d\xi}$ так, чтобы\ \ \ \  узлы сетки совпадали с некоторым точками и чтобы на участке была хотя бы 1 точка.
-	%, но дополнительно будем учитывать, что данные распределены неравномерно: мы будем увеличивать интервал до тех пор, пока он не станет больше $\mathrm{d\xi}$ и на нем не будет как минимум 1 точка.
-	
-	\center
-	\includegraphics[width=0.9\textwidth]{f_22608_10.08.28_uni.pdf}
-	
-	
-\end{frame}
-
-\begin{frame}{Модифицированная сетка}
-	\begin{block}{Модификации}
-		\begin{itemize}
-			\item размещение узлов в точках максимума и минимума начальных данных,
-			\item размещение узлов в точках максимума и минимума отрезков, где функция терпит существенный перепад
-		\end{itemize}
-	\end{block}
-	\center
-	\includegraphics[width=0.8\textwidth]{f_22608_10.08.28_mod.pdf}
-	
-\end{frame}
-
-\begin{frame}{}%{Модифицированная сетка}
-	Сравнивая начальную и модифицированную сетки, можно заметить, что модифицированная сетка помогает выявить места сильного перепада функции.
-	\center
-	\includegraphics[width=1.05\textwidth]{f_22608_10.08.28_labeled_uni_mod_comparison.pdf}%{f_22608_10.08.28_uni_mod_comparison.pdf}
-	
-\end{frame}
-
-\begin{frame}{Оптимизированная сетка}
-	\small
-	\begin{block}{Оптимизация}
-		Процесс оптимизации заключается в минимизации среднего квадратического отклонения аппроксимирующей функции от исходной зашумленной функции путем последовательного сдвига узлов  сетки  $\xi = \left\{ \xi_i \right\}_{i = 0}^{m}$, полученной на прошлом шаге, в точки, дающие меньшее отклонение. 
-	\end{block}
-		%Так как для того, чтобы узнать как сильно отклоняется сплайн необходимо его построить, а построение сплайна на всех 15--20 узлах сетки --- достаточно трудоемкая задача, то будем производить минимизацию по сегменту рассматриваемой сетки, состоящему из 3--5 узлов (оптимальное количество как для скорости работы программы, так и для качества обработки сетки).
-		Рассмотрим случай оптимизации по 5 узлам. 
-		На каждом шаге \\$ j= \overline{0, m\!-\!5}$ на сетке $\omega_j$, определенной так, что
-		%На каждом шаге ($ j= \overline{0, m\!-\!5}$) будем оптимизировать по 3 узла (крайние узлы зафиксированы) сегмента $\omega_j $ исходной сетки $\xi$ такого, что
-		$$
-		\omega_j = \{ \omega_j^{(i)} \}_{i = 0}^4,
-		\quad
-		\omega_j^{(i)} = \xi_{j + i}, 
-		$$ 
-		где $\xi_{j + i}$ --- узел сетки $\xi$, будем строить локальную аппроксимирующую функцию и искать координаты
-		внутренних узлов $ \omega_j^{(i)}$ \\ $( i = 1, 2, 3)$, дающие ее минимальное отклонение. 
-		Поиск таких координат будем осуществлять при помощи одномерной минимизации методом бисекции. 
-		\normalsize
-		%Зададим функцию, отвечающую за сдвиг узла  $\omega_j^{(i)} ( i = \overline{1, 3} $\,) и возвращающую среднее квадратическое отклонение сплайна по измененному на $i$-й узел сегменту.
 		
 \end{frame}
 
-\begin{frame}{}%{Оптимизированная сетка}
-		\small
-		Минимизируемая функция  $T = T(\omega_j, i, \varkappa)$,  $\varkappa$ --- новая координата $\omega_j^{(i)}$ узла (параметр минимизации), 
-		возвращающая отклонение \qquad локальной аппроксимирующей функции построенной на измененной сетке.
-	% отвечающую за сдвиг $i$-ого узла оптимизируемой сетки $\omega_j$
-		Границы, в которых возможен сдвиг узла:
-		$$bounds = \left( \omega_j^{(i)} - coef\_l, \omega_j^{(i)} + coef\_r \right),$$ 
-		где $coef\_l$ --- коэффициент, сдвига от $i$-го узла влево, $coef\_r$ --- вправо.
-		\begin{block}{Условия для $coef\_l$}		
-			$$coef\_l = 
-			\begin{dcases*}
-				0, \quad N <  \mathrm{MinPoints}, \\ 
-				\left(1 - \dfrac{\mathrm{MinPoints}}{N}\right) \cdot (  \omega_j^{(i)} -   \omega_j^{(i-1)} ), \quad \ \text{иначе},\\
-			\end{dcases*}$$
-			$N$  --- количество точек на $[ \omega_j^{(i-1)} ,  \omega_j^{(i)} ]$, \\
-			$\mathrm{MinPoints}$ ---  минимальное количество точек на отрезке необходимое для построения аппроксимирующей функции.\\			
-		\end{block}
-		$coef\_r$ находится аналогично на отрезке	$[ \omega_j^{(i)} ,  \omega_j^{(i+1)} ]$.
+\begin{frame}{Задача №\,2}
+	\normalsize
+	\vspace*{2mm}
+	\begin{columns}[]
+		\column{1\textwidth}
+		Область $\Omega = \left\{ -\infty \leqslant x \leqslant \infty, \  w(x) \leqslant y \leqslant 2 \right\}$, $w(x)$ --- периодическая функция с периодом $T = 2$, $w(x) = |x - 1| + 1, \forall x \in \left[ 0, 2 \right]$, 
+		потенциал на верхней пластине равен 0 В, на нижней --- 10 В.
 	
-		\normalsize
+	\end{columns}
+	\vspace*{5mm}
+	\begin{columns}[]
+		\column{0.5\textwidth}
+		\ \ \! Рассмотрим задачу при $x \in \left[ 0, 2 \right]$:
 		
+		\begin{equation*}\hspace*{-10mm}
+			\begin{cases}
+				\Delta \phi (x, y)  = 0, \\
+				\phi (x, 2) = 0, \\
+				\phi (x, w(x)) = 10, \\
+				\phi (0, y) = \phi (2, y).\\
+			\end{cases}
+		\end{equation*}
+		\vspace*{-2mm}
+		\centering \hspace*{-10mm}
+		\includegraphics[width=1\columnwidth]{Test_domain_4_mesh001_calfem_net_1.png}\\
+		\hspace*{-10mm} Разбиение $\Omega$ с $S_{max} = 0.01$
+		
+		\column{0.5\textwidth}
+		\hspace*{-25mm}
+		\includegraphics[width=1.5\columnwidth]{Test_domain_4_mesh001_calfem.png}\\
+		Решение на сетке с $S_{max} = 0.01$
+	\end{columns}
+	
+	
 \end{frame}
 
 
 \begin{frame}{}%{Оптимизированная сетка}
 	\small
-	В результате получим следующую аппроксимирующую функцию:
-	\center
-	\includegraphics[width=1\textwidth]{f_22608_10.08.28_opt_knot.pdf}
+	\centering
+	\vspace*{2mm}\hspace*{10mm}
+	\includegraphics[width=0.9\textwidth]{Test_domain_4_mesh001_3_in_row_calfem.png}\\
+	Решение на отрезке $\left[ 0, 6 \right]$ на сетке с $S_{max} = 0.01$ 
+	
+	\begin{table}[!h]
+		\centering
+		
+		\vspace*{0mm}
+		\begin{NiceTabular}{|c|c|c|}[colortbl-like]
+			
+			\hline
+			\rowcolor[HTML]{CBCEFB}\xrowht{15pt}
+			Область решения
+			& Координаты $(x, y)$
+			& Значение потенциала $\phi$, В\\
+			
+			\hline
+			
+			\multirow{2}{*}{1 период $w(x)$} \xrowht{5pt}
+			& (0.0, 1.27)                                                      
+			& 6.3158	\\ \cline{2-3} 
+			
+			\xrowht{5pt}
+			& (2.0, 1.27)                                                      
+			& 6.3158	\\ \hline
+			
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			\multirow{4}{*}{3 периода $w(x)$} 
+			& (0.0, 1.27)                                                     
+			& 6.3093	\\ \cline{2-3}
+			 
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			& (2.0, 1.27)                                                      
+			& 6.2896	\\ \cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			& (4.0, 1.27)                                                      
+			& 6.2946    \\ \cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			& (6.0, 1.27)                                                      
+			& 6.3093	
+			\\ 
+			
+			\hline
+			
+			\multirow{2}{*}{1 период $w(x)$} \xrowht{5pt} 
+			& (0.0, 1.92)                                                      
+			& 0.6551	\\ \cline{2-3}
+			 
+			\xrowht{5pt}
+			& (2.0, 1.92)   
+			& 0.6551	\\ 
+			
+			\hline
+			
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			\multirow{4}{*}{3 периода $w(x)$} 
+			& (0.0, 1.92)                                                      
+			& 0.6547	\\ \cline{2-3} 
+			\rowcolor[HTML]{ECF4FF}\xrowht{5pt}
+			& (2.0, 1.92)                                                      
+			& 0.6549	\\ \cline{2-3}  
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt}     
+			& (4.0, 1.92)                                                      
+			& 0.6555	\\ \cline{2-3} 
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt}         
+			& (6.0, 1.92)                                                      
+			& 0.6547 	\\ \hline
+			
+			
+			
+		\end{NiceTabular}
+		
+		
+	\end{table}
+	
+\end{frame}
+
+\begin{frame}{Задача №\,3}
+	\normalsize
+	\vspace*{2mm}
+	\begin{columns}[]
+		\column{1\textwidth}
+		Область $\Omega = \left\{ -\infty \leqslant x \leqslant \infty, \  w(x) \leqslant y \leqslant 2 \right\}$, $w(x) = \dfrac{1}{2} sin \left(\dfrac{\pi x}{2} \right)$,
+		потенциал на верхней пластине равен $12$ В, на нижней --- $-7$ В.
+		
+	\end{columns}
+	\vspace*{5mm}
+	\begin{columns}[]
+		\column{0.5\textwidth}
+		\ \ \! Рассмотрим задачу при $x \in \left[ 1, 5 \right]$:
+		
+		\begin{equation*}\hspace*{-10mm}
+			\begin{cases}
+				\Delta \phi (x, y)  = 0, \\
+				\phi (x, 2) = 0, \\
+				\phi (x, w(x)) = 10, \\
+				\phi (0, y) = \phi (2, y).\\
+			\end{cases}
+		\end{equation*}
+		\vspace*{-2mm}
+		\centering \hspace*{-16mm}
+		\includegraphics[width=1.1\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem_net_1.png}\\
+		\hspace*{-14.5mm} Разбиение $\Omega$ с $S_{max} = 0.001$
+		
+		\column{0.5\textwidth}
+		\hspace*{-22mm}
+		\includegraphics[width=1.5\columnwidth]{Test_domain_1_1_sin_mesh_0001_calfem.png}\\
+		\hspace*{-3.5mm}Решение на сетке с $S_{max} = 0.001$
+	\end{columns}
+	
+	
 \end{frame}
 
 \begin{frame}{}%{Оптимизированная сетка}
 	\small
-	В сравнении с модифицированной сеткой оптимизированная дает лучшее
-	приближение, размещая узлы сетки так, чтобы уменьшалось отклонение.
-	{
-		\center
-		\includegraphics[width=1.05\textwidth]{f_22608_10.08.28_labeled_mod_opt_knot_comparison.pdf}
-	}
-	\flushleft
-	В данном примере отклонение функции для модифицированной сетки равнялось $\approx\!3157.91$, а для оптимизированной $\approx\!1880.77$.
+	
+	\centering
+	\vspace*{2mm}\hspace*{10mm}
+	\includegraphics[width=0.9\textwidth]{Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png}\\
+	Решение на отрезке $\left[ 1, 13 \right]$ на сетке с $S_{max} = 0.001$ 
+	
+	\begin{table}[!h]
+		\centering
+		
+		\vspace*{0mm}
+		\begin{NiceTabular}{|c|c|c|}[colortbl-like]
+			
+			\hline
+			\rowcolor[HTML]{CBCEFB}\xrowht{15pt}
+			Область решения
+			& Координаты $(x, y)$
+			& Значение потенциала $\phi$, В\\ 
+			
+			\hline
+			
+			\multirow{2}{*}{1 период $w(x)$}  
+			& (1.0, 1.25)             
+			& 3.4191          \\ 
+			\cline{2-3} 
+			
+			& (5.0, 1.25)             
+			& 3.4191          \\ 
+			
+			\hline
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			\multirow{4}{*}{3 периода $w(x)$} 
+			& (1.0, 1.25)             
+			& 3.4191          \\ 
+			\cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (5.0, 1.25)             
+			& 3.4185          \\ \cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (9.0, 1.25)             
+			& 3.4184          \\ \cline{2-3}
+			 
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (13.0, 1.25)            
+			& 3.4191          \\ 
+			
+			\hline
+			
+			\multirow{2}{*}{1 период $w(x)$}  
+			& (1.0, 1.6)            
+			& 7.4927          \\ 
+			\cline{2-3} 
+			
+			& (5.0, 1.6)             
+			& 7.4927          \\ 
+			\hline
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			\multirow{4}{*}{3 периода $w(x)$} 
+			& (1.0, 1.6)             
+			& 7.4927          \\ 
+			\cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (5.0, 1.6)             
+			& 7.4926          \\ 
+			\cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (9.0, 1.6)             
+			& 7.4927          \\ 
+			\cline{2-3} 
+			
+			\rowcolor[HTML]{ECF4FF} \xrowht{5pt} 
+			& (13.0, 1.6)            
+			& 7.4927        \\ 
+			\hline
+			
+			
+		\end{NiceTabular}
+		
+		
+	\end{table}
+	
 \end{frame}
-
-\begin{frame}{}%{Оптимизированная сетка}
-	\small
-	Можно попробовать оптимизировать сразу весь отрезок, без выделения промежуточных сеток. 
-	%Этот вариант может оказаться быстрее и дешевле для сравнительно небольшого числа узлов сетки сплайна, но также возможно, что полученный результат будет менее точным, чем при предыдущем подходе. 
-	Для тех же данных аппроксимирующая функция, полученная таким способом, выглядит следующим образом: 
-	{			
-		\center
-		\includegraphics[width=1.05\textwidth]{f_22608_10.08.28_labeled_opt_knot_full_comparison.pdf}%{f_22608_10.08.28_opt_full.pdf}
-	}
-	Отклонение аппроксимирующей функции на сетке оптимизированной по всему отрезку равно $\approx\!2261.81$.
-\end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 \begin{frame}{Заключение}{}
-	\small
-	В ходе курсовой работы был реализован метод построения непрерывной кусочно-линейной аппроксимирующей функции и алгоритм подгонки сетки для уменьшения среднеквадратического отклонения функции. Полученный алгоритм был проверен на тестовых данных с демонстрацией результатов.
-	Все описанные подходы реализованы на языке Python в интерактивной среде разработки Jupyter Notebook с помощью математических библиотек NumPy и SciPy. Библиотеки использовались для эффективной работы с массивами данных и для решения систем линейных алгебраических уравнений.
-		
-	Дальнейший анализ изменения уровня топлива включает в себя как использование полученного графика, так и графика перемещений автомобиля.
+	\large
+	В ходе курсовой работы был изучен и реализован метод конечных элементов для решения уравнения Лапласа. Реализация метода была проверена на тестовом примере с известным решением, также с ее помощью были решены и исследованы несколько вариантов исходной задачи с разными профилями пластин и заданными на них потенциалами.
+	Все описанные подходы выполнены на языке C++ с демонстрацией результатов работы.		
+	
 \end{frame}
 
 \end{document}

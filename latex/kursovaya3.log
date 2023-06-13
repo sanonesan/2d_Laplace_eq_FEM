@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  12 JUN 2023 21:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.18)  14 JUN 2023 00:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1208,11 +1208,6 @@ Underfull \hbox (badness 4132) in paragraph at lines 743--747
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hss' on input line 761.
 
-
-Overfull \hbox (17.19342pt too wide) in paragraph at lines 770--824
- []|  [] 
- []
-
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.png, id
 =233, 484.209pt x 289.08pt>
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.pn
@@ -1220,22 +1215,17 @@ g Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_net.png
 >
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001_net.png  used on input line 840.
+let_only_001_net.png  used on input line 843.
 (pdftex.def)             Requested size: 256.75766pt x 153.29106pt.
 File: ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem
 _net.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_
 net.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001_calfem_net.png  used on input line 849.
+let_only_001_calfem_net.png  used on input line 852.
 (pdftex.def)             Requested size: 256.75766pt x 153.29106pt.
 
-Overfull \hbox (24.91692pt too wide) in paragraph at lines 848--849
- []|  [] 
- []
-
-
-Overfull \hbox (16.49565pt too wide) in paragraph at lines 879--953
+Overfull \hbox (24.91692pt too wide) in paragraph at lines 851--852
  []|  [] 
  []
 
@@ -1249,7 +1239,7 @@ des.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_err_nod
 es.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_005_err_nodes.png  used on input line 966.
+let_only_005_err_nodes.png  used on input line 971.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_err_
 nodes.png, id=235, 578.16pt x 289.08pt>
@@ -1258,10 +1248,10 @@ _err_nodes.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_005_calfem_
 err_nodes.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_005_calfem_err_nodes.png  used on input line 975.
+let_only_005_calfem_err_nodes.png  used on input line 980.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 
-Overfull \hbox (61.22137pt too wide) in paragraph at lines 974--975
+Overfull \hbox (61.22137pt too wide) in paragraph at lines 979--980
  []|  [] 
  []
 
@@ -1276,7 +1266,7 @@ des.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_err_nod
 es.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001_err_nodes.png  used on input line 1000.
+let_only_001_err_nodes.png  used on input line 1005.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_err_
 nodes.png, id=252, 578.16pt x 289.08pt>
@@ -1285,10 +1275,10 @@ _err_nodes.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_001_calfem_
 err_nodes.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_001_calfem_err_nodes.png  used on input line 1009.
+let_only_001_calfem_err_nodes.png  used on input line 1014.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 
-Overfull \hbox (61.22137pt too wide) in paragraph at lines 1008--1009
+Overfull \hbox (61.22137pt too wide) in paragraph at lines 1013--1014
  []|  [] 
  []
 
@@ -1299,7 +1289,7 @@ odes.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_err_no
 des.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_0001_err_nodes.png  used on input line 1033.
+let_only_0001_err_nodes.png  used on input line 1038.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 <./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem_err
 _nodes.png, id=254, 578.16pt x 289.08pt>
@@ -1308,10 +1298,10 @@ m_err_nodes.png Graphic file (type png)
 <use ./illustr/domain_rectangle_dirichlet_only//rect_dirichlet_only_0001_calfem
 _err_nodes.png>
 Package pdftex.def Info: ./illustr/domain_rectangle_dirichlet_only//rect_dirich
-let_only_0001_calfem_err_nodes.png  used on input line 1042.
+let_only_0001_calfem_err_nodes.png  used on input line 1047.
 (pdftex.def)             Requested size: 286.80057pt x 143.39719pt.
 
-Overfull \hbox (61.22137pt too wide) in paragraph at lines 1041--1042
+Overfull \hbox (61.22137pt too wide) in paragraph at lines 1046--1047
  []|  [] 
  []
 
@@ -1322,28 +1312,28 @@ nly_0001_err_nodes.png> <./illustr/domain_rectangle_dirichlet_only//rect_dirich
 let_only_0001_calfem_err_nodes.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1063.
+(hyperref)                removing `\hss' on input line 1068.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1063.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1068.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.95827pt
-(hyperref)                removed on input line 1063.
+(hyperref)                removed on input line 1068.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1064.
+(hyperref)                removing `\hss' on input line 1069.
 
 \@mysp=\skip107
 \@myspinner=\skip108
-LaTeX Info: Redefining \textso on input line 1065.
-LaTeX Info: Redefining \textso on input line 1065.
+LaTeX Info: Redefining \textso on input line 1070.
+LaTeX Info: Redefining \textso on input line 1070.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1066.
+(hyperref)                removing `\hss' on input line 1071.
 
 <./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png, id=268, 433.62pt x
  289.08pt>
@@ -1351,10 +1341,10 @@ File: ./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png Graphic file (
 type png)
 <use ./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1.png>
 Package pdftex.def Info: ./illustr/domain_4//Test_domain_4_mesh001_calfem_net_1
-.png  used on input line 1094.
+.png  used on input line 1099.
 (pdftex.def)             Requested size: 299.55006pt x 199.70801pt.
 
-Overfull \hbox (27.02187pt too wide) in paragraph at lines 1093--1094
+Overfull \hbox (27.02187pt too wide) in paragraph at lines 1098--1099
  []|  [] 
  []
 
@@ -1364,15 +1354,15 @@ File: ./illustr/domain_4//Test_domain_4_mesh001_calfem.png Graphic file (type p
 ng)
 <use ./illustr/domain_4//Test_domain_4_mesh001_calfem.png>
 Package pdftex.def Info: ./illustr/domain_4//Test_domain_4_mesh001_calfem.png  
-used on input line 1103.
+used on input line 1108.
 (pdftex.def)             Requested size: 299.55006pt x 199.70801pt.
 
-Overfull \hbox (38.40297pt too wide) in paragraph at lines 1102--1103
+Overfull \hbox (38.40297pt too wide) in paragraph at lines 1107--1108
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1119
 
  []
 
@@ -1380,10 +1370,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1114--1114
 ain_4//Test_domain_4_mesh001_calfem.png>]
 \@mysp=\skip109
 \@myspinner=\skip110
-LaTeX Info: Redefining \textso on input line 1121.
-LaTeX Info: Redefining \textso on input line 1121.
+LaTeX Info: Redefining \textso on input line 1126.
+LaTeX Info: Redefining \textso on input line 1126.
 
-Underfull \hbox (badness 1648) in paragraph at lines 1121--1122
+Underfull \hbox (badness 1648) in paragraph at lines 1126--1127
 []\T2A/cmr/m/n/12 А н а -л о -г и ч -н о р а с -с м о т -р и м з а -д а -ч у , 
 р а с -ш и -р и в о б -л а с т ь п о -и с -к а р е -ш е -н и я д о т р е х п е 
 -р и -о -
@@ -1395,10 +1385,10 @@ File: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png Graph
 ic file (type png)
 <use ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png>
 Package pdftex.def Info: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_cal
-fem_net_1.png  used on input line 1130.
+fem_net_1.png  used on input line 1135.
 (pdftex.def)             Requested size: 491.65901pt x 144.6036pt.
 
-Overfull \hbox (36.18294pt too wide) in paragraph at lines 1129--1130
+Overfull \hbox (36.18294pt too wide) in paragraph at lines 1134--1135
  []|  [] 
  []
 
@@ -1408,28 +1398,28 @@ File: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png Graphic fil
 e (type png)
 <use ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png>
 Package pdftex.def Info: ./illustr/domain_4//Test_domain_4_mesh001_3_in_row_cal
-fem.png  used on input line 1138.
+fem.png  used on input line 1143.
 (pdftex.def)             Requested size: 546.2915pt x 160.67618pt.
 
-Overfull \hbox (69.47308pt too wide) in paragraph at lines 1137--1138
+Overfull \hbox (69.47308pt too wide) in paragraph at lines 1142--1143
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1148--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1153
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1151.
+(hyperref)                removing `\hss' on input line 1156.
 
 \@mysp=\skip111
 \@myspinner=\skip112
-LaTeX Info: Redefining \textso on input line 1160.
-LaTeX Info: Redefining \textso on input line 1160.
+LaTeX Info: Redefining \textso on input line 1165.
+LaTeX Info: Redefining \textso on input line 1165.
 
-Underfull \hbox (badness 2600) in paragraph at lines 1157--1165
+Underfull \hbox (badness 2600) in paragraph at lines 1162--1170
 \T2A/cmr/m/n/12 г д е []  []  к о -л и -ч е -с т в о у з -л о в с е т -к и , []
   []  и з -в е с т -н о е з н а -ч е -н и е ф у н к -ц и и в [] [] о м у з -л е
  ,
@@ -1437,27 +1427,27 @@ Underfull \hbox (badness 2600) in paragraph at lines 1157--1165
 
 [19 <./illustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem_net_1.png> <./il
 lustr/domain_4//Test_domain_4_mesh001_3_in_row_calfem.png>]
-Overfull \hbox (7.40215pt too wide) in paragraph at lines 1171--1171
+Overfull \hbox (7.40215pt too wide) in paragraph at lines 1176--1176
 []\T2A/cmr/m/n/12 Таблица 3. Срав-не-ниезначенийчисленногорешениязадачиќ2вперво
 йгруппеточек 
  []
 
 \@mysp=\skip113
 \@myspinner=\skip114
-LaTeX Info: Redefining \textso on input line 1233.
-LaTeX Info: Redefining \textso on input line 1233.
+LaTeX Info: Redefining \textso on input line 1238.
+LaTeX Info: Redefining \textso on input line 1238.
 
-Overfull \hbox (13.2757pt too wide) in paragraph at lines 1238--1238
+Overfull \hbox (13.2757pt too wide) in paragraph at lines 1243--1243
 []\T2A/cmr/m/n/12 Таблица 4. Срав-не-ниезначенийчисленногорешениязадачиќ2вовтор
 ойгруппеточек 
  []
 
 \@mysp=\skip115
 \@myspinner=\skip116
-LaTeX Info: Redefining \textso on input line 1282.
-LaTeX Info: Redefining \textso on input line 1282.
+LaTeX Info: Redefining \textso on input line 1287.
+LaTeX Info: Redefining \textso on input line 1287.
 
-Underfull \hbox (badness 1297) in paragraph at lines 1282--1283
+Underfull \hbox (badness 1297) in paragraph at lines 1287--1288
 []\T2A/cmr/m/n/12 И з т а б -л и ц в и д -н о , ч т о з н а -ч е -н и я о т -л 
 и -ч а -ю т -с я п р и -м е р -н о н а п о -р я -д о к [] , ч т о
  []
@@ -1465,28 +1455,28 @@ Underfull \hbox (badness 1297) in paragraph at lines 1282--1283
 [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1286.
+(hyperref)                removing `\hss' on input line 1291.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1286.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1291.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.95827pt
-(hyperref)                removed on input line 1286.
+(hyperref)                removed on input line 1291.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1287.
+(hyperref)                removing `\hss' on input line 1292.
 
 \@mysp=\skip117
 \@myspinner=\skip118
-LaTeX Info: Redefining \textso on input line 1288.
-LaTeX Info: Redefining \textso on input line 1288.
+LaTeX Info: Redefining \textso on input line 1293.
+LaTeX Info: Redefining \textso on input line 1293.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1289.
+(hyperref)                removing `\hss' on input line 1294.
 
 <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png, id=297, 
 722.7pt x 361.35pt>
@@ -1494,10 +1484,10 @@ File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png Grap
 hic file (type png)
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem_net_1.png>
 Package pdftex.def Info: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_ca
-lfem_net_1.png  used on input line 1308.
+lfem_net_1.png  used on input line 1313.
 (pdftex.def)             Requested size: 320.9479pt x 160.47217pt.
 
-Overfull \hbox (28.50278pt too wide) in paragraph at lines 1307--1308
+Overfull \hbox (28.50278pt too wide) in paragraph at lines 1312--1313
  []|  [] 
  []
 
@@ -1507,15 +1497,15 @@ File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png Graphic fi
 le (type png)
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_calfem.png>
 Package pdftex.def Info: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_ca
-lfem.png  used on input line 1318.
+lfem.png  used on input line 1323.
 (pdftex.def)             Requested size: 320.9479pt x 160.47217pt.
 
-Overfull \hbox (78.2951pt too wide) in paragraph at lines 1317--1318
+Overfull \hbox (78.2951pt too wide) in paragraph at lines 1322--1323
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1329--1329
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1334
 
  []
 
@@ -1528,10 +1518,10 @@ File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1.
 png>
 Package pdftex.def Info: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_
-in_row_calfem_net_1.png  used on input line 1343.
+in_row_calfem_net_1.png  used on input line 1348.
 (pdftex.def)             Requested size: 553.12029pt x 147.50383pt.
 
-Overfull \hbox (74.882pt too wide) in paragraph at lines 1342--1343
+Overfull \hbox (74.882pt too wide) in paragraph at lines 1347--1348
  []|  [] 
  []
 
@@ -1541,36 +1531,36 @@ File: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png G
 raphic file (type png)
 <use ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png>
 Package pdftex.def Info: ./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_
-in_row_calfem.png  used on input line 1351.
+in_row_calfem.png  used on input line 1356.
 (pdftex.def)             Requested size: 546.2915pt x 145.68208pt.
 
-Overfull \hbox (69.47308pt too wide) in paragraph at lines 1350--1351
+Overfull \hbox (69.47308pt too wide) in paragraph at lines 1355--1356
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1366
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1364.
+(hyperref)                removing `\hss' on input line 1369.
 
 \@mysp=\skip119
 \@myspinner=\skip120
-LaTeX Info: Redefining \textso on input line 1372.
-LaTeX Info: Redefining \textso on input line 1372.
+LaTeX Info: Redefining \textso on input line 1377.
+LaTeX Info: Redefining \textso on input line 1377.
 [22 <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem_net_1.
 png> <./illustr/domain_1_1//Test_domain_1_1_sin_mesh_0001_3_in_row_calfem.png>]
 
-Overfull \hbox (7.40215pt too wide) in paragraph at lines 1381--1381
+Overfull \hbox (7.40215pt too wide) in paragraph at lines 1386--1386
 []\T2A/cmr/m/n/12 Таблица 5. Срав-не-ниезначенийчисленногорешениязадачиќ3вперво
 йгруппеточек 
  []
 
 
-Overfull \hbox (13.2757pt too wide) in paragraph at lines 1450--1450
+Overfull \hbox (13.2757pt too wide) in paragraph at lines 1455--1455
 []\T2A/cmr/m/n/12 Таблица 6. Срав-не-ниезначенийчисленногорешениязадачиќ3вовтор
 ойгруппеточек 
  []
@@ -1578,15 +1568,15 @@ Overfull \hbox (13.2757pt too wide) in paragraph at lines 1450--1450
 [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hss' on input line 1513.
+(hyperref)                removing `\hss' on input line 1518.
 
 [24]
 \@mysp=\skip121
 \@myspinner=\skip122
-LaTeX Info: Redefining \textso on input line 1530.
-LaTeX Info: Redefining \textso on input line 1530.
+LaTeX Info: Redefining \textso on input line 1535.
+LaTeX Info: Redefining \textso on input line 1535.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1530--1532
+Underfull \hbox (badness 10000) in paragraph at lines 1535--1537
 []\T2A/cmr/m/n/12 Г а -л а -н и н , М . П . М е -т о -д ы ч и с -л е н -н о -г 
 о а н а -л и -з а м а -т е -м а -т и -ч е -с к и х м о -д е -
  []
@@ -1623,7 +1613,7 @@ usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf
 -dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
 per/sfti1200.pfb>
-Output written on kursovaya3.pdf (25 pages, 3938324 bytes).
+Output written on kursovaya3.pdf (25 pages, 3938567 bytes).
 PDF statistics:
  534 PDF objects out of 1000 (max. 8388607)
  419 compressed objects within 5 object streams
