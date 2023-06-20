@@ -193,10 +193,10 @@
 			u_{g,h} = \sum_{i = 1}^{N} u_{g,h,i} \phi_i, 
 		\end{equation*}		
 		Получим СЛАУ для определения неизвестных коэффициентов $\left\{u_{0, h, i}\right\}$:
-		\begin{equation}
+		\begin{equation*}
 			A u_{0,h} = b,
 			\label{SLE}
-		\end{equation}
+		\end{equation*}
 		где $A = A_{M \times M}$ --- матрица жесткости, $b = b_{M \times 1}$,
 		\begin{equation*}
 			A_{ij} = \int_{\Omega} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega,
@@ -222,7 +222,7 @@
 			x_{i+2} - x_{i+1} \\
 		\end{pmatrix}, \ i,j = 1,2,3,
 	\end{equation*}
-	где $|T|$ --- площадь треугольника. Тогда формулы коэффициентов СЛАУ \eqref{SLE} примут вид	
+	где $|T|$ --- площадь треугольника. Тогда формулы коэффициентов СЛАУ примут вид	
 	\begin{equation*}
 		A_{ij} = \sum_{T \in \Tau}\int_{T} \nabla \phi_i \cdot \nabla \phi_j \, d\Omega 
 		= \sum_{T \in \Tau} \dfrac{1}{4 |T|} 
@@ -337,7 +337,6 @@
 	$N_{el}$ --- количество конечных элементов,
 	$S_i$ --- площадь $i$-ого конечного элемента, $u_{exact,\,ij},\ u_{approx,\,ij}$ --- точное и приближенное значения решения в $j$-ом узле $i$-ого элемента.
 	
-	Оценка погрешности аппроксимации решения в зависимости от длины ребра и максимальной площади конечного элемента для задачи №\,1
 	\normalsize
 	\begin{table}[!h]
 		\centering
@@ -620,9 +619,9 @@
 		\begin{equation*}\hspace*{-10mm}
 			\begin{cases}
 				\Delta \phi (x, y)  = 0, \\
-				\phi (x, 2) = 0, \\
-				\phi (x, w(x)) = 10, \\
-				\phi (0, y) = \phi (2, y).\\
+				\phi (x, 2) = 12, \\
+				\phi (x, w(x)) = -7, \\
+				\phi (1, y) = \phi (5, y).\\
 			\end{cases}
 		\end{equation*}
 		\vspace*{-2mm}

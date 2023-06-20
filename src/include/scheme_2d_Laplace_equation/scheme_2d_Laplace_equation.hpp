@@ -91,7 +91,8 @@ void scheme_2d_Laplace_equation(
 
         if (output_stiffness_matricies_bool) fout << "\n";
     }
-    fout.close();
+    if (output_stiffness_matricies_bool)
+        fout.close();
 
     // output full stiffness matrix in txt
     if (output_stiffness_matricies_bool){
