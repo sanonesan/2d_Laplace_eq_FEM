@@ -62,6 +62,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
         el.x.clear();
         el.y.clear();
         el.poly.clear();
+        
         // Reading triangle element (its coordinates && polygons in global nodes vector)
         for(std::size_t i = 0; i < 3; ++i){
             el.x.push_back( laplace_eq._nodes[laplace_eq._polygons[k][i]][0] );
@@ -145,40 +146,10 @@ void scheme_2d_Laplace_equation_dirichlet_only(
         }
     }
 
-    /**
-     * Applying Periodic boundary conditions
-     * 
-     * Summing values of full_stiffness matrix of nodes 
-     * that correspond periodicity 
-     * 
-     * Later the rows and columns of full_stiffness_matrix 
-     * corresponding to these nodes will be removed 
-     * from full_stiffness_matrix (new reduced_matrix will be assembled)
-    */
-
-    // std::vector<std::pair<std::size_t, std::size_t>> ind_left_n_right_boundary_correlation;
-
-    // for(std::size_t i = 0; i < laplace_eq._left_boundary_nodes.size(); ++i){
-    //     for(std::size_t j = 0; j < laplace_eq._right_boundary_nodes.size(); ++j){
-    //         if(laplace_eq._left_boundary_nodes[i][1] == laplace_eq._right_boundary_nodes[j][1]){
-    //             ind_left_n_right_boundary_correlation.push_back(std::pair<std::size_t, std::size_t> (laplace_eq._ind_left_boundary_nodes[i], laplace_eq._ind_right_boundary_nodes[j]));
-    //             // // For debugging purposes
-    //             //std:: cout << laplace_eq._ind_left_boundary_nodes[i] << "\t" << laplace_eq._ind_right_boundary_nodes[j] << "\n";
-    //         }
-    //     }
-    // }
-
-    // for(std::size_t i = 0; i < full_stiffness_matrix.get_rows(); ++i){
-    //     for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
-    //         full_stiffness_matrix[i][(*it).first] += full_stiffness_matrix[i][(*it).second];
-    //     }
-    // }
-
-
+    
     /**
      * Making vector with indexes (in all nodes vector) of nodes 
-     * which values should be calculated ( nodes that DON'T lie on upper (dirichlete condition), 
-     * lower (dirichlete condition), and right (periodic condition) boundaries )
+     * which values should be calculated ( nodes that DON'T lie on boundaries )
     */
     std::vector<std::size_t> nodes_ind_4_reduced_matrix;
     
@@ -283,6 +254,9 @@ void scheme_2d_Laplace_equation_dirichlet_only(
     
     // Importing solver bi-conjugate
     Eigen::BiCGSTAB<SpMat> solver;
+
+    //Other solvers
+
     //Eigen::LeastSquaresConjugateGradient<SpMat> solver;
     //Eigen::SparseLU<SpMat> solver;
     //Eigen::SimplicialLDLT<SpMat> solver;
@@ -300,10 +274,7 @@ void scheme_2d_Laplace_equation_dirichlet_only(
         solution[nodes_ind_4_reduced_matrix[i]] = sparse_solution[i];
     }
     
-    //setting nodes with periodic boundaries
-    // for(auto it = ind_left_n_right_boundary_correlation.begin(); it != ind_left_n_right_boundary_correlation.end(); ++it){
-    //     solution[(*it).second] = solution[(*it).first];
-    // }
+
     // // For debugging purposes
     // for(std::size_t i = 0; i < laplace_eq._nodes.size(); ++i)
     //     std::cout << i << ": \t" << solution[i] << "\n";

@@ -2,6 +2,15 @@ mathematica_files/
 # Prerequisites
 *.d
 
+# Notebooks that aren't necessary
+laplace_eq_domain_1_1_1_sin copy.ipynb
+laplace_eq_domain_1_sin.ipynb
+laplace_eq_domain_2_rectangle.ipynb
+laplace_eq_domain_3_sin_sin.ipynb
+
+#literature
+literature/*
+
 # Compiled Object files
 *.slo
 *.lo

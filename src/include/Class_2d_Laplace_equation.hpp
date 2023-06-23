@@ -17,9 +17,6 @@ class Class_2d_Laplace_equation{
 
         std::string _name;
 
-        //Space
-        T _x0 = 0.;
-        T _xL = 4.;
 
         std::vector<std::vector<T>> _nodes;
         std::vector<std::vector<std::size_t>> _polygons;

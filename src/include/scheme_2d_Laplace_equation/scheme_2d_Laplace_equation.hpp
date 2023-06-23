@@ -273,6 +273,9 @@ void scheme_2d_Laplace_equation(
     
     // Importing solver bi-conjugate
     Eigen::BiCGSTAB<SpMat> solver;
+
+    //Other solvers
+
     //Eigen::LeastSquaresConjugateGradient<SpMat> solver;
     //Eigen::SparseLU<SpMat> solver;
 
@@ -282,8 +285,8 @@ void scheme_2d_Laplace_equation(
 
     /**
      * Assembling full solution (in each node)
-     * 
     */
+
     //setting nodes from sparse solution
     for(std::size_t i = 0; i < reduced_sys_size; ++i){
         solution[nodes_ind_4_reduced_matrix[i]] = sparse_solution[i];

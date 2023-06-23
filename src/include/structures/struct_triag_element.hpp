@@ -2,6 +2,10 @@
 
 #include <vector>
 
+
+/**
+ * Structure of Triangular element
+*/
 template<typename T>
 struct Triag_Element{
     public:

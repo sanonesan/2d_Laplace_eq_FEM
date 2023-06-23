@@ -2,8 +2,12 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
+//Import Solver
 #include "./include/Solver_2d_Laplace_eq.hpp"
+
+//Import tests
 #include "./include/Tests_for_domains/Test_domain_1_sin.hpp"
 #include "./include/Tests_for_domains/Test_domain_1_1_sin.hpp"
 #include "./include/Tests_for_domains/Test_domain_1_1_1_sin.hpp"
@@ -12,7 +16,6 @@
 #include "./include/Tests_for_domains/Test_domain_3_sin_sin.hpp"
 #include "./include/Tests_for_domains/Test_domain_4_abs_x.hpp"
 
-#include <time.h>
 
 int main(int args, char **argv){
 
@@ -24,8 +27,6 @@ int main(int args, char **argv){
     Solver_2d_Laplace_eq<T> solver;
     solver.tol = 1e-16;
     solver.notifications = true;
-
-
 
 
     t_start  = clock();

@@ -63,7 +63,7 @@ class Test_domain_2_rectangle_dirichlet_only: virtual public Class_2d_Laplace_eq
 
 
 
-            
+            // Other boundary conditions
 
             // this->_dirichlet_lower_boundary_condition = [exact_solution](const T x, const T y){
             //     return 0.;

@@ -10,6 +10,10 @@
 #include "./scheme_2d_Laplace_equation/scheme_2d_Laplace_equation.hpp"
 #include "./scheme_2d_Laplace_equation/scheme_2d_Laplace_equation_dirichlet_only.hpp"
 
+
+/**
+ * Class Solver for 2d Laplace equation
+*/
 template<class T>
 class Solver_2d_Laplace_eq{
 
@@ -53,6 +57,7 @@ class Solver_2d_Laplace_eq{
             this->file_name = file_name;
         }
 
+        //Solve equation with periodic BC
         void solve_eq(Class_2d_Laplace_equation<T>& Laplace_equation, bool output_stiffness_matricies = false){
 
             this->check_folder(this->output_folder);
@@ -72,6 +77,7 @@ class Solver_2d_Laplace_eq{
             }
         }
 
+        //Solve equation with Dirichlet BC
         void solve_eq_dirichlet_only(Class_2d_Laplace_equation<T>& Laplace_equation, bool output_stiffness_matricies = false){
 
             this->check_folder(this->output_folder);
