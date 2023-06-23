@@ -28,7 +28,7 @@
 </p>
 
 <p class="aligncenter">
-    <img src="/latex/illustr/domain_1_1/Test_domain_1_1_mesh001_calfem.png" alt="" />
+    <img src="/latex/illustr/domain_1_1/Test_domain_1_1_sin_mesh_0001_calfem.png" alt="" />
 </p>
 
 
@@ -36,3 +36,4 @@
 .aligncenter {
     text-align: center;
 }
+</style>
