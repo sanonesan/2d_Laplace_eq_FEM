@@ -18,18 +18,17 @@
 <div>Illustrations and analysis: Python (Jupyter Notebook).</div>
 
 
-<p class="aligncenter"><img src="/latex/illustr/domain_rectangle_dirichlet_only/rect_dirichlet_only_0001_calfem.png" alt="" /></p>
-<p class="aligncenter"><img src="/latex/illustr/domain_rectangle_dirichlet_only/rect_dirichlet_only_001_calfem_net.png" alt="" /></p>
+<p class="aligncenter">
+    <img src="/latex/illustr/domain_rectangle_dirichlet_only/rect_dirichlet_only_0001_calfem.png" alt="" />
+    <img src="/latex/illustr/domain_rectangle_dirichlet_only/rect_dirichlet_only_001_calfem_net.png" alt="" />
+</p>
+<p class="aligncenter"></p>
 
 <p class="aligncenter">
     <img src="/latex/illustr/domain_4/Test_domain_4_mesh001_calfem.png" alt="" />
     <img src="/latex/illustr/domain_4/Test_domain_4_mesh001_calfem_net.png" alt="" />
 </p>
-<p class="aligncenter"><img src="/latex/illustr/domain_4/Test_domain_4_mesh001_calfem_net.png" alt="" /></p>
 
-<p class="aligncenter">
-    <img src="//msiter.ru/image.jpg" alt="изображение в центре параграфа" />
-</p>
 
 <style>
 .aligncenter {
