@@ -18,22 +18,16 @@
 <div>Illustrations and analysis: Python (Jupyter Notebook).</div>
 
 
-<p class="aligncenter">
+<p align="center">
     <img src="/latex/illustr/domain_rectangle_dirichlet_only/rect_dirichlet_only_0001_calfem.png" alt="" />
 </p>
-<p class="aligncenter"></p>
 
-<p class="aligncenter">
+
+<p align="center">
     <img src="/latex/illustr/domain_4/Test_domain_4_mesh001_calfem.png" alt="" />
 </p>
 
-<p class="aligncenter">
+<p align="center">
     <img src="/latex/illustr/domain_1_1/Test_domain_1_1_sin_mesh_0001_calfem.png" alt="" />
 </p>
 
-
-<style>
-.aligncenter {
-    text-align: center;
-}
-</style>
