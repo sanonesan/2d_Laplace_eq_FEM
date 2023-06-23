@@ -4,10 +4,27 @@ literature
 # Prerequisites
 *.d
 
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.snm
+*.nav
+*.synctex.gz
+
 # Notebooks that aren't necessary
-laplace_eq_domain_1_sin.ipynb
-laplace_eq_domain_2_rectangle.ipynb
-laplace_eq_domain_3_sin_sin.ipynb
+notebooks/laplace_eq_domain_1_sin.ipynb
+notebooks/laplace_eq_domain_2_rectangle.ipynb
+notebooks/laplace_eq_domain_3_sin_sin.ipynb
 
 #literature
 
